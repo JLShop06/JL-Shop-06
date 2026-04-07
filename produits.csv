@@ -1,1 +1,7 @@
-
+id,title,description,price,link,image_link,availability,condition
+brosse-cheveux,Brosse à cheveux,Brosse à cheveux légère et antistatique adaptée à tous les types de cheveux.,8.99 EUR,https://jlshop06.github.io/JL-Shop-06/produit-brosse-cheveux.html,https://jlshop06.github.io/JL-Shop-06/produit-brosse-cheveux.jpg,in_stock,new
+casquette-unisexe,Casquette unisexe,Casquette confortable et réglable adaptée à tous les styles.,10.00 EUR,https://jlshop06.github.io/JL-Shop-06/produit-casquette.html,https://jlshop06.github.io/JL-Shop-06/produit-casquette.jpg,in_stock,new
+coton-tiges,Coton-tiges,Coton-tiges biodégradables pour une hygiène quotidienne.,9.99 EUR,https://jlshop06.github.io/JL-Shop-06/produit-coton-tiges.html,https://jlshop06.github.io/JL-Shop-06/produit-coton-tiges.jpg,in_stock,new
+coupe-ongles,Coupe-ongles professionnel,Coupe-ongles en acier inoxydable pour une coupe nette et précise.,7.90 EUR,https://jlshop06.github.io/JL-Shop-06/produit-coupe-ongles.html,https://jlshop06.github.io/JL-Shop-06/produit-coupe-ongles.jpg,in_stock,new
+gel-cheveux,Gel capillaire,Gel capillaire fixation forte sans résidus.,11.90 EUR,https://jlshop06.github.io/JL-Shop-06/produit-gel-cheveux.html,https://jlshop06.github.io/JL-Shop-06/produit-gel-cheveux.jpg,in_stock,new
+support-telephone,Support de téléphone,Support universel pour smartphone idéal pour voiture ou bureau.,4.99 EUR,https://jlshop06.github.io/JL-Shop-06/produit-support-telephone.html,https://jlshop06.github.io/JL-Shop-06/produit-support-telephone.jpg,in_stock,new
