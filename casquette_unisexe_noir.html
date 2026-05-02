@@ -67,9 +67,14 @@
             </div>
           </div>
 
-          <!-- NOUVEAU BOUTON STRIPE (PANIER LOCAL JS) -->
+          <!-- PANIER -->
           <button class="btn-primary" onclick="addToCart()">
             Ajouter au panier – €10
+          </button>
+
+          <!-- PAIEMENT STRIPE -->
+          <button class="btn-primary" style="margin-top:10px;" onclick="checkout()">
+            Payer maintenant
           </button>
 
           <div style="margin-top:18px; font-size:13px; color:var(--grey);">
@@ -114,7 +119,7 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // panier local (pré Stripe)
+  // panier local
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   function addToCart() {
@@ -126,6 +131,26 @@
 
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Produit ajouté au panier !");
+  }
+
+  // STRIPE CHECKOUT
+  async function checkout() {
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ cart })
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Erreur paiement Stripe");
+      console.log(data);
+    }
   }
 </script>
 
