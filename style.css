@@ -82,7 +82,7 @@ body{
 .hero-logo{
   display:flex;
   justify-content:center;
-  margin-bottom:28px;
+  margin-bottom:56px;
 }
 
 .hero-logo img{
@@ -98,7 +98,7 @@ body{
 
 /* TITRE */
 .hero h1{
-  font-size:128px;
+  font-size:54px;
   font-weight:200;
   letter-spacing:-1.5px;
   margin-bottom:18px;
