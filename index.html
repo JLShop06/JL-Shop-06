@@ -4,242 +4,91 @@
   <meta name="google-site-verification" content="NzPw9caxLTf1hXzhpU7zW_Ez3FvjO3ld8O0XUUgfU5Q" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>JL Shop 06 – Déstockage premium pour particuliers en Europe livraison gratuite</title>
-  <meta name="description" content="JL Shop 06 : déstockage premium pour particuliers. Coupe-ongles acier chirurgical, gel coiffant 500ml, brosse à cheveux anti-nœuds démêlante — produits professionnels à prix cassés, livraison gratuite en Europe.">
+
+  <meta name="description" content="JL Shop 06 : déstockage premium pour particuliers. Produits professionnels à prix cassés avec livraison gratuite en Europe.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://rj-destock.example.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="JL Shop 06 – Déstockage premium pour particuliers en Europe">
-  <meta property="og:description" content="JL Shop 06 : déstockage premium pour particuliers. Coupe-ongles acier chirurgical, gel coiffant 500ml, brosse à cheveux anti-nœuds démêlante — produits professionnels à prix cassés, livraison gratuite en Europe.">
-  <meta property="og:url" content="https://rj-destock.example.com/">
-  <meta property="og:site_name" content="JL Shop 06">
-  <link rel="icon" href="/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
-  
-  <!-- STRIPE JS -->
   <script src="https://js.stripe.com/v3/"></script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "OutletStore",
-    "name": "JL Shop 06",
-    "url": "https://rj-destock.example.com/",
-    "description": "JL Shop 06 est spécialisé dans le déstockage premium pour particuliers avec des produits de qualité professionnelle à prix cassés : coupe-ongles acier chirurgical, gel coiffant 500ml, brosse à cheveux anti-nœuds et fins de séries disponibles en stock limité avec livraison gratuite en Europe.",
-    "logo": "https://rj-destock.example.com/logo_JL_Shop_06.jpg",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "PT"
-    },
-    "sameAs": []
-  }
-  </script>
-  
-  <!-- PANIER STRIPE -->
+
   <script>
-    // ⚠️ REMPLACE CECI APRÈS DÉPLOIEMENT CLOUDFLARE WORKERS
     const BACKEND_URL = 'https://jl-shop-backend.TON_NOM.workers.dev';
     const STRIPE_PUBLIC_KEY = 'pk_live_51Q034cF9c1lWA0Hy7EnayZDKTYJUiKnm0vPcOy8mkUGDmq1OjBennoOi7ZKVSmPekJXpvkzB7hZ9Kuwfq4haMEYS004gwlFkJu';
-    
+
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const stripe = Stripe(STRIPE_PUBLIC_KEY);
 
     function updateCartCount() {
       const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-      document.querySelectorAll('.stripe-checkout').forEach(btn => {
-        btn.textContent = `🛒 Panier (${count})`;
-      });
+      document.getElementById('stripe-checkout-btn').innerText = `🛒 Panier (${count})`;
       localStorage.setItem('cart', JSON.stringify(cart));
     }
 
-    function addToCart(productId, name, price, priceId, image = '') {
-      const existing = cart.find(item => item.id === productId);
-      if (existing) {
-        existing.quantity++;
-      } else {
-        cart.push({ id: productId, name, price, priceId, image, quantity: 1 });
-      }
+    function addToCart(id, name, price, priceId) {
+      const existing = cart.find(i => i.id === id);
+      if (existing) existing.quantity++;
+      else cart.push({ id, name, price, priceId, quantity: 1 });
       updateCartCount();
-      alert(`✅ ${name} ajouté au panier !`);
     }
 
     function showCart() {
-      if (cart.length === 0) {
-        alert('🛒 Ton panier est vide !');
-        return;
-      }
-
-      let message = '🛒 TON PANIER\n\n';
       let total = 0;
-      cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        message += `• ${item.name} x${item.quantity} = €${itemTotal.toFixed(2)}\n`;
+      let msg = "PANIER\n\n";
+      cart.forEach(i => {
+        total += i.price * i.quantity;
+        msg += `${i.name} x${i.quantity}\n`;
       });
-      message += `\nTOTAL : €${total.toFixed(2)}`;
-      
-      if (confirm(message + '\n\n➡ Continuer vers le paiement ?')) {
-        checkout();
-      }
+      msg += `\nTOTAL: €${total}`;
+      alert(msg);
     }
 
-    async function checkout() {
-      const btn = document.getElementById('stripe-checkout-btn');
-      btn.textContent = '⏳ Préparation...';
-      btn.disabled = true;
-
-      try {
-        const response = await fetch(BACKEND_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items: cart })
-        });
-
-        const data = await response.json();
-        
-        if (data.error) throw new Error(data.error);
-
-        await stripe.redirectToCheckout({ sessionId: data.id });
-      } catch (error) {
-        alert('❌ Erreur : ' + error.message);
-        btn.textContent = '🛒 Panier (0)';
-        btn.disabled = false;
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      updateCartCount();
-      document.getElementById('stripe-checkout-btn').addEventListener('click', showCart);
-    });
+    document.addEventListener('DOMContentLoaded', updateCartCount);
   </script>
 </head>
+
 <body>
-<div class="page">
-  <!-- HEADER -->
-  <header>
-    <div class="wrapper header-inner">
-      <div class="brand">
-        <a href="#destockage" style="display:inline-block; line-height:0;">
-          <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06 – Déstockage premium" style="height:64px; width:auto; object-fit:contain; border-radius:8px;">
-        </a>
-      </div>
-      <nav aria-label="Navigation principale">
-        <ul class="nav-links">
-          <li><a href="#destockage">Déstockage</a></li>
-          <li><a href="#categories">Produits</a></li>
-          <li><a href="#pro">Concept</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-        <div style="display:flex; gap:10px; align-items:center;">
-          <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-            Recevoir les offres
-          </button>
-          <button id="stripe-checkout-btn" class="stripe-checkout" style="background:#111;color:white;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
-            🛒 Panier (0)
-          </button>
-        </div>
-      </nav>
-      <button class="burger" aria-label="Menu">
-        <span></span><span></span>
-      </button>
-    </div>
-  </header>
 
-  <main>
-    <!-- HERO (inchangé) -->
-    <section class="hero wrapper" id="destockage">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">
-            <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06" style="height:28px; width:auto; border-radius:4px; vertical-align:middle;">
-            <div class="eyebrow-text">Déstockage premium pour particuliers en Europe</div>
-          </div>
-          <h1 class="hero-title">
-            <span>Déstockage</span>
-            <span class="hero-title-emphasis">premium pour particuliers</span>
-            <span>partout en Europe livraison gratuite</span>
-          </h1>
-          <p class="hero-sub">
-            JL Shop 06 est spécialisé dans le déstockage premium pour particuliers avec des produits de qualité professionnelle à prix cassés : coupe-ongles acier chirurgical, gel coiffant 500ml, brosse à cheveux anti-nœuds démêlante et fins de séries disponibles en stock limité avec livraison gratuite en Europe.
-          </p>
-          <div class="hero-badges">
-            <div class="badge"><strong>–26 %</strong> coupe-ongles acier chirurgical</div>
-            <div class="badge"><strong>–40 %</strong> gel coiffant 500ml</div>
-            <div class="badge"><strong>–40 %</strong> brosse anti-nœuds</div>
-            <div class="badge">Livraison <strong>Europe</strong></div>
-          </div>
-          <div class="hero-actions">
-            <button class="btn-primary" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});">Voir les produits</button>
-            <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});"><span class="icon">✦</span>Être alerté des stocks</button>
-          </div>
-          <p class="hero-meta">Stocks <span>limités</span>• Qualité <span>premium</span>• Prix <span>discount</span></p>
-        </div>
-        <aside class="hero-card">
-          <div class="hero-card-header">
-            <div class="hero-card-title">Stock actuel</div>
-            <div class="hero-card-chip">Arrivage frais</div>
-          </div>
-          <div class="hero-card-main">
-            <div>
-              <div class="hero-card-price">Dès €7,90<span class="old">€13,90</span><span class="pct">-43 %</span></div>
-              <div class="hero-card-label">Coupe-ongles</div>
-            </div>
-            <div style="text-align:right;">
-              <div class="hero-card-pill"><span class="bullet"></span>70 unités disponibles</div>
-              <div class="hero-card-pill" style="margin-top:6px;"><span class="bullet"></span>Fin de série premium</div>
-            </div>
-          </div>
-          <div class="hero-card-footer">
-            <div class="hero-card-kpi">Rotation <strong>rapide</strong><br>Stocks <strong>limités</strong></div>
-            <button class="btn-ghost" style="margin-top:0;" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});"><span class="icon">➜</span>Voir le stock</button>
-          </div>
-        </aside>
-      </div>
-    </section>
+<header>
+  <h1>JL Shop 06</h1>
+  <button id="stripe-checkout-btn" onclick="showCart()">🛒 Panier (0)</button>
+</header>
 
-    <!-- PRODUITS AVEC BOUTONS AJOUTER AU PANIER -->
-    <section class="section wrapper" id="categories">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Stock déstockage actuel</h2>
-          <p class="section-sub">Coupe-ongles premium, gel coiffant 500ml, brosse à cheveux anti-nœuds : fins de séries à prix cassés pour particuliers.</p>
-        </div>
-        <a href="#contact" class="link-inline">Plus d'arrivages</a>
-      </div>
-      <div class="product-grid">
-        
-        <!-- COUPE-ONGLES -->
-        <article class="product-card">
-          <div class="product-tag">-43%</div>
-          <div class="product-img">
-            <img src="images.png" alt="Coupe-ongles acier chirurgical" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-          </div>
-          <h3 class="product-title">Coupe-ongles acier chirurgical</h3>
-          <p class="product-meta">Acier inoxydable 440C • Lames affûtées • Fin de série usine</p>
-          <div class="product-price-line">
-            <div class="product-price">€7.90<span class="old">€13,90</span></div>
-            <div class="product-discount">Stock : 23</div>
-          </div>
-          <button onclick="addToCart('coupe-ongles', 'Coupe-ongles acier chirurgical', 7.90, 'price_1TSeGoF9c1lWA0Hy8H62jJBe')" 
-                  style="width:100%;padding:12px;background:#222;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;margin-top:10px;">
-            ➕ Ajouter au panier
-          </button>
-        </article>
+<main>
 
-        <!-- GEL CHEVEUX 500ML -->
-        <article class="product-card">
-          <div class="product-tag">-40%</div>
-          <div class="product-img">
-            <img src="Gel coiffant fixant fort 500ml.jpg" alt="Gel coiffant fixant fort 500ml" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-          </div>
-          <h3 class="product-title">Gel coiffant fixant fort 500ml</h3>
-          <p class="product-meta">Format géant XXL • Sans alcool • Parfum neutre • Surplus stock</p>
-          <div class="product-price-line">
-            <div class="product-price">€11.90<span class="old">€19,90</span></div>
-            <div class="product-discount">Stock : 42</div>
-          </div>
-          <button onclick="addToCart('gel-cheveux', 'Gel coiffant fixant fort 500ml', 11.90, 'price_1TSeDaF9c1lWA0Hy0YRfBtQU')" 
-                  style="width:100%;padding:12px;background:#222;color:white;border:none;border-radius
+<section>
+
+<!-- PRODUITS RESTAURÉS -->
+
+<div class="product-grid">
+
+<article>
+  <h3>Coupe-ongles acier chirurgical</h3>
+  <p>€7.90</p>
+  <button onclick="addToCart('1','Coupe-ongles',7.90,'price_1TSeGoF9c1lWA0Hy8H62jJBe')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Gel coiffant 500ml</h3>
+  <p>€11.90</p>
+  <button onclick="addToCart('2','Gel coiffant',11.90,'price_1TSeDaF9c1lWA0Hy0YRfBtQU')">Ajouter</button>
+</article>
+
+<article><h3>Produit 3</h3><button onclick="addToCart('3','P3',0,'price_1TSeBuF9c1lWA0HyCejKE0kW')">Ajouter</button></article>
+<article><h3>Produit 4</h3><button onclick="addToCart('4','P4',0,'price_1TSe8CF9c1lWA0HyBJO6C3qa')">Ajouter</button></article>
+<article><h3>Produit 5</h3><button onclick="addToCart('5','P5',0,'price_1TSe6hF9c1lWA0Hy0UeS8N8s')">Ajouter</button></article>
+<article><h3>Produit 6</h3><button onclick="addToCart('6','P6',0,'price_1TSe5HF9c1lWA0HyjuatzVrU')">Ajouter</button></article>
+<article><h3>Produit 7</h3><button onclick="addToCart('7','P7',0,'price_1TSe3EF9c1lWA0Hy5xl99nbm')">Ajouter</button></article>
+<article><h3>Produit 8</h3><button onclick="addToCart('8','P8',0,'price_1TSe0dF9c1lWA0HySl7MMPTe')">Ajouter</button></article>
+<article><h3>Produit 9</h3><button onclick="addToCart('9','P9',0,'price_1R8UlCF9c1lWA0HyYcAezneh')">Ajouter</button></article>
+<article><h3>Produit 10</h3><button onclick="addToCart('10','P10',0,'price_1R8UenF9c1lWA0Hy3Q6kkEYZ')">Ajouter</button></article>
+
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
