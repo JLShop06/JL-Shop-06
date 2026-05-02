@@ -7,6 +7,8 @@
   --border:rgba(0,0,0,0.06);
 }
 
+/* ================= BASE ================= */
+
 *{
   margin:0;
   padding:0;
@@ -22,13 +24,13 @@ body{
   overflow-x:hidden;
 }
 
-/* ================= HEADER INVISIBLE LUXE ================= */
+/* ================= HEADER (ULTRA DISCRET) ================= */
 
 .lux-header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:30px 70px;
+  padding:28px 70px;
   position:fixed;
   top:0;
   width:100%;
@@ -42,18 +44,7 @@ body{
   backdrop-filter:blur(18px);
 }
 
-/* logo */
-.lux-left img{
-  height:38px;
-  opacity:0.85;
-  transition:0.3s ease;
-}
-
-.lux-left img:hover{
-  opacity:1;
-}
-
-/* signature marque */
+/* centre signature */
 .lux-center{
   position:absolute;
   left:50%;
@@ -64,7 +55,7 @@ body{
   opacity:0.5;
 }
 
-/* panier ultra discret */
+/* panier minimal */
 .lux-cart{
   background:none;
   border:none;
@@ -80,13 +71,32 @@ body{
   opacity:1;
 }
 
-/* ================= HERO (MODE EDITORIAL) ================= */
+/* ================= HERO ================= */
 
 .hero{
   text-align:center;
-  padding:180px 20px 80px;
+  padding:200px 20px 80px;
 }
 
+/* LOGO DANS HERO (NOUVEAU POINT IMPORTANT) */
+.hero-logo{
+  display:flex;
+  justify-content:center;
+  margin-bottom:28px;
+}
+
+.hero-logo img{
+  height:72px;
+  opacity:0.9;
+  transition:0.4s ease;
+}
+
+.hero-logo img:hover{
+  opacity:1;
+  transform:scale(1.02);
+}
+
+/* TITRE */
 .hero h1{
   font-size:64px;
   font-weight:200;
@@ -94,6 +104,7 @@ body{
   margin-bottom:18px;
 }
 
+/* SOUS-TITRE */
 .hero p{
   max-width:680px;
   margin:auto;
@@ -102,7 +113,7 @@ body{
   opacity:0.9;
 }
 
-/* ================= STORY / ABOUT ================= */
+/* ================= ABOUT ================= */
 
 .about{
   max-width:780px;
@@ -124,7 +135,7 @@ body{
   letter-spacing:0.3px;
 }
 
-/* ================= PRODUCT GALLERY (MODE MUSEUM) ================= */
+/* ================= GRID (GALERIE LUXE) ================= */
 
 .product-grid{
   max-width:1000px;
@@ -135,7 +146,7 @@ body{
   padding:0 20px;
 }
 
-/* CARD MINIMAL ART */
+/* CARD ART MINIMALISTE */
 article{
   background:transparent;
   border:none;
@@ -148,6 +159,7 @@ article:hover{
   transform:translateY(-8px);
 }
 
+/* IMAGE STYLE EDITORIAL */
 article img{
   width:100%;
   height:340px;
@@ -160,7 +172,7 @@ article:hover img{
   transform:scale(1.02);
 }
 
-/* TITRE TYPE MAISON DE MODE */
+/* TITRE */
 h3{
   margin-top:16px;
   font-size:15px;
@@ -168,14 +180,14 @@ h3{
   letter-spacing:0.2px;
 }
 
-/* DESCRIPTION SILENCIEUSE */
+/* DESCRIPTION */
 p{
   margin-top:6px;
   font-size:13px;
   color:var(--muted);
 }
 
-/* PRIX DISCRET */
+/* PRIX */
 strong{
   display:block;
   margin-top:10px;
@@ -184,7 +196,7 @@ strong{
   letter-spacing:0.5px;
 }
 
-/* ================= BUTTON (ANTI-E-COMMERCE) ================= */
+/* ================= BUTTON (ANTI SHOP LOOK) ================= */
 
 button{
   margin-top:14px;
@@ -203,7 +215,7 @@ button:hover{
   opacity:1;
 }
 
-/* ================= FOOTER (LUXE EDITORIAL) ================= */
+/* ================= FOOTER ================= */
 
 .footer{
   text-align:center;
@@ -226,7 +238,7 @@ button:hover{
   color:#111;
 }
 
-/* ================= ANIMATION SUBTLE ================= */
+/* ================= ANIMATION ================= */
 
 article,
 .hero h1,
@@ -256,6 +268,10 @@ article,
   .hero h1{
     font-size:44px;
   }
+
+  .lux-header{
+    padding:20px 25px;
+  }
 }
 
 @media(max-width:600px){
@@ -268,11 +284,11 @@ article,
     font-size:34px;
   }
 
-  .lux-center{
-    display:none;
+  .hero-logo img{
+    height:55px;
   }
 
-  .lux-header{
-    padding:20px 25px;
+  .lux-center{
+    display:none;
   }
 }
