@@ -1,0 +1,6 @@
+name = "jl-shop-backend"
+main = "worker.js"
+compatibility_date = "2025-02-24"
+
+[vars]
+STRIPE_SECRET_KEY = "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"
