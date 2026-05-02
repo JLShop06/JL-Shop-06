@@ -1,92 +1,132 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta name="google-site-verification" content="NzPw9caxLTf1hXzhpU7zW_Ez3FvjO3ld8O0XUUgfU5Q" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>JL Shop 06 – Déstockage premium pour particuliers en Europe livraison gratuite</title>
-
-  <meta name="description" content="JL Shop 06 : déstockage premium pour particuliers. Produits professionnels à prix cassés avec livraison gratuite en Europe.">
-  <meta name="robots" content="index, follow">
+  <title>JL Shop 06 – Déstockage premium</title>
 
   <link rel="stylesheet" href="style.css">
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
-    const BACKEND_URL = 'https://jl-shop-backend.TON_NOM.workers.dev';
-    const STRIPE_PUBLIC_KEY = 'pk_live_51Q034cF9c1lWA0Hy7EnayZDKTYJUiKnm0vPcOy8mkUGDmq1OjBennoOi7ZKVSmPekJXpvkzB7hZ9Kuwfq4haMEYS004gwlFkJu';
+    const STRIPE_PUBLIC_KEY = "pk_live_51Q034cF9c1lWA0Hy7EnayZDKTYJUiKnm0vPcOy8mkUGDmq1OjBennoOi7ZKVSmPekJXpvkzB7hZ9Kuwfq4haMEYS004gwlFkJu";
 
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const stripe = Stripe(STRIPE_PUBLIC_KEY);
 
-    function updateCartCount() {
-      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-      document.getElementById('stripe-checkout-btn').innerText = `🛒 Panier (${count})`;
-      localStorage.setItem('cart', JSON.stringify(cart));
+    function updateCart() {
+      document.getElementById("cartBtn").innerText = `🛒 Panier (${cart.length})`;
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
 
     function addToCart(id, name, price, priceId) {
-      const existing = cart.find(i => i.id === id);
-      if (existing) existing.quantity++;
-      else cart.push({ id, name, price, priceId, quantity: 1 });
-      updateCartCount();
+      cart.push({ id, name, price, priceId });
+      updateCart();
     }
 
     function showCart() {
       let total = 0;
-      let msg = "PANIER\n\n";
-      cart.forEach(i => {
-        total += i.price * i.quantity;
-        msg += `${i.name} x${i.quantity}\n`;
+      let msg = "TON PANIER\n\n";
+
+      cart.forEach(p => {
+        total += p.price;
+        msg += `${p.name} - ${p.price}€\n`;
       });
-      msg += `\nTOTAL: €${total}`;
+
+      msg += `\nTOTAL: ${total.toFixed(2)}€`;
       alert(msg);
     }
 
-    document.addEventListener('DOMContentLoaded', updateCartCount);
+    window.onload = updateCart;
   </script>
+
 </head>
 
 <body>
 
 <header>
   <h1>JL Shop 06</h1>
-  <button id="stripe-checkout-btn" onclick="showCart()">🛒 Panier (0)</button>
+  <button id="cartBtn" onclick="showCart()">🛒 Panier (0)</button>
 </header>
 
 <main>
 
-<section>
-
-<!-- PRODUITS RESTAURÉS -->
-
 <div class="product-grid">
 
+<!-- PRODUITS -->
+
 <article>
-  <h3>Coupe-ongles acier chirurgical</h3>
-  <p>€7.90</p>
-  <button onclick="addToCart('1','Coupe-ongles',7.90,'price_1TSeGoF9c1lWA0Hy8H62jJBe')">Ajouter</button>
+  <h3>25 Lingettes Démaquillantes Peaux Sensibles</h3>
+  <p>Douces • visage • usage quotidien</p>
+  <strong>6,49 €</strong>
+  <button onclick="addToCart('lingettes','Lingettes Démaquillantes',6.49,'price_lingettes')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Lot de 10 Éponges Multi Usage</h3>
+  <p>Maison • cuisine • ultra résistantes</p>
+  <strong>7,99 €</strong>
+  <button onclick="addToCart('eponges','Éponges',7.99,'price_eponges')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Cotons-tiges x200</h3>
+  <p>Hygiène quotidienne</p>
+  <strong>6,90 €</strong>
+  <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_cotons')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Casquette unisexe noire</h3>
+  <p>Style streetwear</p>
+  <strong>10,00 €</strong>
+  <button onclick="addToCart('casquette','Casquette noire',10,'price_casquette')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Brosse à cheveux démêlante</h3>
+  <p>Anti-nœuds • douce</p>
+  <strong>8,99 €</strong>
+  <button onclick="addToCart('brosse','Brosse cheveux',8.99,'price_brosse')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Support téléphone universel</h3>
+  <p>Rotation 360°</p>
+  <strong>4,99 €</strong>
+  <button onclick="addToCart('support','Support téléphone',4.99,'price_support')">Ajouter</button>
 </article>
 
 <article>
   <h3>Gel coiffant 500ml</h3>
-  <p>€11.90</p>
-  <button onclick="addToCart('2','Gel coiffant',11.90,'price_1TSeDaF9c1lWA0Hy0YRfBtQU')">Ajouter</button>
+  <p>Fixation forte salon</p>
+  <strong>11,90 €</strong>
+  <button onclick="addToCart('gel','Gel coiffant',11.9,'price_1TSeDaF9c1lWA0Hy0YRfBtQU')">Ajouter</button>
 </article>
 
-<article><h3>Produit 3</h3><button onclick="addToCart('3','P3',0,'price_1TSeBuF9c1lWA0HyCejKE0kW')">Ajouter</button></article>
-<article><h3>Produit 4</h3><button onclick="addToCart('4','P4',0,'price_1TSe8CF9c1lWA0HyBJO6C3qa')">Ajouter</button></article>
-<article><h3>Produit 5</h3><button onclick="addToCart('5','P5',0,'price_1TSe6hF9c1lWA0Hy0UeS8N8s')">Ajouter</button></article>
-<article><h3>Produit 6</h3><button onclick="addToCart('6','P6',0,'price_1TSe5HF9c1lWA0HyjuatzVrU')">Ajouter</button></article>
-<article><h3>Produit 7</h3><button onclick="addToCart('7','P7',0,'price_1TSe3EF9c1lWA0Hy5xl99nbm')">Ajouter</button></article>
-<article><h3>Produit 8</h3><button onclick="addToCart('8','P8',0,'price_1TSe0dF9c1lWA0HySl7MMPTe')">Ajouter</button></article>
-<article><h3>Produit 9</h3><button onclick="addToCart('9','P9',0,'price_1R8UlCF9c1lWA0HyYcAezneh')">Ajouter</button></article>
-<article><h3>Produit 10</h3><button onclick="addToCart('10','P10',0,'price_1R8UenF9c1lWA0Hy3Q6kkEYZ')">Ajouter</button></article>
+<article>
+  <h3>Coupe-ongles acier chirurgical</h3>
+  <p>Qualité professionnelle</p>
+  <strong>7,90 €</strong>
+  <button onclick="addToCart('coupe','Coupe-ongles',7.9,'price_1TSeGoF9c1lWA0Hy8H62jJBe')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Bouée High Performance</h3>
+  <p>Design pneu</p>
+  <strong>12,90 €</strong>
+  <button onclick="addToCart('bouee1','Bouée HP',12.9,'price_bouee1')">Ajouter</button>
+</article>
+
+<article>
+  <h3>Bouée Intex</h3>
+  <p>Confort & qualité</p>
+  <strong>11,90 €</strong>
+  <button onclick="addToCart('bouee2','Bouée Intex',11.9,'price_bouee2')">Ajouter</button>
+</article>
 
 </div>
-
-</section>
 
 </main>
 
