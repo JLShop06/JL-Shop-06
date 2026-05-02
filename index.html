@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>JL Shop 06 – Déstockage premium</title>
 
   <link rel="stylesheet" href="style.css">
@@ -40,143 +39,121 @@
 
     window.onload = updateCart;
   </script>
-
 </head>
 
 <body>
 
-<header style="display:flex;align-items:center;justify-content:space-between;padding:15px 30px;border-bottom:1px solid #eee;">
-  
-  <div style="display:flex;align-items:center;gap:12px;">
-    <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06" style="height:45px;">
-    <strong style="font-size:18px;letter-spacing:1px;">JL SHOP 06</strong>
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">
+    <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06">
+    <span>JL SHOP 06</span>
   </div>
 
-  <button id="cartBtn" onclick="showCart()" style="padding:10px 15px;border-radius:8px;border:1px solid #ddd;background:white;cursor:pointer;">
-    🛒 Panier (0)
-  </button>
-
+  <button id="cartBtn" onclick="showCart()">🛒 Panier (0)</button>
 </header>
 
-<main>
+<!-- HERO -->
+<section class="hero">
+  <h1>Déstockage premium européen</h1>
+  <p>Produits du quotidien sélectionnés avec exigence, qualité et prix accessibles toute l’année.</p>
+</section>
 
-<!-- DESCRIPTION AJOUTÉE -->
-<section style="max-width:900px;margin:30px auto 40px auto;padding:0 20px;text-align:center;">
-  <p style="font-size:16px;line-height:1.6;color:#333;">
-    JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe. Nous sélectionnons des articles utiles, modernes et de qualité afin de proposer des prix accessibles toute l’année sans compromis sur l’exigence ni sur la fiabilité.<br><br>
+<!-- DESCRIPTION -->
+<section class="about">
+  <p>
+    JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe.
+    Nous sélectionnons des articles utiles, modernes et de qualité afin de proposer des prix accessibles toute l’année sans compromis sur l’exigence ni la fiabilité.
+  </p>
 
-    Notre approche repose sur une sélection rigoureuse de produits issus de fins de séries et d’opportunités de stock, permettant de créer une offre à forte valeur tout en maintenant des tarifs avantageux.<br><br>
+  <p>
+    Notre approche repose sur des fins de séries et opportunités de stock, créant une offre à forte valeur.
+    Livraison rapide dans toute l’Europe avec des articles sélectionnés en livraison gratuite.
+  </p>
 
-    Nous assurons une livraison rapide dans toute l’Europe avec une sélection d’articles bénéficiant de la livraison gratuite, afin de garantir une expérience simple, fluide et accessible.<br><br>
-
-    JL Shop 06 s’inscrit dans une vision claire : rendre le déstockage plus propre, plus qualitatif et plus accessible en ligne avec une expérience d’achat moderne et efficace.
+  <p class="highlight">
+    Une vision simple : rendre le déstockage plus propre, plus qualitatif et plus accessible.
   </p>
 </section>
 
-<div class="product-grid">
+<!-- PRODUITS -->
+<main class="product-grid">
 
-<!-- 1 -->
-<article>
-  <a href="produit-lingettes.html">
-    <img src="lingette rose 2.jpg" alt="Lingettes">
-    <h3>Lingettes Démaquillantes Peaux Sensibles</h3>
-  </a>
-  <p>Douces • visage • usage quotidien</p>
-  <strong>6,49 €</strong>
-  <button onclick="addToCart('lingettes','Lingettes Démaquillantes',6.49,'price_lingettes')">Ajouter</button>
-</article>
+  <article>
+    <img src="lingette rose 2.jpg">
+    <h3>Lingettes Démaquillantes</h3>
+    <p>Peaux sensibles • usage quotidien</p>
+    <strong>6,49 €</strong>
+    <button onclick="addToCart('lingettes','Lingettes',6.49,'price_lingettes')">Ajouter</button>
+  </article>
 
-<!-- 2 -->
-<article>
-  <a href="produit-eponges.html">
-    <img src="eponges lot de 10.jpg" alt="Éponges">
+  <article>
+    <img src="eponges lot de 10.jpg">
     <h3>Éponges Multi Usage</h3>
-  </a>
-  <p>Maison • cuisine • résistantes</p>
-  <strong>7,99 €</strong>
-  <button onclick="addToCart('eponges','Éponges',7.99,'price_eponges')">Ajouter</button>
-</article>
+    <p>Maison • cuisine</p>
+    <strong>7,99 €</strong>
+    <button onclick="addToCart('eponges','Éponges',7.99,'price_eponges')">Ajouter</button>
+  </article>
 
-<!-- 3 -->
-<article>
-  <a href="produit-coton-tiges.html">
-    <img src="coton-tiges.jpg" alt="Cotons tiges">
+  <article>
+    <img src="coton-tiges.jpg">
     <h3>Cotons-tiges x200</h3>
-  </a>
-  <p>Hygiène quotidienne</p>
-  <strong>6,90 €</strong>
-  <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_cotons')">Ajouter</button>
-</article>
+    <p>Hygiène quotidienne</p>
+    <strong>6,90 €</strong>
+    <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_cotons')">Ajouter</button>
+  </article>
 
-<!-- 4 -->
-<article>
-  <a href="produit-casquette.html">
-    <img src="casquette_unisexe_noir.jpg" alt="Casquette">
-    <h3>Casquette unisexe noire</h3>
-  </a>
-  <p>Streetwear</p>
-  <strong>10,00 €</strong>
-  <button onclick="addToCart('casquette','Casquette noire',10,'price_casquette')">Ajouter</button>
-</article>
+  <article>
+    <img src="casquette_unisexe_noir.jpg">
+    <h3>Casquette noire</h3>
+    <p>Streetwear premium</p>
+    <strong>10,00 €</strong>
+    <button onclick="addToCart('casquette','Casquette',10,'price_casquette')">Ajouter</button>
+  </article>
 
-<!-- 5 -->
-<article>
-  <a href="produit-brosse-cheveux.html">
-    <img src="brosse_a_cheveux.jpg" alt="Brosse">
-    <h3>Brosse à cheveux démêlante</h3>
-  </a>
-  <p>Anti-nœuds</p>
-  <strong>8,99 €</strong>
-  <button onclick="addToCart('brosse','Brosse cheveux',8.99,'price_brosse')">Ajouter</button>
-</article>
+  <article>
+    <img src="brosse_a_cheveux.jpg">
+    <h3>Brosse démêlante</h3>
+    <p>Anti-nœuds</p>
+    <strong>8,99 €</strong>
+    <button onclick="addToCart('brosse','Brosse',8.99,'price_brosse')">Ajouter</button>
+  </article>
 
-<!-- 6 -->
-<article>
-  <a href="produit-support-telephone.html">
-    <img src="support téléphone.webp" alt="Support téléphone">
-    <h3>Support téléphone universel</h3>
-  </a>
-  <p>Rotation 360°</p>
-  <strong>4,99 €</strong>
-  <button onclick="addToCart('support','Support téléphone',4.99,'price_support')">Ajouter</button>
-</article>
+  <article>
+    <img src="support téléphone.webp">
+    <h3>Support téléphone</h3>
+    <p>Rotation 360°</p>
+    <strong>4,99 €</strong>
+    <button onclick="addToCart('support','Support',4.99,'price_support')">Ajouter</button>
+  </article>
 
-<!-- 7 -->
-<article>
-  <a href="produit-gel-cheveux.html">
-    <img src="Gel coiffant fixant fort 500ml.jpg" alt="Gel coiffant">
+  <article>
+    <img src="Gel coiffant fixant fort 500ml.jpg">
     <h3>Gel coiffant 500ml</h3>
-  </a>
-  <p>Fixation forte</p>
-  <strong>11,90 €</strong>
-  <button onclick="addToCart('gel','Gel coiffant',11.9,'price_gel')">Ajouter</button>
-</article>
+    <p>Fixation forte</p>
+    <strong>11,90 €</strong>
+    <button onclick="addToCart('gel','Gel',11.9,'price_gel')">Ajouter</button>
+  </article>
 
-<!-- 8 -->
-<article>
-  <a href="produit-coupe-ongles.html">
-    <img src="coupe-ongle.png" alt="Coupe-ongles">
-    <h3>Coupe-ongles acier chirurgical</h3>
-  </a>
-  <p>Pro qualité</p>
-  <strong>7,90 €</strong>
-  <button onclick="addToCart('coupe','Coupe-ongles',7.9,'price_coupe')">Ajouter</button>
-</article>
-
-</div>
+  <article>
+    <img src="coupe-ongle.png">
+    <h3>Coupe-ongles pro</h3>
+    <p>Acier chirurgical</p>
+    <strong>7,90 €</strong>
+    <button onclick="addToCart('coupe','Coupe-ongles',7.9,'price_coupe')">Ajouter</button>
+  </article>
 
 </main>
 
-<!-- FOOTER LÉGAL COMPLET -->
-<footer style="text-align:center;padding:50px 20px;color:#7d7a73;font-size:13px;border-top:1px solid #e5e5e5;margin-top:60px;">
+<!-- FOOTER -->
+<footer class="footer">
   <p>© 2026 JL Shop 06 – Tous droits réservés</p>
 
-  <div style="margin-top:12px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
+  <div>
     <a href="cgv.html">CGV</a>
     <a href="mentions-legales.html">Mentions légales</a>
     <a href="cookies.html">Cookies</a>
     <a href="confidentialite.html">Confidentialité</a>
-    <a href="cancel.html">Retours & Annulation</a>
   </div>
 </footer>
 
