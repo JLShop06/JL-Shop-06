@@ -6,11 +6,11 @@
   <title>Casquette unisexe noire - €10 | JL Shop 06</title>
   <meta name="description" content="Casquette unisexe noire de haute qualité. Style élégant et confortable. En stock, livraison rapide et paiement sécurisé.">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
 </head>
+
 <body>
 <div class="page">
+
  <!-- HEADER -->
   <header>
     <div class="wrapper header-inner">
@@ -26,11 +26,13 @@
       <a href="index.html" class="nav-cta">← Retour au stock</a>
     </div>
   </header>
+
   <!-- MAIN PRODUCT -->
   <main class="wrapper">
     <section class="section">
       <div class="hero-grid" style="display:flex; justify-content:center; align-items:flex-start; gap:32px; max-width:1000px; margin:0 auto;">
-  <!-- PRODUCT IMAGE -->
+
+        <!-- PRODUCT IMAGE -->
         <div style="width:100%; max-width:400px;">
           <div class="hero-card" style="padding:0; overflow:hidden; height:360px; border-radius:18px;">
             <img
@@ -39,20 +41,24 @@
               style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
         </div>
+
         <!-- PRODUCT TEXT -->
         <div>
           <h1 class="hero-title" style="font-size:30px; margin-bottom:10px;">
             Casquette unisexe noire
           </h1>
+
           <div class="hero-card-price" style="margin-bottom:10px;">
             €10
             <span class="old">€18,99</span>
             <span class="pct">-47%</span>
           </div>
+
           <p class="hero-sub" style="max-width:480px;">
             Casquette unisexe noire de style élégant et confortable, adaptée à tous les types de tenue. Ajustable et parfaite pour un look moderne.
           </p>
-   <div class="pill-row" style="margin:16px 0;">
+
+          <div class="pill-row" style="margin:16px 0;">
             <div class="pill">
               <div class="pill-icon">📦</div> Stock : <strong>30 pièces</strong>
             </div>
@@ -60,31 +66,28 @@
               <div class="pill-icon">🚚</div> Livraison Europe 3–5 jours
             </div>
           </div>
-        <!-- SNIPCART BUTTON -->
-          <button
-            class="btn-primary snipcart-add-item"
-            data-item-id="casquette-noire"
-            data-item-name="Casquette unisexe noire"
-            data-item-price="10"
-            data-item-url="/produit-casquette.html"
-            data-item-description="Casquette unisexe noire de haute qualité, ajustable et confortable."
-          >
+
+          <!-- NOUVEAU BOUTON STRIPE (PANIER LOCAL JS) -->
+          <button class="btn-primary" onclick="addToCart()">
             Ajouter au panier – €10
           </button>
+
           <div style="margin-top:18px; font-size:13px; color:var(--grey);">
             • Style élégant<br>
             • Ajustable pour tous<br>
             • Confortable et léger<br>
             • Idéal pour toutes les tenues
           </div>
+
         </div>
       </div>
     </section>
   </main>
+
   <!-- FOOTER -->
   <footer>
     <div class="wrapper footer-inner">
- <div class="footer-top">
+      <div class="footer-top">
         <div style="display:flex; align-items:center; gap:12px;">
           <img
             src="logo_JL_Shop_06.jpg"
@@ -98,17 +101,33 @@
           <a href="index.html#contact">Contact</a>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© <span id="year"></span> JL Shop 06. Tous droits réservés.</span>
         <span>Casquette unisexe noire en déstockage premium.</span>
       </div>
     </div>
   </footer>
+
 </div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // panier local (pré Stripe)
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  function addToCart() {
+    cart.push({
+      id: "casquette-noire",
+      name: "Casquette unisexe noire",
+      price: 10
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Produit ajouté au panier !");
+  }
 </script>
-<!-- SNIPCART API KEY -->
-<div hidden id="snipcart" data-api-key="MjUwNWU1NDctZmQwOC00YmEwLTlkMTItMWMxZmYyYWI5MzdhNjM4ODk3NzU4MjkzMjE0MDQ3"></div>
+
 </body>
 </html>
