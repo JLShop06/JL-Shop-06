@@ -154,6 +154,9 @@ article{
   box-shadow:none;
   transition:0.6s ease;
   text-align:center;
+  width:100%;
+  max-width:280px;
+  margin:0 auto;
 }
 
 article:hover{
