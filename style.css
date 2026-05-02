@@ -103,6 +103,7 @@ header button:hover{
   transition:.35s ease;
   display:flex;
   flex-direction:column;
+  position:relative;
 }
 
 .product-grid article:hover{
@@ -110,10 +111,11 @@ header button:hover{
   box-shadow:var(--shadow-hover);
 }
 
-/* IMAGE FIX PARFAIT */
+/* ===================== IMAGE (RÉDUITE + PRO) ===================== */
+
 .product-grid img{
   width:100%;
-  height:240px;
+  height:190px; /* 👈 RÉDUCTION ICI (avant 240px) */
   object-fit:cover;
   background:#f2f2f2;
   transition:.4s ease;
@@ -126,7 +128,7 @@ header button:hover{
 /* ===================== TEXTE ===================== */
 
 .product-grid h3{
-  font-size:18px;
+  font-size:17px;
   font-weight:600;
   padding:14px 16px 6px;
   line-height:1.3;
@@ -141,7 +143,7 @@ header button:hover{
 
 .product-grid strong{
   padding:10px 16px;
-  font-size:20px;
+  font-size:19px;
   font-weight:700;
 }
 
@@ -149,7 +151,7 @@ header button:hover{
 
 .product-grid button{
   margin:14px 16px 18px;
-  padding:14px;
+  padding:13px;
   border:none;
   border-radius:14px;
   background:var(--accent);
@@ -191,7 +193,7 @@ header button:hover{
   }
 
   .product-grid img{
-    height:220px;
+    height:170px; /* 👈 encore un peu plus petit sur mobile */
   }
 }
 
