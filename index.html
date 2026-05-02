@@ -18,8 +18,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+  
+  <!-- STRIPE - Remplace Snipcart -->
+  <script src="https://js.stripe.com/v3/"></script>
+  
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,8 +63,9 @@
           <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
             Recevoir les offres
           </button>
-          <button class="snipcart-checkout" style="background:#111;color:white;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
-            🛒 Panier <span class="snipcart-items-count"></span>
+          <!-- BOUTON STRIPE PANIER - Remplace Snipcart -->
+          <button id="stripe-checkout-btn" class="stripe-checkout" style="background:#111;color:white;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
+            🛒 Panier (0)
           </button>
         </div>
       </nav>
@@ -209,137 +212,7 @@
           </div>
           <div class="product-cta">Voir la fiche produit</div>
         </article>
-        <!-- CASQUETTE --> <article class="product-card" onclick="window.location.href='produit-casquette.html';" style="cursor:pointer;"><div class="product-tag">-47%</div><div class="product-img"><img src="casquette_unisexe_noir.jpg" alt="Casquette unisexe noire" style="width:100%;height:100%;object-fit:cover;border-radius:12px;"></div><h3 class="product-title">Casquette unisexe noire</h3><p class="product-meta">Ajustable • Confortable • Style moderne</p><div class="product-price-line"><div class="product-price">€10<span class="old">€18,99</span></div><div class="product-discount">Stock : 30</div></div><div class="product-cta">Voir la fiche produit</div></article>
-         <!-- COTON-TIGES --> <article class="product-card" onclick="window.location.href='produit-coton-tiges.html';" style="cursor:pointer;"> <div class="product-tag">-21%</div> <div class="product-img"> <img src="coton-tiges.jpg" alt="Boîte de 200 coton-tiges" style="width:100%; height:100%; object-fit:cover; border-radius:12px;"> </div> <h3 class="product-title">Boîte de 200 coton-tiges</h3> <p class="product-meta">Bols résistants • Embouts doux • Qualité premium</p> <div class="product-price-line"> <div class="product-price"> 9,99 € <span class="old">12,59 €</span> </div> <div class="product-discount">Stock : 28</div> </div> <div class="product-cta">Voir la fiche produit</div> </article>
-      </div>
-    </section>
-    <section class="section wrapper" id="pro">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Pourquoi JL Shop 06 ?</h2>
-          <p class="section-sub">
-            JL Shop 06 est spécialisé dans le déstockage premium pour particuliers avec des produits de qualité professionnelle à prix cassés : coupe-ongles acier chirurgical, gel coiffant 500ml, brosse à cheveux anti-nœuds et fins de séries disponibles en stock limité avec livraison gratuite en Europe.
-          </p>
-        </div>
-        <a href="#contact" class="link-inline">Rester informé</a>
-      </div>
-      <div class="pill-row">
-        <div class="pill"><div class="pill-icon">①</div>Produits fins de série et surplus stock premium</div>
-        <div class="pill"><div class="pill-icon">②</div>Acier chirurgical et formules sans alcool</div>
-        <div class="pill"><div class="pill-icon">③</div>Stocks limités, rotation rapide</div>
-        <div class="pill"><div class="pill-icon">④</div>Livraison gratuite partout en Europe</div>
-      </div>
-    </section>
-    <section class="section wrapper" id="faq">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Questions fréquentes</h2>
-          <p class="section-sub">Tout savoir sur nos produits en déstockage : coupe-ongles, gel coiffant, brosse à cheveux anti-nœuds.</p>
-        </div>
-      </div>
-      <div class="faq-grid">
-        <div>
-          <article class="faq-item">
-            <h3 class="faq-question">Pourquoi ces prix aussi bas ?</h3>
-            <p class="faq-answer">Fins de séries et surplus de stock d'usine. Qualité premium, quantités limitées.</p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-question">Les produits sont-ils neufs ?</h3>
-            <p class="faq-answer">Oui, 100% neufs avec emballage d'origine. Aucun produit d'occasion.</p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-question">Livraison en Europe ?</h3>
-            <p class="faq-answer">France, Espagne, Allemagne, Italie, Portugal et autres pays UE. Frais calculés au panier.</p>
-          </article>
-          <article class="faq-item">
-            <h3 class="faq-question">Retour possible ?</h3>
-            <p class="faq-answer">14 jours satisfait ou remboursé. Produits non ouverts, état neuf requis.</p>
-          </article>
-        </div>
-        <aside class="geo-block">
-          <p><strong>JL Shop 06 en bref :</strong></p>
-          <p>JL Shop 06 est spécialisé dans le déstockage premium pour particuliers : coupe-ongles acier chirurgical, gel coiffant 500ml, brosse à cheveux anti-nœuds démêlante et fins de séries à prix cassés avec livraison gratuite en Europe.</p>
-        </aside>
-      </div>
-    </section>
-    <section class="section wrapper" id="contact">
-      <div class="section-header">
-        <div>
-          <h2 class="section-title">Commandez vos produits</h2>
-          <p class="section-sub">Coupe-ongles, gel coiffant 500ml, brosse anti-nœuds : stocks limités, commandez avant rupture.</p>
-        </div>
-      </div>
-      <form class="pill-row" action="#" method="post">
-        <div class="pill" style="flex:1 1 260px;">
-          <div class="pill-icon">✉</div>
-          <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
-            <label for="email" style="font-size:11px; text-transform:uppercase; letter-spacing:0.14em; color:var(--grey);">Email</label>
-            <input id="email" name="email" type="email" required
-                   style="background:transparent;border:none;border-bottom:1px solid rgba(184,188,199,0.6);padding:4px 0;font-size:12px;color:var(--white);outline:none;">
-          </div>
-        </div>
-        <div class="pill" style="flex:1 1 260px;">
-          <div class="pill-icon">🌍</div>
-          <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
-            <label for="pays" style="font-size:11px; text-transform:uppercase; letter-spacing:0.14em; color:var(--grey);">Pays</label>
-            <select id="pays" name="pays"
-                    style="background:transparent;border:none;border-bottom:1px solid rgba(184,188,199,0.6);padding:4px 0;font-size:12px;color:var(--white);outline:none;">
-              <option value="FR">France</option>
-              <option value="ES">Espagne</option>
-              <option value="DE">Allemagne</option>
-              <option value="IT">Italie</option>
-              <option value="PT">Portugal</option>
-            </select>
-          </div>
-        </div>
-        <div class="pill" style="flex-basis:100%; align-items:flex-start;">
-          <div class="pill-icon">📦</div>
-          <div style="display:flex; flex-direction:column; gap:4px; width:100%;">
-            <label style="font-size:11px; text-transform:uppercase; letter-spacing:0.14em; color:var(--grey);">Produits souhaités</label>
-            <textarea placeholder="Ex: 2 coupe-ongles + 1 gel 500ml + 1 brosse anti-nœuds" rows="3"
-                      style="width:100%;background:transparent;border:1px solid rgba(184,188,199,0.6);border-radius:10px;padding:8px;font-size:12px;color:var(--white);outline:none;"></textarea>
-          </div>
-        </div>
-        <button type="submit" class="btn-primary" style="margin-top:6px;">
-          Commander maintenant
-        </button>
-      </form>
-    </section>
-  </main>
-  <!-- FOOTER -->
-  <footer>
-    <div class="wrapper footer-inner">
-      <div class="footer-top">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06" style="height:48px; width:auto; border-radius:6px;">
-          <span>JL Shop 06 – déstockage premium en Europe.</span>
-        </div>
-        <div class="footer-links">
-          <a href="#destockage">Accueil</a>
-          <a href="#categories">Produits</a>
-          <a href="#pro">Concept</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="year"></span> JL Shop 06. Tous droits réservés. | Caldas das Taipas, Portugal</span>
-        <span>Déstockage premium pour particuliers : qualité garantie, prix discount.</span>
-      </div>
-      <div class="footer-bottom">
-        <span>
-          <a href="mentions-legales.html">Mentions légales</a> |
-          <a href="cgv.html">CGV</a> |
-          <a href="confidentialite.html">Confidentialité</a> |
-          <a href="cookies.html">Cookies</a>
-        </span>
-      </div>
-    </div>
-  </footer>
-</div>
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-<div hidden id="snipcart" data-api-key="MjUwNWU1NDctZmQwOC00YmEwLTlkMTItMWMxZmYyYWI5MzdhNjM4ODk3NzU4MjkzMjE0MDQ3"></div>
-</body>
-</html>
+        <!-- CASQUETTE --> 
+        <article class="product-card" onclick="window.location.href='produit-casquette.html';" style="cursor:pointer;">
+          <div class="product-tag">-47%</div>
+          <div
