@@ -25,13 +25,13 @@ body{
   line-height:1.6;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER LUXE ================= */
 
 .header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:18px 50px;
+  padding:22px 60px;
   position:sticky;
   top:0;
   background:rgba(246,241,232,0.75);
@@ -40,56 +40,59 @@ body{
   z-index:1000;
 }
 
+/* gauche logo */
 .header-left{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
 }
 
 .logo-img{
-  height:42px;
+  height:40px;
   object-fit:contain;
+  opacity:0.9;
 }
 
 .brand{
-  font-size:14px;
-  letter-spacing:2px;
+  font-size:13px;
+  letter-spacing:3px;
   font-weight:500;
 }
 
+/* panier style luxe minimal */
 .cart-btn{
-  background:#111;
-  color:#fff;
-  border:none;
-  padding:11px 18px;
-  border-radius:999px;
-  font-size:13px;
+  background:transparent;
+  border:1px solid rgba(0,0,0,0.15);
+  padding:10px 16px;
+  border-radius:0;
+  font-size:11px;
+  letter-spacing:2px;
   cursor:pointer;
-  transition:.25s ease;
+  transition:0.25s ease;
 }
 
 .cart-btn:hover{
-  transform:translateY(-2px);
-  opacity:0.9;
+  background:#111;
+  color:#fff;
 }
 
 /* ================= HERO ================= */
 
 .hero{
   text-align:center;
-  padding:90px 20px 40px;
+  padding:100px 20px 50px;
 }
 
 .hero h1{
-  font-size:44px;
-  font-weight:600;
-  margin-bottom:10px;
+  font-size:46px;
+  font-weight:500;
   letter-spacing:-0.5px;
+  margin-bottom:12px;
 }
 
 .hero p{
   color:var(--muted);
-  max-width:650px;
+  max-width:680px;
   margin:auto;
   font-size:15px;
 }
@@ -98,13 +101,13 @@ body{
 
 .about{
   max-width:900px;
-  margin:50px auto;
+  margin:60px auto;
   text-align:center;
   padding:0 20px;
 }
 
 .about p{
-  margin-bottom:15px;
+  margin-bottom:16px;
   color:#444;
   font-size:15px;
   line-height:1.8;
@@ -120,7 +123,7 @@ body{
 
 .product-grid{
   max-width:1200px;
-  margin:70px auto;
+  margin:80px auto;
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:28px;
@@ -131,7 +134,7 @@ body{
 
 article{
   background:var(--card);
-  border-radius:var(--radius);
+  border-radius:16px;
   overflow:hidden;
   box-shadow:var(--shadow);
   border:1px solid var(--border);
@@ -139,13 +142,13 @@ article{
 }
 
 article:hover{
-  transform:translateY(-8px);
+  transform:translateY(-10px);
   box-shadow:var(--shadow-hover);
 }
 
 article img{
   width:100%;
-  height:210px;
+  height:215px;
   object-fit:cover;
   transition:.4s ease;
 }
@@ -182,10 +185,11 @@ button{
   border:none;
   background:#111;
   color:#fff;
-  border-radius:12px;
+  border-radius:10px;
   cursor:pointer;
   font-weight:500;
   transition:.25s ease;
+  letter-spacing:0.3px;
 }
 
 button:hover{
@@ -201,7 +205,7 @@ button:hover{
   font-size:13px;
   color:#777;
   border-top:1px solid var(--border);
-  margin-top:60px;
+  margin-top:70px;
 }
 
 .footer a{
@@ -221,6 +225,10 @@ button:hover{
   .product-grid{
     grid-template-columns:repeat(2,1fr);
   }
+
+  .header{
+    padding:20px 30px;
+  }
 }
 
 @media(max-width:600px){
@@ -229,7 +237,7 @@ button:hover{
   }
 
   .hero h1{
-    font-size:30px;
+    font-size:32px;
   }
 
   .header{
