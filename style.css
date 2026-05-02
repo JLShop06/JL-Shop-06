@@ -144,6 +144,7 @@ body{
   grid-template-columns:repeat(3,1fr);
   gap:70px;
   padding:0 20px;
+  justify-items:center;
 }
 
 /* CARD ART MINIMALISTE */
