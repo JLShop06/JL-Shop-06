@@ -296,3 +296,16 @@ article,
     display:none;
   }
 }
+.hero-grid{
+  display:flex !important;
+  justify-content:center !important;
+  align-items:flex-start !important;
+  gap:32px !important;
+  max-width:1000px !important;
+  margin:0 auto !important;
+}
+
+.hero-grid > div{
+  flex:1;
+  max-width:450px;
+}
