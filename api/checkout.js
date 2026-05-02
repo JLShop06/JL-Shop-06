@@ -31,9 +31,9 @@ export default async function handler(req, res) {
       cancel_url: `${req.headers.origin}/cancel.html`,
     });
 
-    res.json({ url: session.url });
+    return res.json({ url: session.url });
 
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    return res.status(500).json({ error: err.message });
   }
 }
