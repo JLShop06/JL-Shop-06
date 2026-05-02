@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   
-  <!-- STRIPE - Remplace Snipcart -->
+  <!-- STRIPE JS -->
   <script src="https://js.stripe.com/v3/"></script>
   
   <script type="application/ld+json">
@@ -37,6 +37,84 @@
     "sameAs": []
   }
   </script>
+  
+  <!-- PANIER STRIPE -->
+  <script>
+    // ⚠️ REMPLACE CECI APRÈS DÉPLOIEMENT CLOUDFLARE WORKERS
+    const BACKEND_URL = 'https://jl-shop-backend.TON_NOM.workers.dev';
+    const STRIPE_PUBLIC_KEY = 'pk_live_TON_KEY_PUBLIQUE_ICI';
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const stripe = Stripe(STRIPE_PUBLIC_KEY);
+
+    function updateCartCount() {
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      document.querySelectorAll('.stripe-checkout').forEach(btn => {
+        btn.textContent = `🛒 Panier (${count})`;
+      });
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function addToCart(productId, name, price, priceId, image = '') {
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ id: productId, name, price, priceId, image, quantity: 1 });
+      }
+      updateCartCount();
+      alert(`✅ ${name} ajouté au panier !`);
+    }
+
+    function showCart() {
+      if (cart.length === 0) {
+        alert('🛒 Ton panier est vide !');
+        return;
+      }
+
+      let message = '🛒 TON PANIER\n\n';
+      let total = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `• ${item.name} x${item.quantity} = €${itemTotal.toFixed(2)}\n`;
+      });
+      message += `\nTOTAL : €${total.toFixed(2)}`;
+      
+      if (confirm(message + '\n\n➡ Continuer vers le paiement ?')) {
+        checkout();
+      }
+    }
+
+    async function checkout() {
+      const btn = document.getElementById('stripe-checkout-btn');
+      btn.textContent = '⏳ Préparation...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(BACKEND_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: cart })
+        });
+
+        const data = await response.json();
+        
+        if (data.error) throw new Error(data.error);
+
+        await stripe.redirectToCheckout({ sessionId: data.id });
+      } catch (error) {
+        alert('❌ Erreur : ' + error.message);
+        btn.textContent = '🛒 Panier (0)';
+        btn.disabled = false;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCartCount();
+      document.getElementById('stripe-checkout-btn').addEventListener('click', showCart);
+    });
+  </script>
 </head>
 <body>
 <div class="page">
@@ -45,11 +123,7 @@
     <div class="wrapper header-inner">
       <div class="brand">
         <a href="#destockage" style="display:inline-block; line-height:0;">
-          <img
-            src="logo_JL_Shop_06.jpg"
-            alt="JL Shop 06 – Déstockage premium"
-            style="height:64px; width:auto; object-fit:contain; border-radius:8px;"
-          >
+          <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06 – Déstockage premium" style="height:64px; width:auto; object-fit:contain; border-radius:8px;">
         </a>
       </div>
       <nav aria-label="Navigation principale">
@@ -63,7 +137,6 @@
           <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
             Recevoir les offres
           </button>
-          <!-- BOUTON STRIPE PANIER - Remplace Snipcart -->
           <button id="stripe-checkout-btn" class="stripe-checkout" style="background:#111;color:white;border:none;padding:10px 16px;border-radius:8px;cursor:pointer;font-weight:600;">
             🛒 Panier (0)
           </button>
@@ -74,8 +147,9 @@
       </button>
     </div>
   </header>
-  <!-- HERO -->
+
   <main>
+    <!-- HERO (inchangé) -->
     <section class="hero wrapper" id="destockage">
       <div class="hero-grid">
         <div>
@@ -98,17 +172,10 @@
             <div class="badge">Livraison <strong>Europe</strong></div>
           </div>
           <div class="hero-actions">
-            <button class="btn-primary" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});">
-              Voir les produits
-            </button>
-            <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
-              <span class="icon">✦</span>
-              Être alerté des stocks
-            </button>
+            <button class="btn-primary" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});">Voir les produits</button>
+            <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});"><span class="icon">✦</span>Être alerté des stocks</button>
           </div>
-          <p class="hero-meta">
-            Stocks <span>limités</span> • Qualité <span>premium</span> • Prix <span>discount</span>
-          </p>
+          <p class="hero-meta">Stocks <span>limités</span>• Qualité <span>premium</span>• Prix <span>discount</span></p>
         </div>
         <aside class="hero-card">
           <div class="hero-card-header">
@@ -117,36 +184,23 @@
           </div>
           <div class="hero-card-main">
             <div>
-              <div class="hero-card-price">
-                Dès €7,90
-                <span class="old">€13,90</span>
-                <span class="pct">-43 %</span>
-              </div>
+              <div class="hero-card-price">Dès €7,90<span class="old">€13,90</span><span class="pct">-43 %</span></div>
               <div class="hero-card-label">Coupe-ongles</div>
             </div>
             <div style="text-align:right;">
-              <div class="hero-card-pill">
-                <span class="bullet"></span> 70 unités disponibles
-              </div>
-              <div class="hero-card-pill" style="margin-top:6px;">
-                <span class="bullet"></span> Fin de série premium
-              </div>
+              <div class="hero-card-pill"><span class="bullet"></span>70 unités disponibles</div>
+              <div class="hero-card-pill" style="margin-top:6px;"><span class="bullet"></span>Fin de série premium</div>
             </div>
           </div>
           <div class="hero-card-footer">
-            <div class="hero-card-kpi">
-              Rotation <strong>rapide</strong><br>
-              Stocks <strong>limités</strong>
-            </div>
-            <button class="btn-ghost" style="margin-top:0;" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});">
-              <span class="icon">➜</span>
-              Voir le stock
-            </button>
+            <div class="hero-card-kpi">Rotation <strong>rapide</strong><br>Stocks <strong>limités</strong></div>
+            <button class="btn-ghost" style="margin-top:0;" onclick="document.getElementById('categories').scrollIntoView({behavior:'smooth'});"><span class="icon">➜</span>Voir le stock</button>
           </div>
         </aside>
       </div>
     </section>
-    <!-- PRODUITS -->
+
+    <!-- PRODUITS AVEC BOUTONS AJOUTER AU PANIER -->
     <section class="section wrapper" id="categories">
       <div class="section-header">
         <div>
@@ -156,8 +210,9 @@
         <a href="#contact" class="link-inline">Plus d'arrivages</a>
       </div>
       <div class="product-grid">
+        
         <!-- COUPE-ONGLES -->
-        <article class="product-card" onclick="window.location.href='produit-coupe-ongles.html';" style="cursor:pointer;">
+        <article class="product-card">
           <div class="product-tag">-43%</div>
           <div class="product-img">
             <img src="images.png" alt="Coupe-ongles acier chirurgical" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
@@ -168,10 +223,14 @@
             <div class="product-price">€7.90<span class="old">€13,90</span></div>
             <div class="product-discount">Stock : 23</div>
           </div>
-          <div class="product-cta">Voir la fiche produit</div>
+          <button onclick="addToCart('coupe-ongles', 'Coupe-ongles acier chirurgical', 7.90, 'price_1TSeGoF9c1lWA0Hy8H62jJBe')" 
+                  style="width:100%;padding:12px;background:#222;color:white;border:none;border-radius:8px;cursor:pointer;font-weight:600;margin-top:10px;">
+            ➕ Ajouter au panier
+          </button>
         </article>
+
         <!-- GEL CHEVEUX 500ML -->
-        <article class="product-card" onclick="window.location.href='produit-gel-cheveux.html';" style="cursor:pointer;">
+        <article class="product-card">
           <div class="product-tag">-40%</div>
           <div class="product-img">
             <img src="Gel coiffant fixant fort 500ml.jpg" alt="Gel coiffant fixant fort 500ml" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
@@ -182,37 +241,5 @@
             <div class="product-price">€11.90<span class="old">€19,90</span></div>
             <div class="product-discount">Stock : 42</div>
           </div>
-          <div class="product-cta">Voir la fiche produit</div>
-        </article>
-        <!-- SUPPORT TÉLÉPHONE -->
-        <article class="product-card" onclick="window.location.href='produit-support-telephone.html';" style="cursor:pointer;">
-          <div class="product-tag">-53%</div>
-          <div class="product-img">
-            <img src="support téléphone.webp" alt="Support téléphone" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-          </div>
-          <h3 class="product-title">Support téléphone</h3>
-          <p class="product-meta">Support universel smartphone • Compact • Stable • Ultra pratique</p>
-          <div class="product-price-line">
-            <div class="product-price">€4.99<span class="old">€14,99</span></div>
-            <div class="product-discount">Stock : 40</div>
-          </div>
-          <div class="product-cta">Voir la fiche produit</div>
-        </article>
-        <!-- BROSSE À CHEVEUX -->
-        <article class="product-card" onclick="window.location.href='produit-brosse-cheveux.html';" style="cursor:pointer;">
-          <div class="product-tag">-40%</div>
-          <div class="product-img">
-            <img src="brosse_a_cheveux.jpg" alt="Brosse à cheveux anti-nœuds démêlante" style="width:100%; height:100%; object-fit:cover; border-radius:12px;">
-          </div>
-          <h3 class="product-title">Brosse à cheveux anti-nœuds</h3>
-          <p class="product-meta">Démêlante ultra-douce • Poils flexibles • Tous types de cheveux • Surplus stock</p>
-          <div class="product-price-line">
-            <div class="product-price">€8.99<span class="old">€14,90</span></div>
-            <div class="product-discount">Stock : 30</div>
-          </div>
-          <div class="product-cta">Voir la fiche produit</div>
-        </article>
-        <!-- CASQUETTE --> 
-        <article class="product-card" onclick="window.location.href='produit-casquette.html';" style="cursor:pointer;">
-          <div class="product-tag">-47%</div>
-          <div
+          <button onclick="addToCart('gel-cheveux', 'Gel coiffant fixant fort 500ml', 11.90, 'price_1TSeDaF9c1lWA0Hy0YRfBtQU')" 
+                  style="width:100%;padding:12px;background:#222;color:white;border:none;border-radius
