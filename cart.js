@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const product = {
+        id: button.dataset.id,   // 🔥 IMPORTANT
         name: button.dataset.name,
         price: button.dataset.price
       };
