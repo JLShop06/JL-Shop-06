@@ -129,6 +129,34 @@
     }
   }
 </script>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+function addToCart() {
+  cart.push({
+    id: "casquette-noire", // ⚠️ change selon produit
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Produit ajouté au panier !");
+}
+
+async function checkout() {
+  const res = await fetch("/api/checkout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ cart })
+  });
+
+  const data = await res.json();
+
+  if (data.url) {
+    window.location.href = data.url;
+  } else {
+    alert("Erreur paiement");
+    console.log(data);
+  }
+}
+</script>
 </body>
 </html>
