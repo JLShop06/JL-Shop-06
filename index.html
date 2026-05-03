@@ -9,6 +9,7 @@
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
+
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     function updateCart() {
@@ -16,37 +17,25 @@
       localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    // AJOUT PRODUIT (IMPORTANT: priceId utilisé pour Stripe)
     function addToCart(id, name, price, priceId) {
-      cart.push({
-        id: priceId,
-        name,
-        price
-      });
+      cart.push({ id, name, price, priceId });
       updateCart();
     }
 
     function showCart() {
-      const cartItems = document.getElementById("cart-items");
-      const cartTotal = document.getElementById("cart-total");
-
-      if (!cartItems || !cartTotal) return;
-
-      cartItems.innerHTML = "";
       let total = 0;
+      let msg = "TON PANIER\n\n";
 
-      cart.forEach(item => {
-        const li = document.createElement("li");
-        li.textContent = item.name + " - " + item.price + " €";
-        cartItems.appendChild(li);
-        total += parseFloat(item.price);
+      cart.forEach(p => {
+        total += p.price;
+        msg += `${p.name} - ${p.price}€\n`;
       });
 
-      cartTotal.textContent = total.toFixed(2);
-      document.getElementById("cart-modal").style.display = "block";
+      msg += `\nTOTAL: ${total.toFixed(2)}€`;
+      alert(msg);
     }
 
-    // CHECKOUT STRIPE (CORRIGÉ)
+    // 🔥 AJOUT STRIPE (C’EST CE QUI MANQUAIT)
     async function checkout() {
       try {
         const res = await fetch("/api/stripe/checkout", {
@@ -64,6 +53,7 @@
         } else {
           alert("Erreur Stripe : aucune URL reçue");
         }
+
       } catch (err) {
         console.error(err);
         alert("Erreur paiement");
@@ -85,16 +75,21 @@
 </header>
 
 <section class="hero">
+
   <div class="hero-logo">
     <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06">
   </div>
 
   <h1>Déstockage premium</h1>
-  <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien.</p>
+  <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe.</p>
+
 </section>
 
 <section class="about">
-  <p>Produits sélectionnés à prix réduit, livraison rapide.</p>
+  <p>
+    JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe.
+    Nous sélectionnons des articles utiles, modernes et de qualité.
+  </p>
 </section>
 
 <!-- PRODUITS -->
@@ -102,46 +97,74 @@
 
   <article>
     <a href="produit-lingette-demaquillantes.html">
-      <img src="lingette rose 2.jpg">
+    <img src="lingette rose 2.jpg">
     </a>
     <h3>Lingettes Démaquillantes</h3>
     <strong>6,49 €</strong>
-    <button onclick="addToCart('lingettes','Lingettes Démaquillantes',6.49,'price_1TSeGoF9c1lWA0Hy8H62jJBe')">
-      Ajouter au panier
-    </button>
+    <button onclick="addToCart('lingettes','Lingettes',6.49,'price_lingettes')">Ajouter</button>
   </article>
 
   <article>
     <a href="produit-eponges-lot-de-10.html">
-      <img src="eponges lot de 10.jpg">
+    <img src="eponges lot de 10.jpg">
     </a>
     <h3>Éponges Multi Usage</h3>
     <strong>7,99 €</strong>
-    <button onclick="addToCart('eponges','Éponges',7.99,'price_1TSeDaF9c1lWA0Hy0YRfBtQU')">
-      Ajouter au panier
-    </button>
+    <button onclick="addToCart('eponges','Éponges',7.99,'price_eponges')">Ajouter</button>
   </article>
 
   <article>
     <a href="produit-coton-tiges.html">
-      <img src="coton-tiges.jpg">
+    <img src="coton-tiges.jpg">
     </a>
     <h3>Cotons-tiges x200</h3>
     <strong>6,90 €</strong>
-    <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_1TSeBuF9c1lWA0HyCejKE0kW')">
-      Ajouter au panier
-    </button>
+    <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_cotons')">Ajouter</button>
   </article>
 
   <article>
     <a href="produit-casquette.html">
-      <img src="casquette_unisexe_noir.jpg">
-    </a>
+    <img src="casquette_unisexe_noir.jpg">
+     </a> 
     <h3>Casquette noire</h3>
     <strong>10,00 €</strong>
-    <button onclick="addToCart('casquette','Casquette noire',10,'price_1TSe8CF9c1lWA0HyBJO6C3qa')">
-      Ajouter au panier
-    </button>
+    <button onclick="addToCart('casquette','Casquette',10,'price_casquette')">Ajouter</button>
+  </article>
+
+  <article>
+    <a href="produit-brosse-cheveux.html">
+    <img src="brosse_a_cheveux.jpg">
+    </a>
+    <h3>Brosse démêlante</h3>
+    <strong>8,99 €</strong>
+    <button onclick="addToCart('brosse','Brosse',8.99,'price_brosse')">Ajouter</button>
+  </article>
+
+  <article>
+    <a href="produit-support-telephone.html">
+    <img src="support téléphone.webp">
+    </a>
+    <h3>Support téléphone</h3>
+    <strong>4,99 €</strong>
+    <button onclick="addToCart('support','Support',4.99,'price_support')">Ajouter</button>
+  </article>
+
+  <article>
+    <a href="produit-gel-cheveux.html">
+    <img src="Gel coiffant fixant fort 500ml.jpg">
+    </a>
+    <h3>Gel coiffant 500ml</h3>
+    <strong>11,90 €</strong>
+    <button onclick="addToCart('gel','Gel',11.9,'price_gel')">Ajouter</button>
+  </article>
+
+  <article>
+    <a href="produit-coupe-ongles.html">
+    <img src="coupe-ongle.png">
+    </a>
+    <h3>Coupe-ongles pro</h3>
+    <strong>7,90 €</strong>
+    <button onclick="addToCart('coupe','Coupe-ongles',7.9,'price_coupe')">Ajouter</button>
   </article>
 
 </main>
@@ -154,11 +177,12 @@
 
   <p>Total : <span id="cart-total">0</span> €</p>
 
+  <!-- 🔥 AJOUT BOUTON PAIEMENT -->
   <button onclick="checkout()">Payer maintenant</button>
 </div>
 
 <footer class="footer">
-  <p>© 2026 JL Shop 06</p>
+  <p>© 2026 JL Shop 06 – Tous droits réservés</p>
 </footer>
 
 </body>
