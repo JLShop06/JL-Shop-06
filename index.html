@@ -16,7 +16,7 @@
       localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    // ✅ AJOUT PANIER CORRIGÉ (IMPORTANT: id obligatoire pour Stripe)
+    // ✅ MODE STRIPE (price IDs)
     function addToCart(id, name, price) {
       cart.push({ id, name, price });
       updateCart();
@@ -40,7 +40,6 @@
       document.getElementById("cart-modal").style.display = "block";
     }
 
-    // ✅ VRAI CHECKOUT STRIPE
     async function checkout() {
       try {
         const res = await fetch("/api/stripe/checkout", {
@@ -88,9 +87,7 @@
 </section>
 
 <section class="about">
-  <p>
-    JL Shop 06 est une boutique spécialisée dans le déstockage premium.
-  </p>
+  <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium.</p>
 </section>
 
 <!-- PRODUITS -->
@@ -102,8 +99,7 @@
     </a>
     <h3>Lingettes Démaquillantes</h3>
     <strong>6,49 €</strong>
-
-    <button onclick="addToCart('lingettes','Lingettes Démaquillantes',6.49)">
+    <button onclick="addToCart('price_lingettes','Lingettes Démaquillantes',6.49)">
       Ajouter au panier
     </button>
   </article>
@@ -114,8 +110,7 @@
     </a>
     <h3>Éponges Multi Usage</h3>
     <strong>7,99 €</strong>
-
-    <button onclick="addToCart('eponges','Éponges',7.99)">
+    <button onclick="addToCart('price_eponges','Éponges',7.99)">
       Ajouter au panier
     </button>
   </article>
@@ -126,8 +121,7 @@
     </a>
     <h3>Cotons-tiges x200</h3>
     <strong>6,90 €</strong>
-
-    <button onclick="addToCart('cotons','Cotons-tiges',6.9)">
+    <button onclick="addToCart('price_cotons','Cotons-tiges',6.9)">
       Ajouter au panier
     </button>
   </article>
@@ -138,8 +132,7 @@
     </a>
     <h3>Casquette noire</h3>
     <strong>10,00 €</strong>
-
-    <button onclick="addToCart('casquette-noire','Casquette noire',10)">
+    <button onclick="addToCart('price_casquette','Casquette noire',10)">
       Ajouter au panier
     </button>
   </article>
