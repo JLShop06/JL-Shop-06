@@ -22,18 +22,25 @@
       updateCart();
     }
 
-    function showCart() {
-      let total = 0;
-      let msg = "TON PANIER\n\n";
+   function showCart() {
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
 
-      cart.forEach(p => {
-        total += p.price;
-        msg += `${p.name} - ${p.price}€\n`;
-      });
+  let total = 0;
 
-      msg += `\nTOTAL: ${total.toFixed(2)}€`;
-      alert(msg);
-    }
+  cartItems.innerHTML = "";
+
+  cart.forEach(p => {
+    const li = document.createElement("li");
+    li.textContent = `${p.name} - ${p.price}€`;
+    cartItems.appendChild(li);
+    total += Number(p.price);
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+
+  document.getElementById("cart-modal").style.display = "block";
+}
 
     // 🔥 AJOUT STRIPE (C’EST CE QUI MANQUAIT)
     async function checkout() {
