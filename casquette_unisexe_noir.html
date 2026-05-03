@@ -119,23 +119,24 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // panier local
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
+  // ✅ CORRIGÉ : ajout du priceId
   function addToCart() {
     cart.push({
       id: "casquette-noire",
       name: "Casquette unisexe noire",
-      price: 10
+      price: 10,
+      priceId: "price_1TSe8CF9c1lWA0HyBJO6C3qa"
     });
 
     localStorage.setItem("cart", JSON.stringify(cart));
     alert("Produit ajouté au panier !");
   }
 
-  // STRIPE CHECKOUT
+  // ✅ CORRIGÉ : bon endpoint Stripe
   async function checkout() {
-    const res = await fetch("/api/checkout", {
+    const res = await fetch("/api/stripe/checkout", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
