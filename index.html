@@ -16,15 +16,21 @@
       localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    // ✅ MODE STRIPE (price IDs)
-    function addToCart(id, name, price) {
-      cart.push({ id, name, price });
+    // AJOUT PRODUIT (IMPORTANT: priceId utilisé pour Stripe)
+    function addToCart(id, name, price, priceId) {
+      cart.push({
+        id: priceId,
+        name,
+        price
+      });
       updateCart();
     }
 
-    function openCart() {
+    function showCart() {
       const cartItems = document.getElementById("cart-items");
       const cartTotal = document.getElementById("cart-total");
+
+      if (!cartItems || !cartTotal) return;
 
       cartItems.innerHTML = "";
       let total = 0;
@@ -40,6 +46,7 @@
       document.getElementById("cart-modal").style.display = "block";
     }
 
+    // CHECKOUT STRIPE (CORRIGÉ)
     async function checkout() {
       try {
         const res = await fetch("/api/stripe/checkout", {
@@ -55,7 +62,7 @@
         if (data.url) {
           window.location.href = data.url;
         } else {
-          alert("Erreur Stripe");
+          alert("Erreur Stripe : aucune URL reçue");
         }
       } catch (err) {
         console.error(err);
@@ -72,7 +79,7 @@
 <header class="lux-header">
   <div></div>
   <div class="lux-center">JL SHOP 06</div>
-  <button class="lux-cart" onclick="openCart()">
+  <button class="lux-cart" onclick="showCart()">
     PANIER (<span id="cartCount">0</span>)
   </button>
 </header>
@@ -83,11 +90,11 @@
   </div>
 
   <h1>Déstockage premium</h1>
-  <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe.</p>
+  <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien.</p>
 </section>
 
 <section class="about">
-  <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium.</p>
+  <p>Produits sélectionnés à prix réduit, livraison rapide.</p>
 </section>
 
 <!-- PRODUITS -->
@@ -99,7 +106,7 @@
     </a>
     <h3>Lingettes Démaquillantes</h3>
     <strong>6,49 €</strong>
-    <button onclick="addToCart('price_lingettes','Lingettes Démaquillantes',6.49)">
+    <button onclick="addToCart('lingettes','Lingettes Démaquillantes',6.49,'price_1TSeGoF9c1lWA0Hy8H62jJBe')">
       Ajouter au panier
     </button>
   </article>
@@ -110,7 +117,7 @@
     </a>
     <h3>Éponges Multi Usage</h3>
     <strong>7,99 €</strong>
-    <button onclick="addToCart('price_eponges','Éponges',7.99)">
+    <button onclick="addToCart('eponges','Éponges',7.99,'price_1TSeDaF9c1lWA0Hy0YRfBtQU')">
       Ajouter au panier
     </button>
   </article>
@@ -121,7 +128,7 @@
     </a>
     <h3>Cotons-tiges x200</h3>
     <strong>6,90 €</strong>
-    <button onclick="addToCart('price_cotons','Cotons-tiges',6.9)">
+    <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_1TSeBuF9c1lWA0HyCejKE0kW')">
       Ajouter au panier
     </button>
   </article>
@@ -132,7 +139,7 @@
     </a>
     <h3>Casquette noire</h3>
     <strong>10,00 €</strong>
-    <button onclick="addToCart('price_casquette','Casquette noire',10)">
+    <button onclick="addToCart('casquette','Casquette noire',10,'price_1TSe8CF9c1lWA0HyBJO6C3qa')">
       Ajouter au panier
     </button>
   </article>
@@ -150,7 +157,6 @@
   <button onclick="checkout()">Payer maintenant</button>
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
   <p>© 2026 JL Shop 06</p>
 </footer>
