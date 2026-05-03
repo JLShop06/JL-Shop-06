@@ -15,11 +15,7 @@
     <div class="wrapper header-inner">
       <div class="brand">
         <a href="index.html" style="display:inline-block; line-height:0;">
-          <img
-            src="logo_JL_Shop_06.jpg"
-            alt="JL Shop 06 – Déstockage premium"
-            style="height:64px; width:auto; object-fit:contain; border-radius:8px;"
-          >
+          <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06" style="height:64px; width:auto;">
         </a>
       </div>
       <a href="index.html" class="nav-cta">← Retour au stock</a>
@@ -33,45 +29,29 @@
 
         <div style="width:100%; max-width:400px;">
           <div class="hero-card" style="padding:0; overflow:hidden; height:360px; border-radius:18px;">
-            <img src="casquette_unisexe_noir.jpg" alt="Casquette unisexe noire" style="width:100%; height:100%; object-fit:cover; display:block;">
+            <img src="casquette_unisexe_noir.jpg" alt="Casquette unisexe noire" style="width:100%; height:100%; object-fit:cover;">
           </div>
         </div>
 
         <div>
-          <h1 class="hero-title" style="font-size:30px; margin-bottom:10px;">
-            Casquette unisexe noire
-          </h1>
+          <h1 class="hero-title" style="font-size:30px;">Casquette unisexe noire</h1>
 
-          <div class="hero-card-price" style="margin-bottom:10px;">
-            €10
-            <span class="old">€18,99</span>
-            <span class="pct">-47%</span>
+          <div class="hero-card-price">
+            €10 <span class="old">€18,99</span> <span class="pct">-47%</span>
           </div>
 
-          <p class="hero-sub" style="max-width:480px;">
-            Casquette unisexe noire confortable et élégante, idéale pour un look streetwear moderne. Ajustable et légère.
+          <p class="hero-sub">
+            Casquette confortable et élégante, idéale streetwear.
           </p>
 
           <div class="pill-row" style="margin:16px 0;">
-            <div class="pill">
-              <div class="pill-icon">📦</div> Stock : <strong>30 pièces</strong>
-            </div>
-            <div class="pill">
-              <div class="pill-icon">🚚</div> Livraison Europe 3–5 jours
-            </div>
+            <div class="pill">📦 Stock : <strong>30 pièces</strong></div>
+            <div class="pill">🚚 Livraison 3–5 jours</div>
           </div>
 
-          <!-- BOUTON AJOUT PANIER -->
           <button class="btn-primary" onclick="addToCart()">
             Ajouter au panier
           </button>
-
-          <div style="margin-top:18px; font-size:13px; color:var(--grey);">
-            • Style moderne<br>
-            • Ajustable<br>
-            • Confort léger<br>
-            • Idéal streetwear
-          </div>
 
         </div>
       </div>
@@ -81,67 +61,30 @@
 
   <footer>
     <div class="wrapper footer-inner">
-      <div class="footer-top">
-        <div style="display:flex; align-items:center; gap:12px;">
-          <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06" style="height:48px; width:auto; border-radius:6px;">
-          <span>JL Shop 06 – Déstockage premium pour particuliers en Europe.</span>
-        </div>
-
-        <div class="footer-links">
-          <a href="index.html#destockage">Accueil</a>
-          <a href="index.html#categories">Stock actuel</a>
-          <a href="index.html#contact">Contact</a>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© <span id="year"></span> JL Shop 06. Tous droits réservés.</span>
-        <span>Casquette unisexe noire en déstockage premium.</span>
-      </div>
+      <span>© <span id="year"></span> JL Shop 06</span>
     </div>
   </footer>
 
 </div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  async function checkout() {
-    const cart = [{
-      id: "casquette-noire"
-    }];
-
-    const res = await fetch("/api/checkout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ cart })
-    });
-
-    const data = await res.json();
-
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert("Erreur paiement");
-      console.log(data);
-    }
-  }
-</script>
-
-<script>
+// PANIER UNIQUE (PROPRE)
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart() {
   cart.push({
-    id: "casquette-noire"
+    id: "casquette-noire",
+    name: "Casquette unisexe noire",
+    price: 10
   });
 
   localStorage.setItem("cart", JSON.stringify(cart));
   alert("Produit ajouté au panier !");
 }
 
+// CHECKOUT UNIQUE
 async function checkout() {
   const res = await fetch("/api/checkout", {
     method: "POST",
@@ -155,7 +98,6 @@ async function checkout() {
     window.location.href = data.url;
   } else {
     alert("Erreur paiement");
-    console.log(data);
   }
 }
 </script>
