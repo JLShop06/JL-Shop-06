@@ -53,13 +53,14 @@
           body: JSON.stringify({ cart })
         });
 
-        const data = await res.json();
+       const data = await res.json();
+console.log(data);
 
-        if (data.url) {
-          window.location.href = data.url;
-        } else {
-          alert("Erreur Stripe : aucune URL reçue");
-        }
+if (data.url) {
+  window.location.href = data.url;
+} else {
+  alert("Erreur Stripe : " + data.error);
+}
 
       } catch (err) {
         console.error(err);
