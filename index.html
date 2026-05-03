@@ -9,7 +9,6 @@
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
-
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     function updateCart() {
@@ -17,22 +16,52 @@
       localStorage.setItem("cart", JSON.stringify(cart));
     }
 
-    function addToCart(id, name, price, priceId) {
-      cart.push({ id, name, price, priceId });
+    // ✅ AJOUT PANIER CORRIGÉ (IMPORTANT: id obligatoire pour Stripe)
+    function addToCart(id, name, price) {
+      cart.push({ id, name, price });
       updateCart();
     }
 
-    function showCart() {
-      let total = 0;
-      let msg = "TON PANIER\n\n";
+    function openCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
 
-      cart.forEach(p => {
-        total += p.price;
-        msg += `${p.name} - ${p.price}€\n`;
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      cart.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item.name + " - " + item.price + " €";
+        cartItems.appendChild(li);
+        total += parseFloat(item.price);
       });
 
-      msg += `\nTOTAL: ${total.toFixed(2)}€`;
-      alert(msg);
+      cartTotal.textContent = total.toFixed(2);
+      document.getElementById("cart-modal").style.display = "block";
+    }
+
+    // ✅ VRAI CHECKOUT STRIPE
+    async function checkout() {
+      try {
+        const res = await fetch("/api/stripe/checkout", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ cart })
+        });
+
+        const data = await res.json();
+
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert("Erreur Stripe");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Erreur paiement");
+      }
     }
 
     window.onload = updateCart;
@@ -44,37 +73,23 @@
 <header class="lux-header">
   <div></div>
   <div class="lux-center">JL SHOP 06</div>
-<button class="lux-cart" onclick="openCart()">
-  PANIER (<span id="cartCount">0</span>)
-</button>
+  <button class="lux-cart" onclick="openCart()">
+    PANIER (<span id="cartCount">0</span>)
+  </button>
 </header>
 
 <section class="hero">
-
-  <!-- LOGO CENTRÉ DANS LE HERO -->
   <div class="hero-logo">
     <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06">
   </div>
 
   <h1>Déstockage premium</h1>
   <p>JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe.</p>
-
 </section>
 
-<!-- DESCRIPTION -->
 <section class="about">
   <p>
-    JL Shop 06 est une boutique spécialisée dans le déstockage premium de produits du quotidien à destination des particuliers partout en Europe.
-    Nous sélectionnons des articles utiles, modernes et de qualité afin de proposer des prix accessibles toute l’année.
-  </p>
-
-  <p>
-    Notre approche repose sur des fins de séries et opportunités de stock, créant une offre à forte valeur.
-    Livraison rapide dans toute l’Europe avec des articles en livraison gratuite.
-  </p>
-
-  <p class="highlight">
-    Une vision simple : rendre le déstockage plus propre, plus qualitatif et plus accessible.
+    JL Shop 06 est une boutique spécialisée dans le déstockage premium.
   </p>
 </section>
 
@@ -83,127 +98,69 @@
 
   <article>
     <a href="produit-lingette-demaquillantes.html">
-    <img src="lingette rose 2.jpg">
+      <img src="lingette rose 2.jpg">
     </a>
     <h3>Lingettes Démaquillantes</h3>
-    <p>Peaux sensibles</p>
     <strong>6,49 €</strong>
-    <button onclick="addToCart('lingettes','Lingettes',6.49,'price_lingettes')">Ajouter</button>
+
+    <button onclick="addToCart('lingettes','Lingettes Démaquillantes',6.49)">
+      Ajouter au panier
+    </button>
   </article>
 
   <article>
     <a href="produit-eponges-lot-de-10.html">
-    <img src="eponges lot de 10.jpg">
+      <img src="eponges lot de 10.jpg">
     </a>
     <h3>Éponges Multi Usage</h3>
-    <p>Maison</p>
     <strong>7,99 €</strong>
-    <button onclick="addToCart('eponges','Éponges',7.99,'price_eponges')">Ajouter</button>
+
+    <button onclick="addToCart('eponges','Éponges',7.99)">
+      Ajouter au panier
+    </button>
   </article>
 
   <article>
     <a href="produit-coton-tiges.html">
-    <img src="coton-tiges.jpg">
+      <img src="coton-tiges.jpg">
     </a>
     <h3>Cotons-tiges x200</h3>
-    <p>Hygiène</p>
     <strong>6,90 €</strong>
-    <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_cotons')">Ajouter</button>
+
+    <button onclick="addToCart('cotons','Cotons-tiges',6.9)">
+      Ajouter au panier
+    </button>
   </article>
 
   <article>
     <a href="produit-casquette.html">
-    <img src="casquette_unisexe_noir.jpg">
-     </a> 
+      <img src="casquette_unisexe_noir.jpg">
+    </a>
     <h3>Casquette noire</h3>
-    <p>Streetwear</p>
     <strong>10,00 €</strong>
-    <button onclick="addToCart('casquette','Casquette',10,'price_casquette')">Ajouter</button>
-  </article>
 
-  <article>
-    <a href="produit-brosse-cheveux.html">
-    <img src="brosse_a_cheveux.jpg">
-    </a>
-    <h3>Brosse démêlante</h3>
-    <p>Anti-nœuds</p>
-    <strong>8,99 €</strong>
-    <button onclick="addToCart('brosse','Brosse',8.99,'price_brosse')">Ajouter</button>
-  </article>
-
-  <article>
-    <a href="produit-support-telephone.html">
-    <img src="support téléphone.webp">
-    </a>
-    <h3>Support téléphone</h3>
-    <p>Rotation 360°</p>
-    <strong>4,99 €</strong>
-    <button onclick="addToCart('support','Support',4.99,'price_support')">Ajouter</button>
-  </article>
-
-  <article>
-    <a href="produit-gel-cheveux.html">
-    <img src="Gel coiffant fixant fort 500ml.jpg">
-    </a>
-    <h3>Gel coiffant 500ml</h3>
-    <p>Fixation forte</p>
-    <strong>11,90 €</strong>
-    <button onclick="addToCart('gel','Gel',11.9,'price_gel')">Ajouter</button>
-  </article>
-
-  <article>
-    <a href="produit-coupe-ongles.html">
-    <img src="coupe-ongle.png">
-    </a>
-    <h3>Coupe-ongles pro</h3>
-    <p>Acier chirurgical</p>
-    <strong>7,90 €</strong>
-    <button onclick="addToCart('coupe','Coupe-ongles',7.9,'price_coupe')">Ajouter</button>
+    <button onclick="addToCart('casquette-noire','Casquette noire',10)">
+      Ajouter au panier
+    </button>
   </article>
 
 </main>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <p>© 2026 JL Shop 06 – Tous droits réservés</p>
-
-  <div>
-    <a href="cgv.html">CGV</a>
-    <a href="mentions-legales.html">Mentions légales</a>
-    <a href="cookies.html">Cookies</a>
-    <a href="confidentialite.html">Confidentialité</a>
-  </div>
-</footer>
-<div id="cart-modal" style="display:none; position:fixed; top:80px; right:20px; background:white; padding:20px; border:1px solid #ccc; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:9999; width:300px;">
+<!-- PANIER -->
+<div id="cart-modal" style="display:none; position:fixed; top:80px; right:20px; background:white; padding:20px; border:1px solid #ccc; z-index:9999; width:300px;">
   <h2>Ton panier</h2>
+
   <ul id="cart-items"></ul>
+
   <p>Total : <span id="cart-total">0</span> €</p>
+
   <button onclick="checkout()">Payer maintenant</button>
 </div>
 
-<script>
-function openCart() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const cartItems = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2026 JL Shop 06</p>
+</footer>
 
-  cartItems.innerHTML = "";
-  let total = 0;
-
-  cart.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item.name + " - " + item.price + " €";
-    cartItems.appendChild(li);
-    total += parseFloat(item.price);
-  });
-
-  cartTotal.textContent = total.toFixed(2);
-  document.getElementById("cart-modal").style.display = "block";
-}
-
-function checkout() {
-  alert("Stripe sera branché à l'étape suivante");
-}
-</script>
 </body>
 </html>
