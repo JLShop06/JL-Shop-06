@@ -19,10 +19,16 @@ module.exports = async (req, res) => {
     }
 
     // IMPORTANT : on utilise priceId et pas id
-    const line_items = cart.map((item) => ({
-      price: item.priceId,
-      quantity: 1
-    }));
+  const validItems = cart.filter(item => item.priceId && typeof item.priceId === "string");
+
+if (validItems.length === 0) {
+  return res.status(400).json({ error: "No valid products in cart" });
+}
+
+const line_items = validItems.map((item) => ({
+  price: item.priceId,
+  quantity: 1
+}));
 
     const origin = req.headers.origin || "https://jl-shop-06.vercel.app";
 
