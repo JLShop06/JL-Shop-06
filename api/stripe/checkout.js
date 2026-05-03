@@ -7,9 +7,10 @@ module.exports = async (req, res) => {
       return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const body = typeof req.body === "string"
-      ? JSON.parse(req.body)
-      : req.body;
+    const body =
+      typeof req.body === "string"
+        ? JSON.parse(req.body)
+        : req.body;
 
     const cart = body?.cart;
 
@@ -17,14 +18,16 @@ module.exports = async (req, res) => {
       return res.status(400).json({ error: "Cart empty or invalid" });
     }
 
+    // IMPORTANT : on utilise priceId et pas id
     const line_items = cart.map((item) => ({
-      price: item.id,
+      price: item.priceId,
       quantity: 1
     }));
 
-    const origin = req.headers.origin || "https://ton-site.vercel.app";
+    const origin = req.headers.origin || "https://jl-shop-06.vercel.app";
 
     const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
       mode: "payment",
       line_items,
       success_url: `${origin}/success.html`,
@@ -34,7 +37,7 @@ module.exports = async (req, res) => {
     return res.status(200).json({ url: session.url });
 
   } catch (err) {
-    console.error(err);
+    console.error("Stripe error:", err);
     return res.status(500).json({ error: err.message });
   }
 };
