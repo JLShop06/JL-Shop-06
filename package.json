@@ -1,5 +1,5 @@
 {
-  "name": "JLShop 06",
-  "version": "1.0.0",
-  "dependencies": {}
+  "dependencies": {
+    "stripe": "^18.1.1"
+  }
 }
