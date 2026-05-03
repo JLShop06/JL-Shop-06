@@ -2,7 +2,6 @@ const Stripe = require("stripe");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-// 🔒 Base produits (source de vérité serveur)
 const PRODUCTS = {
   "casquette-noire": {
     name: "Casquette unisexe noire",
@@ -20,7 +19,7 @@ module.exports = async (req, res) => {
       ? JSON.parse(req.body)
       : req.body;
 
-    const cart = body?.cart;
+    const cart = body.cart;
 
     if (!cart || cart.length === 0) {
       return res.status(400).json({ error: "Cart empty" });
@@ -30,33 +29,25 @@ module.exports = async (req, res) => {
       payment_method_types: ["card"],
       mode: "payment",
 
-      line_items: cart.map(item => {
-        const product = PRODUCTS[item.id];
-
-        if (!product) {
-          throw new Error("Produit invalide: " + item.id);
-        }
-
-        return {
-          price_data: {
-            currency: "eur",
-            product_data: {
-              name: product.name,
-            },
-            unit_amount: product.price * 100,
+      line_items: cart.map(item => ({
+        price_data: {
+          currency: "eur",
+          product_data: {
+            name: PRODUCTS[item.id].name,
           },
-          quantity: 1,
-        };
-      }),
+          unit_amount: PRODUCTS[item.id].price * 100,
+        },
+        quantity: 1,
+      })),
 
       success_url: `${req.headers.origin}/success.html`,
       cancel_url: `${req.headers.origin}/cancel.html`,
     });
 
-    return res.status(200).json({ url: session.url });
+    res.json({ url: session.url });
 
   } catch (err) {
-    console.error("Stripe error:", err);
-    return res.status(500).json({ error: err.message });
+    console.log(err);
+    res.status(500).json({ error: err.message });
   }
 };
