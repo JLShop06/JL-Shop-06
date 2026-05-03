@@ -6,11 +6,11 @@
   <title>Brosse à cheveux démêlante - €8,99 | JL Shop 06</title>
   <meta name="description" content="Brosse à cheveux démêlante, douce et pratique, adaptée à tous types de cheveux. En stock, livraison rapide et paiement sécurisé.">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
 </head>
+
 <body>
 <div class="page">
+
   <header>
     <div class="wrapper header-inner">
       <div class="brand">
@@ -25,26 +25,33 @@
       <a href="index.html" class="nav-cta">← Retour au stock</a>
     </div>
   </header>
+
   <main class="wrapper">
     <section class="section">
+
       <div class="hero-grid" style="gap: 32px; align-items: flex-start;">
+
         <div style="width:100%; max-width:400px;">
           <div class="hero-card" style="padding:0; overflow:hidden; height:360px; border-radius:18px;">
             <img src="brosse_a_cheveux.jpg" alt="Brosse à cheveux démêlante" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
         </div>
+
         <div>
           <h1 class="hero-title" style="font-size:30px; margin-bottom:10px;">
             Brosse à cheveux démêlante
           </h1>
+
           <div class="hero-card-price" style="margin-bottom:10px;">
             €8,99
             <span class="old">€14,99</span>
             <span class="pct">-40%</span>
           </div>
+
           <p class="hero-sub" style="max-width:480px;">
             Brosse à cheveux pratique et douce pour démêler sans tirer ni casser les cheveux. Adaptée à tous types de cheveux, facile à prendre en main.
           </p>
+
           <div class="pill-row" style="margin:16px 0;">
             <div class="pill">
               <div class="pill-icon">📦</div> Stock : <strong>30 pièces</strong>
@@ -53,26 +60,25 @@
               <div class="pill-icon">🚚</div> Livraison Europe 3–5 jours
             </div>
           </div>
-          <button
-            class="btn-primary snipcart-add-item"
-            data-item-id="brosse-cheveux"
-            data-item-name="Brosse à cheveux démêlante"
-            data-item-price="8.99"
-            data-item-url="/produit-brosse-a-cheveux.html"
-            data-item-description="Brosse à cheveux douce et pratique, tous types de cheveux"
-          >
-            Ajouter au panier – €8,99
+
+          <!-- BOUTON STRIPE -->
+          <button class="btn-primary" onclick="checkout()">
+            Acheter maintenant – €8,99
           </button>
+
           <div style="margin-top:18px; font-size:13px; color:var(--grey);">
             • Démêlage doux<br>
             • Convient à tous types de cheveux<br>
             • Prise en main confortable<br>
             • Entretien facile
           </div>
+
         </div>
       </div>
+
     </section>
   </main>
+
   <footer>
     <div class="wrapper footer-inner">
       <div class="footer-top">
@@ -80,22 +86,49 @@
           <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06" style="height:48px; width:auto; border-radius:6px;">
           <span>JL Shop 06 – Déstockage premium pour particuliers en Europe.</span>
         </div>
+
         <div class="footer-links">
           <a href="index.html#destockage">Accueil</a>
           <a href="index.html#categories">Stock actuel</a>
           <a href="index.html#contact">Contact</a>
         </div>
       </div>
+
       <div class="footer-bottom">
         <span>© <span id="year"></span> JL Shop 06. Tous droits réservés.</span>
         <span>Brosse à cheveux démêlante en déstockage premium.</span>
       </div>
     </div>
   </footer>
+
 </div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  async function checkout() {
+    const cart = [{
+      id: "brosse-cheveux"
+    }];
+
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ cart })
+    });
+
+    const data = await res.json();
+
+    if (data.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Erreur paiement");
+      console.log(data);
+    }
+  }
 </script>
-<div hidden id="snipcart" data-api-key="MjUwNWU1NDctZmQwOC00YmEwLTlkMTItMWMxZmYyYWI5MzdhNjM4ODk3NzU4MjkzMjE0MDQ3"></div>
+
 </body>
 </html>
