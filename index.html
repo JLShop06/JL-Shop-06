@@ -69,6 +69,14 @@ if (data.url) {
     }
 
     window.onload = updateCart;
+    function clearCart() {
+  cart = [];
+  localStorage.removeItem("cart");
+  updateCart();
+
+  document.getElementById("cart-items").innerHTML = "";
+  document.getElementById("cart-total").textContent = "0";
+}
   </script>
 </head>
 
@@ -187,6 +195,7 @@ if (data.url) {
 
   <!-- 🔥 AJOUT BOUTON PAIEMENT -->
   <button onclick="checkout()">Payer maintenant</button>
+  <button onclick="clearCart()">Vider le panier</button>
 </div>
 
 <footer class="footer">
