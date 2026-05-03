@@ -7,10 +7,9 @@ module.exports = async (req, res) => {
       return res.status(405).json({ error: "Method not allowed" });
     }
 
-    const body =
-      typeof req.body === "string"
-        ? JSON.parse(req.body)
-        : req.body;
+    const body = typeof req.body === "string"
+      ? JSON.parse(req.body)
+      : req.body;
 
     const cart = body?.cart;
 
@@ -23,17 +22,19 @@ module.exports = async (req, res) => {
       quantity: 1
     }));
 
+    const origin = req.headers.origin || "https://ton-site.vercel.app";
+
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
       line_items,
-      success_url: `${req.headers.origin}/success.html`,
-      cancel_url: `${req.headers.origin}/cancel.html`,
+      success_url: `${origin}/success.html`,
+      cancel_url: `${origin}/cancel.html`,
     });
 
     return res.status(200).json({ url: session.url });
 
   } catch (err) {
-    console.error("Stripe error:", err);
+    console.error(err);
     return res.status(500).json({ error: err.message });
   }
 };
