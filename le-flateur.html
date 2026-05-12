@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le Flateur – Produit Intime</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+  .product-page{
+      padding-top:160px;
+      padding-bottom:120px;
+      display:flex;
+      justify-content:center;
+      width:100%;
+  }
+
+  .product-container{
+      max-width:1050px;
+      display:flex;
+      gap:80px;
+      align-items:flex-start;
+      padding:0 20px;
+  }
+
+  /* IMAGES */
+  .product-image-frame{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:center;
+  }
+
+  .product-image-frame img{
+      width:100%;
+      max-width:450px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 8px 40px rgba(0,0,0,0.12);
+      transition:0.4s ease;
+  }
+
+  .product-image-frame img:hover{
+      transform:scale(1.03);
+  }
+
+  /* TEXTE */
+  .product-details{
+      flex:1;
+      max-width:450px;
+      text-align:left;
+  }
+
+  .product-title{
+      font-size:34px;
+      font-weight:300;
+      margin-bottom:10px;
+  }
+
+  .product-subtitle{
+      font-size:15px;
+      color:#555;
+      margin-bottom:25px;
+      line-height:1.6;
+  }
+
+  .product-price{
+      font-size:26px;
+      color:#C9A86A;
+      margin-bottom:25px;
+  }
+
+  .add-to-cart{
+      background:none;
+      border:none;
+      font-size:12px;
+      letter-spacing:4px;
+      padding:12px 0;
+      cursor:pointer;
+      opacity:0.7;
+  }
+
+  .add-to-cart:hover{
+      opacity:1;
+  }
+
+  .separator{
+      margin:40px 0;
+      border:none;
+      border-top:1px solid rgba(0,0,0,0.05);
+  }
+
+  .section-title{
+      font-size:18px;
+      margin-bottom:15px;
+      font-weight:300;
+  }
+
+  .product-description{
+      font-size:15px;
+      color:#444;
+      margin-bottom:20px;
+      line-height:1.8;
+  }
+
+  .product-list{
+      font-size:15px;
+      color:#333;
+      padding-left:18px;
+      line-height:1.9;
+  }
+
+  @media(max-width:900px){
+      .product-container{
+          flex-direction:column;
+          text-align:center;
+          align-items:center;
+      }
+
+      .product-details{
+          text-align:center;
+          max-width:600px;
+      }
+  }
+
+  </style>
+</head>
+
+<body>
+
+<header class="lux-header">
+  <div class="lux-logo">Les Jardins Enchantés</div>
+</header>
+
+<section class="product-page">
+  <div class="product-container">
+
+    <!-- IMAGES -->
+    <div class="product-image-frame">
+      <img src="le-flateur-1.jpg" alt="Le Flateur image 1">
+      <img src="le-flateur-2.jpg" alt="Le Flateur image 2">
+      <img src="le-flateur-3.jpg" alt="Le Flateur image 3">
+      <img src="le-flateur-4.jpg" alt="Le Flateur image 4">
+      <img src="le-flateur-5.jpg" alt="Le Flateur image 5">
+    </div>
+
+    <!-- DETAILS -->
+    <div class="product-details">
+
+      <h1 class="product-title">Le Flateur</h1>
+
+      <p class="product-subtitle">
+        Produit intime premium conçu pour le confort et la stimulation.
+      </p>
+
+      <p class="product-price">29,99 €</p>
+
+      <button class="add-to-cart">AJOUTER AU PANIER</button>
+
+      <hr class="separator">
+
+      <h2 class="section-title">Description</h2>
+
+      <p class="product-description">
+        Le Flateur est un produit intime conçu pour offrir une expérience douce,
+        confortable et adaptée à tous les niveaux d’utilisation.
+      </p>
+
+      <hr class="separator">
+
+      <h2 class="section-title">Caractéristiques</h2>
+
+      <ul class="product-list">
+        <li>Design ergonomique</li>
+        <li>Matière douce et agréable</li>
+        <li>Facile à utiliser</li>
+        <li>Entretien simple</li>
+      </ul>
+
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
