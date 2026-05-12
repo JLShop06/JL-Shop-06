@@ -3,13 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JL Shop 06 – Le bon produit, au bon prix</title>
+  <title>Les Jardins Enchantés – Boutique Luxe Intime</title>
 
   <link rel="stylesheet" href="style.css">
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
-
+    /* -------------------------
+       PANIER / LOCAL STORAGE
+    --------------------------*/
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     function updateCart() {
@@ -22,192 +24,176 @@
       updateCart();
     }
 
-   function showCart() {
-  const cartItems = document.getElementById("cart-items");
-  const cartTotal = document.getElementById("cart-total");
+    function showCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
 
-  let total = 0;
+      let total = 0;
+      cartItems.innerHTML = "";
 
-  cartItems.innerHTML = "";
+      cart.forEach(p => {
+        const li = document.createElement("li");
+        li.textContent = `${p.name} - ${p.price}€`;
+        cartItems.appendChild(li);
+        total += Number(p.price);
+      });
 
-  cart.forEach(p => {
-    const li = document.createElement("li");
-    li.textContent = `${p.name} - ${p.price}€`;
-    cartItems.appendChild(li);
-    total += Number(p.price);
-  });
+      cartTotal.textContent = total.toFixed(2);
+      document.getElementById("cart-modal").style.display = "block";
+    }
 
-  cartTotal.textContent = total.toFixed(2);
-
-  document.getElementById("cart-modal").style.display = "block";
-}
-
-    // 🔥 AJOUT STRIPE (C’EST CE QUI MANQUAIT)
     async function checkout() {
       try {
         const res = await fetch("/api/stripe/checkout", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ cart })
         });
 
-       const data = await res.json();
-console.log(data);
-
-if (data.url) {
-  window.location.href = data.url;
-} else {
-  alert("Erreur Stripe : " + data.error);
-}
-
+        const data = await res.json();
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert("Erreur Stripe : " + data.error);
+        }
       } catch (err) {
         console.error(err);
         alert("Erreur paiement");
       }
     }
 
-    window.onload = updateCart;
     function clearCart() {
-  cart = [];
-  localStorage.removeItem("cart");
-  updateCart();
+      cart = [];
+      localStorage.removeItem("cart");
+      updateCart();
+      document.getElementById("cart-items").innerHTML = "";
+      document.getElementById("cart-total").textContent = "0";
+    }
 
-  document.getElementById("cart-items").innerHTML = "";
-  document.getElementById("cart-total").textContent = "0";
-}
+    window.onload = updateCart;
+
+    /* -------------------------
+          SYSTEME MULTILINGUE
+    --------------------------*/
+    function setLang(lang) {
+      document.querySelectorAll(".lang").forEach(el => {
+        el.style.display = el.getAttribute("lang") === lang ? "block" : "none";
+      });
+    }
   </script>
+
 </head>
 
 <body>
 
+<!-- HEADER LUXE -->
 <header class="lux-header">
-  <div></div>
-  <div class="lux-center">JL SHOP 06</div>
+  <div class="lux-logo">Les Jardins Enchantés</div>
+
+  <div class="language-selector">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('pt')">PT</button>
+    <button onclick="setLang('it')">IT</button>
+    <button onclick="setLang('es')">ES</button>
+    <button onclick="setLang('de')">DE</button>
+    <button onclick="setLang('nl')">NL</button>
+  </div>
+
   <button class="lux-cart" onclick="showCart()">
     PANIER (<span id="cartCount">0</span>)
   </button>
 </header>
 
-<section class="hero">
-
-  <div class="hero-logo">
-    <img src="logo_JL_Shop_06.jpg" alt="JL Shop 06">
-  </div>
-
-  <h1>Le bon produit, au bon prix</h1>
-  <p>JL Shop 06 est une boutique française proposant une sélection de produits du quotidien à prix accessibles partout en Europe. Notre mission est simple : offrir des articles utiles, tendance et de qualité au meilleur prix.
-Grâce à un modèle basé sur le déstockage et une sélection rigoureuse, nous mettons à disposition des produits variés alliant praticité, design et accessibilité, tout en garantissant une expérience d’achat fiable et soignée.
-JL Shop 06 développe également Azur Élégance, sa marque textile premium dédiée à une mode sobre, moderne et élégante. Cette collection reflète notre vision : proposer des pièces confortables, raffinées et accessibles.
-Chez JL Shop 06, nous croyons qu’il est possible de concilier qualité, style et prix justes.</p>
-</section>
-<section class="about">
-  <p>Nous proposons une sélection rigoureuse de produits du quotidien alliant praticité, qualité et accessibilité. En complément, nous développons nos propres collections textiles à travers Azur Élégance, notre marque premium dédiée à un style sobre et élégant.
+<!-- SECTION ACCUEIL PAR LANGUE -->
+<section class="hero lang" lang="fr">
+  <h1>Les Jardins Enchantés</h1>
+  <p>
+    Une boutique intime, élégante et raffinée dédiée au plaisir haut de gamme.
+    Découvrez une sélection de sextoys, huiles sensuelles et accessoires luxueux,
+    pensés pour des expériences d’exception.
   </p>
 </section>
 
-<!-- PRODUITS -->
+<section class="hero lang" lang="pt" style="display:none">
+  <h1>Les Jardins Enchantés</h1>
+  <p>
+    Uma boutique íntima e elegante dedicada ao prazer premium.
+    Descubra nossa seleção de produtos sensuais de alta qualidade.
+  </p>
+</section>
+
+<section class="hero lang" lang="it" style="display:none">
+  <h1>Les Jardins Enchantés</h1>
+  <p>
+    Una boutique raffinata dedicata al piacere di alta gamma.
+    Esplora la nostra collezione esclusiva di articoli sensuali.
+  </p>
+</section>
+
+<section class="hero lang" lang="es" style="display:none">
+  <h1>Les Jardins Enchantés</h1>
+  <p>
+    Una boutique íntima y elegante dedicada al placer de lujo.
+    Descubra nuestra selección exclusiva de productos sensuales.
+  </p>
+</section>
+
+<section class="hero lang" lang="de" style="display:none">
+  <h1>Les Jardins Enchantés</h1>
+  <p>
+    Eine elegante Boutique für luxuriöses, sinnliches Vergnügen.
+    Entdecken Sie unsere hochwertige Auswahl an intimen Produkten.
+  </p>
+</section>
+
+<section class="hero lang" lang="nl" style="display:none">
+  <h1>Les Jardins Enchantés</h1>
+  <p>
+    Een verfijnde boutique gewijd aan luxe en sensueel plezier.
+    Ontdek onze collectie exclusieve intieme producten.
+  </p>
+</section>
+
+<!-- PRODUITS (identiques pour toutes les langues) -->
 <main class="product-grid">
 
   <article>
-    <a href="produit-lingette-demaquillantes.html">
-    <img src="lingette rose 2.jpg">
-    </a>
-    <h3>Lingettes Démaquillantes</h3>
-    <strong>6,49 €</strong>
-    <button onclick="addToCart('lingettes','Lingettes',6.49,'price_1TSeGoF9c1lWA0Hy8H62jJBe')">Ajouter</button>
+    <img src="sextoy1.jpg">
+    <h3>Vibromasseur Élégance</h3>
+    <strong>59,90 €</strong>
+    <button onclick="addToCart('vibro1','Vibromasseur Élégance',59.9,'price_ID')">Ajouter</button>
   </article>
 
   <article>
-    <a href="produit-eponges-lot-de-10.html">
-    <img src="eponges lot de 10.jpg">
-    </a>
-    <h3>Éponges Multi Usage</h3>
-    <strong>7,99 €</strong>
-    <button onclick="addToCart('eponges','Éponges',7.99,'price_1TSeDaF9c1lWA0Hy0YRfBtQU')">Ajouter</button>
+    <img src="lubrifiant.jpg">
+    <h3>Gel Lubrifiant Premium</h3>
+    <strong>19,90 €</strong>
+    <button onclick="addToCart('gel1','Lubrifiant Premium',19.9,'price_ID')">Ajouter</button>
   </article>
 
   <article>
-    <a href="produit-coton-tiges.html">
-    <img src="coton-tiges.jpg">
-    </a>
-    <h3>Cotons-tiges x200</h3>
-    <strong>6,90 €</strong>
-    <button onclick="addToCart('cotons','Cotons-tiges',6.9,'price_1TSeBuF9c1lWA0HyCejKE0kW')">Ajouter</button>
+    <img src="plug.jpg">
+    <h3>Plug Cristal Luxe</h3>
+    <strong>39,90 €</strong>
+    <button onclick="addToCart('plug','Plug Cristal',39.9,'price_ID')">Ajouter</button>
   </article>
 
-  <article>
-    <a href="produit-casquette.html">
-    <img src="casquette_unisexe_noir.jpg">
-     </a> 
-    <h3>Casquette noire</h3>
-    <strong>10,00 €</strong>
-    <button onclick="addToCart('casquette','Casquette',10,'price_1TSe8CF9c1lWA0HyBJO6C3qa')">Ajouter</button>
-  </article>
-
-  <article>
-    <a href="produit-brosse-cheveux.html">
-    <img src="brosse_a_cheveux.jpg">
-    </a>
-    <h3>Brosse démêlante</h3>
-    <strong>8,99 €</strong>
-    <button onclick="addToCart('brosse','Brosse',8.99,'price_1TSe6hF9c1lWA0Hy0UeS8N8s')">Ajouter</button>
-  </article>
-
-  <article>
-    <a href="produit-support-telephone.html">
-    <img src="support téléphone.webp">
-    </a>
-    <h3>Support téléphone</h3>
-    <strong>4,99 €</strong>
-    <button onclick="addToCart('support','Support',4.99,'price_1TSe5HF9c1lWA0HyjuatzVrU')">Ajouter</button>
-  </article>
-  <article>
-    <a href="produit-gel-cheveux.html">
-    <img src="Gel coiffant fixant fort 500ml.jpg">
-    </a>
-    <h3>Gel coiffant 500ml</h3>
-    <strong>11,90 €</strong>
-    <button onclick="addToCart('gel','Gel',11.9,'price_1TSe3EF9c1lWA0Hy5xl99nbm')">Ajouter</button>
-  </article>
-  <article>
-    <a href="produit-coupe-ongles.html">
-    <img src="coupe-ongle.png">
-    </a>
-    <h3>Coupe-ongles pro</h3>
-    <strong>7,90 €</strong>
-    <button onclick="addToCart('coupe','Coupe-ongles',7.9,'price_1TSe0dF9c1lWA0HySl7MMPTe')">Ajouter</button>
-  </article>
 </main>
-<!-- PANIER -->
+
+<!-- PANIER MODAL -->
 <div id="cart-modal" style="display:none; position:fixed; top:80px; right:20px; background:white; padding:20px; border:1px solid #ccc; z-index:9999; width:300px;">
-  <h2>Ton panier</h2>
+  <h2>Panier</h2>
   <ul id="cart-items"></ul>
   <p>Total : <span id="cart-total">0</span> €</p>
-  <!-- 🔥 AJOUT BOUTON PAIEMENT -->
+
   <button onclick="checkout()">Payer maintenant</button>
   <button onclick="clearCart()">Vider le panier</button>
 </div>
+
+<!-- FOOTER LUXE -->
 <footer class="footer">
-  <p>© 2026 JL Shop 06 – Tous droits réservés</p>
+  <p>© 2026 Les Jardins Enchantés – Tous droits réservés</p>
 </footer>
-<footer style="background:#111; color:white; padding:40px 20px; margin-top:60px; text-align:center; font-family:Arial,sans-serif;"> 
-  <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; margin-bottom:20px; font-size:14px;">
-    <a href="mentions-legales.html" style="color:white; text-decoration:none;">Mentions légales</a>
-    <a href="cgv.html" style="color:white; text-decoration:none;">CGV</a>
-    <a href="confidentialite.html" style="color:white; text-decoration:none;">Politique de confidentialité</a>
-    <a href="cookies.html" style="color:white; text-decoration:none;">Cookies</a>
-    <a href="contact.html" style="color:white; text-decoration:none;">Contact</a>
-    <a href="livraison-retours.html" style="color:white; text-decoration:none;">Livraison & retours</a>
-    <a href="a-propos.html" style="color:white; text-decoration:none;">À propos</a>
-  </div>
-  <div style="margin-bottom:15px; font-size:13px; opacity:0.85;">
-    Paiement sécurisé • Livraison partout en Europe • Retours sous 14 jours
-  </div>
-  <div style="font-size:12px; opacity:0.7;">
-    © 2026 JL Shop 06 - Tous droits réservés
-  </div>
-</footer>
+
 </body>
 </html>
