@@ -257,7 +257,7 @@ article a {
 }
 .product-grid article img {
   width: 100%;   /* Garde la largeur dans son conteneur */
-  max-height: 250px; /* Limite la hauteur */
+  max-height: 350px; /* Limite la hauteur */
   object-fit: contain; /* Garde les proportions */
   display: block;
   margin: 0 auto; /* Centrage si besoin */
