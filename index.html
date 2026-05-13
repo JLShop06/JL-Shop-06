@@ -9,9 +9,6 @@
   <script src="https://js.stripe.com/v3/"></script>
 
   <script>
-    /* -------------------------
-       PANIER / LOCAL STORAGE
-    --------------------------*/
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
     function updateCart() {
@@ -72,21 +69,16 @@
 
     window.onload = updateCart;
 
-    /* -------------------------
-          SYSTEME MULTILINGUE
-    --------------------------*/
     function setLang(lang) {
       document.querySelectorAll(".lang").forEach(el => {
         el.style.display = el.getAttribute("lang") === lang ? "block" : "none";
       });
     }
   </script>
-
 </head>
 
 <body>
 
-<!-- HEADER LUXE -->
 <header class="lux-header">
   <div class="lux-logo">Les Jardins Enchantés</div>
 
@@ -104,177 +96,121 @@
   </button>
 </header>
 
-<!-- SECTION ACCUEIL PAR LANGUE -->
 <section class="hero lang" lang="fr">
   <h1>Les Jardins Enchantés</h1>
-  <p>
-    Un univers intime, raffiné et délicatement sensuel.
-Découvrez une boutique où l’élégance rencontre le bien-être, proposant une sélection soigneusement choisie de sextoys premium, d’huiles sensorielles et d’accessoires luxueux.
-Chaque création est pensée pour sublimer vos moments de plaisir et offrir des expériences uniques, douces et envoûtantes.
-  </p>
-   <h2 style="color:#caa86a; font-weight:bold; margin-top:240px;">
-    Sélection Exclusivement Raffinée
-  </h2>
+  <p>Un univers intime...</p>
 </section>
 
-<section class="hero lang" lang="pt" style="display:none">
-  <h1>Les Jardins Enchantés</h1>
-  <p>
-    Uma boutique íntima e elegante dedicada ao prazer premium.
-    Descubra nossa seleção de produtos sensuais de alta qualidade.
-  </p>
-</section>
-
-<section class="hero lang" lang="it" style="display:none">
-  <h1>Les Jardins Enchantés</h1>
-  <p>
-    Una boutique raffinata dedicata al piacere di alta gamma.
-    Esplora la nostra collezione esclusiva di articoli sensuali.
-  </p>
-</section>
-
-<section class="hero lang" lang="es" style="display:none">
-  <h1>Les Jardins Enchantés</h1>
-  <p>
-    Una boutique íntima y elegante dedicada al placer de lujo.
-    Descubra nuestra selección exclusiva de productos sensuales.
-  </p>
-</section>
-
-<section class="hero lang" lang="de" style="display:none">
-  <h1>Les Jardins Enchantés</h1>
-  <p>
-    Eine elegante Boutique für luxuriöses, sinnliches Vergnügen.
-    Entdecken Sie unsere hochwertige Auswahl an intimen Produkten.
-  </p>
-</section>
-
-<section class="hero lang" lang="nl" style="display:none">
-  <h1>Les Jardins Enchantés</h1>
-  <p>
-    Een verfijnde boutique gewijd aan luxe en sensueel plezier.
-    Ontdek onze collectie exclusieve intieme producten.
-  </p>
-</section>
-
-<!-- PRODUITS (identiques pour toutes les langues) -->
 <main class="product-grid">
 
   <article>
-  <a href="gel_cannabis_orgie.html">
-    <img src="gel-cannabis.jpg" alt="Gel lubrifiant chocolat">
-  </a>
-  <h3>Gel Lubrifiant Cannabis Premium</h3>
-  <strong>12,90 €</strong>
-  <button onclick="addToCart('gel1','Lubrifiant Premium',12.9,'price_ID')">Ajouter</button>
-</article> 
-  
- <article>
-  <a href="lubrifiant_eau_tube_barbe_a_papa.html">
-    <img src="lubrifiant_eau_tube_barbe_a_papa.jpg" alt="Gel lubrifiant chocolat">
-  </a>
-  <h3>Gel Lubrifiant Barbe a Papa Premium</h3>
-  <strong>12,90 €</strong>
-  <button onclick="addToCart('gel1','Lubrifiant Premium',12.9,'price_ID')">Ajouter</button>
-</article>
-  
-    <article>
-  <a href="lubrifiant_eau_lube_tube_chocolat_orgie.html">
-    <img src="lubrifiant_eau_tube_chocolat_3.jpg" alt="Gel lubrifiant chocolat">
-  </a>
-  <h3>Gel Lubrifiant Chocolat Premium</h3>
-  <strong>12,90 €</strong>
-  <button onclick="addToCart('gel1','Lubrifiant Premium',12.9,'price_ID')">Ajouter</button>
-</article>
+    <a href="gel_cannabis_orgie.html">
+      <img src="gel-cannabis.jpg">
+    </a>
+    <h3>Gel Lubrifiant Cannabis Premium</h3>
+    <strong>12,90 €</strong>
+    <button onclick="addToCart('gel1','Lubrifiant Cannabis',12.9,'price_1TWbq0F9c1lWA0HyAD61BvXS')">Ajouter</button>
+  </article>
 
-  
-   <article>
-  <a href="lubrifiant_eau_lube_tube_fraise_orgie.html">
-    <img src="lubrifiant_eau_lube_tube_fraise_orgie_1.jpg" alt="Gel lubrifiant Fraise">
-  </a>
-  <h3>Gel Lubrifiant Fraise Premium</h3>
-  <strong>12,90 €</strong>
-  <button onclick="addToCart('gel1','Lubrifiant Premium',12.9,'price_ID')">Ajouter</button>
-</article>
+  <article>
+    <a href="lubrifiant_eau_tube_barbe_a_papa.html">
+      <img src="lubrifiant_eau_tube_barbe_a_papa.jpg">
+    </a>
+    <h3>Gel Lubrifiant Barbe a Papa Premium</h3>
+    <strong>12,90 €</strong>
+    <button onclick="addToCart('gel2','Barbe à Papa',12.9,'price_1TWbqXF9c1lWA0Hy5Ay6RsHx')">Ajouter</button>
+  </article>
+
+  <article>
+    <a href="lubrifiant_eau_lube_tube_chocolat_orgie.html">
+      <img src="lubrifiant_eau_tube_chocolat_3.jpg">
+    </a>
+    <h3>Gel Lubrifiant Chocolat Premium</h3>
+    <strong>12,90 €</strong>
+    <button onclick="addToCart('gel3','Chocolat',12.9,'price_1TWbrFF9c1lWA0HyyYtYkqfZ')">Ajouter</button>
+  </article>
+
+  <article>
+    <a href="lubrifiant_eau_lube_tube_fraise_orgie.html">
+      <img src="lubrifiant_eau_lube_tube_fraise_orgie_1.jpg">
+    </a>
+    <h3>Gel Lubrifiant Fraise Premium</h3>
+    <strong>12,90 €</strong>
+    <button onclick="addToCart('gel4','Fraise',12.9,'price_1TWbtRF9c1lWA0Hyyj5LyQxj')">Ajouter</button>
+  </article>
 
   <article>
     <a href="black-empire-my-duchess.html">
-    <img src="vibro-elegance.jpg">
-      </a>
+      <img src="vibro-elegance.jpg">
+    </a>
     <h3>Vibromasseur black empire</h3>
     <strong>59,90 €</strong>
-    <button onclick="addToCart('vibro1','Vibromasseur Élégance',59.9,'price_ID')">Ajouter</button>
+    <button onclick="addToCart('vibro1','Black Empire',59.9,'price_1TWbuPF9c1lWA0Hyvp1e2CqX')">Ajouter</button>
   </article>
 
-   <article>
+  <article>
     <a href="monster-pussy-strocker.html">
-    <img src="monster.jpg">
-      </a>
+      <img src="monster.jpg">
+    </a>
     <h3>Monster Pussy Strocker</h3>
     <strong>19,99 €</strong>
-    <button onclick="addToCart('vibro1','Vibromasseur Élégance',59.9,'price_ID')">Ajouter</button>
+    <button onclick="addToCart('vibro2','Monster Pussy',19.99,'price_1TWbvJF9c1lWA0HyWeZId3tv')">Ajouter</button>
   </article>
+
   <article>
     <a href="red-dolls-energy-pleasure.html">
-    <img src="masturbateur-vaginal-red-dolls-energy.jpg">
-      </a>
+      <img src="masturbateur-vaginal-red-dolls-energy.jpg">
+    </a>
     <h3>Masturbateur red dolls energy</h3>
     <strong>19,99 €</strong>
-    <button onclick="addToCart('vibro1','Vibromasseur Élégance',59.9,'price_ID')">Ajouter</button>
+    <button onclick="addToCart('vibro3','Red Dolls',19.99,'price_1TWbwYF9c1lWA0HyZprTYZ3E')">Ajouter</button>
   </article>
 
   <article>
-  <a href="hemp-intense-orgasm.html">
-    <img src="gel_intime_d_excitation_hemp_intense_orgasm_15ml.jpg" alt="Gel Intime Orgie">
-  </a>
-  <h3>Gel Excitant Lubrifiant Premium</h3>
-  <strong>30,90 €</strong>
-  <button onclick="addToCart('gel1','Lubrifiant Premium',19.9,'price_ID')">Ajouter</button>
-</article>
-  
-   <article>
-    <a href="le-flateur.html">
-    <img src="le-flateur-1.jpg">
-      </a>
-    <h3>Le flateur</h3>
-    <strong>29,99 €</strong>
-    <button onclick="addToCart('vibro1','Vibromasseur Élégance',59.9,'price_ID')">Ajouter</button>
+    <a href="hemp-intense-orgasm.html">
+      <img src="gel_intime_d_excitation_hemp_intense_orgasm_15ml.jpg">
+    </a>
+    <h3>Gel Excitant Lubrifiant Premium</h3>
+    <strong>30,90 €</strong>
+    <button onclick="addToCart('gel5','Hemp Intense',30.9,'price_1TWbxDF9c1lWA0HyaphZNA1T')">Ajouter</button>
   </article>
 
- <article>
+  <article>
+    <a href="le-flateur.html">
+      <img src="le-flateur-1.jpg">
+    </a>
+    <h3>Le flateur</h3>
+    <strong>29,99 €</strong>
+    <button onclick="addToCart('flateur','Le Flateur',29.99,'price_1TWby1F9c1lWA0HyTtV0UANv')">Ajouter</button>
+  </article>
+
+  <article>
     <a href="Plug-Anal-Rosy-Gold.html">
-        <img src="plug_anal-rosy_gold.jpg">
+      <img src="plug_anal-rosy_gold.jpg">
     </a>
     <h3>Plug Rosy Gold Luxe</h3>
     <strong>39,99 €</strong>
-    <button onclick="addToCart('plug','Plug Cristal',39.99,'price_ID')">Ajouter</button>
-</article>
-  
-   <article>
+    <button onclick="addToCart('plug','Rosy Gold',39.99,'price_1TWbzXF9c1lWA0HykmiqFRYj')">Ajouter</button>
+  </article>
+
+  <article>
     <a href="dual-vibe-sex-on-the-beach.html">
-    <img src="gel-intime-sex-on-the-beach.jpg">
-      </a>
-    <h3>gel-intime-sex-on-the-beach</h3>
+      <img src="gel-intime-sex-on-the-beach.jpg">
+    </a>
+    <h3>Gel Sex On The Beach</h3>
     <strong>28,90 €</strong>
-    <button onclick="addToCart('vibro1','Vibromasseur Élégance',59.9,'price_ID')">Ajouter</button>
+    <button onclick="addToCart('gel6','Sex On The Beach',28.9,'price_1TWc1DF9c1lWA0HyfxJ6Hs71')">Ajouter</button>
   </article>
 
 </main>
 
-<!-- PANIER MODAL -->
-<div id="cart-modal" style="display:none; position:fixed; top:80px; right:20px; background:white; padding:20px; border:1px solid #ccc; z-index:9999; width:300px;">
+<div id="cart-modal" style="display:none;">
   <h2>Panier</h2>
   <ul id="cart-items"></ul>
   <p>Total : <span id="cart-total">0</span> €</p>
-
   <button onclick="checkout()">Payer maintenant</button>
   <button onclick="clearCart()">Vider le panier</button>
 </div>
-
-<!-- FOOTER LUXE -->
-<footer class="footer">
-  <p>© 2026 Les Jardins Enchantés – Tous droits réservés</p>
-</footer>
 
 </body>
 </html>
