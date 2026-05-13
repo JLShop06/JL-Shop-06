@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-
   .product-page{
       padding-top:160px;
       padding-bottom:120px;
@@ -24,7 +23,6 @@
       padding:0 20px;
   }
 
-  /* IMAGES */
   .product-image-frame{
       flex:1;
       display:flex;
@@ -46,7 +44,6 @@
       transform:scale(1.03);
   }
 
-  /* TEXTE */
   .product-details{
       flex:1;
       max-width:450px;
@@ -85,47 +82,18 @@
   .add-to-cart:hover{
       opacity:1;
   }
-
-  .separator{
-      margin:40px 0;
-      border:none;
-      border-top:1px solid rgba(0,0,0,0.05);
-  }
-
-  .section-title{
-      font-size:18px;
-      margin-bottom:15px;
-      font-weight:300;
-  }
-
-  .product-description{
-      font-size:15px;
-      color:#444;
-      margin-bottom:20px;
-      line-height:1.8;
-  }
-
-  .product-list{
-      font-size:15px;
-      color:#333;
-      padding-left:18px;
-      line-height:1.9;
-  }
-
-  @media(max-width:900px){
-      .product-container{
-          flex-direction:column;
-          text-align:center;
-          align-items:center;
-      }
-
-      .product-details{
-          text-align:center;
-          max-width:600px;
-      }
-  }
-
   </style>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    function addToCart(id, name, price, priceId) {
+      cart.push({ id, name, price, priceId });
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert("Ajouté au panier !");
+    }
+  </script>
+
 </head>
 
 <body>
@@ -137,60 +105,32 @@
 <section class="product-page">
   <div class="product-container">
 
-    <!-- IMAGES -->
     <div class="product-image-frame">
-      <img src="lubrifiant_eau_tube_barbe_a_papa.jpg" alt="Lube Tube Barbe à Papa Orgie image 1">
-      <img src="lubrifiant_eau_tube_barbe_a_papa_2.jpg" alt="Lube Tube Barbe à Papa Orgie image 2">
-      <img src="lubrifiant_eau_tube_barbe_a_papa_3.jpg" alt="Lube Tube Barbe à Papa Orgie image 3">
+      <img src="lubrifiant_eau_tube_barbe_a_papa.jpg">
+      <img src="lubrifiant_eau_tube_barbe_a_papa_2.jpg">
+      <img src="lubrifiant_eau_tube_barbe_a_papa_3.jpg">
     </div>
 
-    <!-- DETAILS -->
     <div class="product-details">
 
       <h1 class="product-title">Tube Gel Barbe à Papa – Orgie</h1>
 
       <p class="product-subtitle">
-        Gel intime à base d’eau, embrassable et aromatisé à la barbe à papa. Gourmand, doux et parfait pour les moments complices.
+        Gel intime à base d’eau, aromatisé à la barbe à papa.
       </p>
 
       <p class="product-price">12,90 €</p>
 
-      <button class="add-to-cart">AJOUTER AU PANIER</button>
-
-      <hr class="separator">
-
-      <h2 class="section-title">Description</h2>
-
-      <p class="product-description">
-        Orgie Tube Barbe à Papa est un gel intime longue durée, non collant et facile à nettoyer,
-        au parfum sucré rappelant la douceur enfantine de la barbe à papa.
-        Fabriqué au Portugal, il offre une expérience délicate, fluide et gourmande.
-      </p>
-
-      <hr class="separator">
-
-      <h2 class="section-title">Caractéristiques</h2>
-
-      <ul class="product-list">
-        <li>Gel intime à base d’eau</li>
-        <li>Aromatisé à la barbe à papa</li>
-        <li>Embrassable, idéal pour le sexe oral</li>
-        <li>Lubrification longue durée</li>
-        <li>Non collant, facile à nettoyer</li>
-        <li>Tube C/LDPE 100 ml</li>
-        <li>Fabriqué au Portugal</li>
-        <li>Marque : Orgie</li>
-      </ul>
-
-      <hr class="separator">
-
-      <h2 class="section-title">Composition</h2>
-
-      <p class="product-description">
-        AQUA, SORBITOL, GLYCERIN, HYDROXYETHYLCELLULOSE, AROMA, PEG-40 HYDROGENATED CASTOR OIL,
-        PROPYLENE GLYCOL, SODIUM BENZOATE, SODIUM SACCHARIN, LACTIC ACID, POTASSIUM SORBATE,
-        DISODIUM PHOSPHATE, POLYSORBATE 60, SODIUM PHOSPHATE.
-      </p>
+      <!-- ✅ BOUTON CORRIGÉ -->
+      <button class="add-to-cart"
+        onclick="addToCart(
+          'gel_barbe_a_papa',
+          'Gel Barbe à Papa',
+          12.90,
+          'price_1TWbqXF9c1lWA0Hy5Ay6RsHx'
+        )">
+        AJOUTER AU PANIER
+      </button>
 
     </div>
 
