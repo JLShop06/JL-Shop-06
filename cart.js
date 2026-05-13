@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const product = {
-        id: button.dataset.id,   // 🔥 IMPORTANT
-        name: button.dataset.name,
-        price: button.dataset.price
+        id: button.dataset.productId,   // ✅ Stripe price_id
+        name: button.dataset.productName,
+        price: button.dataset.productPrice
       };
 
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
