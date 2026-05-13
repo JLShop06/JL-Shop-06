@@ -3,175 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monster Pussy Strocker – Alive</title>
+  <title>Monster Pussy Strocker – Alive | Les Jardins Enchantés</title>
+  <meta name="description" content="Monster Pussy Strocker par Alive – Masturbateur masculin ultra réaliste en forme de canette. 19,99 €.">
   <link rel="stylesheet" href="style.css">
-
+  <script src="cart.js" defer></script>
   <style>
-
-  .product-page{
-      padding-top:160px;
-      padding-bottom:120px;
-      display:flex;
-      justify-content:center;
-      width:100%;
-  }
-
-  .product-container{
-      max-width:1050px;
-      display:flex;
-      gap:80px;
-      align-items:flex-start;
-      padding:0 20px;
-  }
-
-  /* IMAGES */
-  .product-image-frame{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-      align-items:center;
-  }
-
-  .product-image-frame img{
-      width:100%;
-      max-width:450px;
-      border-radius:12px;
-      object-fit:cover;
-      box-shadow:0 8px 40px rgba(0,0,0,0.12);
-      transition:0.4s ease;
-  }
-
-  .product-image-frame img:hover{
-      transform:scale(1.03);
-  }
-
-  /* TEXTE */
-  .product-details{
-      flex:1;
-      max-width:450px;
-      text-align:left;
-  }
-
-  .product-title{
-      font-size:34px;
-      font-weight:300;
-      margin-bottom:10px;
-  }
-
-  .product-subtitle{
-      font-size:15px;
-      color:#555;
-      margin-bottom:25px;
-      line-height:1.6;
-  }
-
-  .product-price{
-      font-size:26px;
-      color:#C9A86A;
-      margin-bottom:25px;
-  }
-
-  .add-to-cart{
-      background:none;
-      border:none;
-      font-size:12px;
-      letter-spacing:4px;
-      padding:12px 0;
-      cursor:pointer;
-      opacity:0.7;
-  }
-
-  .add-to-cart:hover{
-      opacity:1;
-  }
-
-  .separator{
-      margin:40px 0;
-      border:none;
-      border-top:1px solid rgba(0,0,0,0.05);
-  }
-
-  .section-title{
-      font-size:18px;
-      margin-bottom:15px;
-      font-weight:300;
-  }
-
-  .product-description{
-      font-size:15px;
-      color:#444;
-      margin-bottom:20px;
-      line-height:1.8;
-  }
-
-  .product-list{
-      font-size:15px;
-      color:#333;
-      padding-left:18px;
-      line-height:1.9;
-  }
-
-  @media(max-width:900px){
-      .product-container{
-          flex-direction:column;
-          text-align:center;
-          align-items:center;
-      }
-
-      .product-details{
-          text-align:center;
-          max-width:600px;
-      }
-  }
-
+    .product-page { padding-top:160px; padding-bottom:120px; display:flex; justify-content:center; width:100%; }
+    .product-container { max-width:1050px; display:flex; gap:80px; align-items:flex-start; padding:0 20px; }
+    .product-image-frame { flex:1; display:flex; flex-direction:column; gap:20px; align-items:center; }
+    .product-image-frame img { width:100%; max-width:450px; border-radius:12px; object-fit:cover; box-shadow:0 8px 40px rgba(0,0,0,0.12); transition:0.4s ease; }
+    .product-image-frame img:hover { transform:scale(1.03); }
+    .product-details { flex:1; max-width:450px; text-align:left; }
+    .product-title { font-size:34px; font-weight:300; margin-bottom:10px; }
+    .product-subtitle { font-size:15px; color:#555; margin-bottom:25px; line-height:1.6; }
+    .product-price { font-size:26px; color:#C9A86A; margin-bottom:25px; }
+    .add-to-cart { background:none; border:none; font-size:12px; letter-spacing:4px; padding:12px 0; cursor:pointer; opacity:0.7; }
+    .add-to-cart:hover { opacity:1; }
+    .separator { margin:40px 0; border:none; border-top:1px solid rgba(0,0,0,0.05); }
+    .section-title { font-size:18px; margin-bottom:15px; font-weight:300; }
+    .product-description { font-size:15px; color:#444; margin-bottom:20px; line-height:1.8; }
+    .product-list { font-size:15px; color:#333; padding-left:18px; line-height:1.9; }
+    @media(max-width:900px) { .product-container { flex-direction:column; text-align:center; align-items:center; } .product-details { text-align:center; max-width:600px; } }
   </style>
 </head>
-
 <body>
-
 <header class="lux-header">
-  <div class="lux-logo">Les Jardins Enchantés</div>
+  <a href="index.html" style="text-decoration:none;"><div class="lux-logo">Les Jardins Enchantés</div></a>
+  <button class="lux-cart" onclick="showCart()">PANIER (<span id="cartCount">0</span>)</button>
 </header>
-
 <section class="product-page">
   <div class="product-container">
-
-    <!-- IMAGES -->
     <div class="product-image-frame">
       <img src="monster.jpg" alt="Monster Pussy Strocker">
       <img src="monster-1.jpg" alt="Monster Pussy Strocker vue 1">
       <img src="monster-2.jpg" alt="Monster Pussy Strocker vue 2">
       <img src="monster-3.jpg" alt="Monster Pussy Strocker vue 3">
     </div>
-
-    <!-- DETAILS -->
     <div class="product-details">
-
       <h1 class="product-title">Monster Pussy Strocker</h1>
-
-      <p class="product-subtitle">
-        Masturbateur masculin réaliste en forme de canette – design discret et texture ultra réaliste.
-      </p>
-
-      <p class="product-price">XX,XX €</p>
-
-      <button class="add-to-cart">AJOUTER AU PANIER</button>
-
+      <p class="product-subtitle">Masturbateur masculin réaliste en forme de canette – design discret et texture ultra réaliste.</p>
+      <p class="product-price">19,99 €</p>
+      <button class="add-to-cart" data-product-id="price_1TWbvJF9c1lWA0HyWeZId3tv" data-product-name="Monster Pussy" data-product-price="19.99">AJOUTER AU PANIER</button>
       <hr class="separator">
-
       <h2 class="section-title">Description</h2>
-
-      <p class="product-description">
-        Le Monster Pussy Strocker de la marque Alive est un masturbateur masculin innovant
-        conçu sous la forme d’une canette discrète et originale.
-        Sa texture interne ultra réaliste reproduit les sensations d’un vagin pour une expérience intense.
-      </p>
-
+      <p class="product-description">Le Monster Pussy Strocker de la marque Alive est un masturbateur masculin innovant conçu sous la forme d'une canette discrète et originale. Sa texture interne ultra réaliste reproduit les sensations d'un vagin pour une expérience intense.</p>
       <hr class="separator">
-
       <h2 class="section-title">Caractéristiques</h2>
-
       <ul class="product-list">
         <li>Masturbateur masculin en forme de canette</li>
         <li>Texture interne ultra réaliste</li>
@@ -181,11 +58,12 @@
         <li>Coloris : vert</li>
         <li>Marque : Alive</li>
       </ul>
-
     </div>
-
   </div>
 </section>
-
+<footer class="footer">
+  © Les Jardins Enchantés – Boutique Luxe Intime<br>
+  <a href="cgv.html">CGV</a> <a href="confidentialite">Confidentialité</a> <a href="cookies.html">Cookies</a> <a href="index.html">Retour boutique</a>
+</footer>
 </body>
 </html>
