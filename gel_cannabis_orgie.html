@@ -3,177 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gel Intime Cannabis – Orgie</title>
+  <title>Gel Intime Cannabis – Orgie | Les Jardins Enchantés</title>
+  <meta name="description" content="Gel intime à base d'eau parfumé au cannabis – Orgie. Texture douce, non collant. 12,90 €.">
   <link rel="stylesheet" href="style.css">
-
+  <script src="cart.js" defer></script>
   <style>
-
-  .product-page{
-      padding-top:160px;
-      padding-bottom:120px;
-      display:flex;
-      justify-content:center;
-      width:100%;
-  }
-
-  .product-container{
-      max-width:1050px;
-      display:flex;
-      gap:80px;
-      align-items:flex-start;
-      padding:0 20px;
-  }
-
-  /* IMAGES */
-  .product-image-frame{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-      align-items:center;
-  }
-
-  .product-image-frame img{
-      width:100%;
-      max-width:450px;
-      border-radius:12px;
-      object-fit:cover;
-      box-shadow:0 8px 40px rgba(0,0,0,0.12);
-      transition:0.4s ease;
-  }
-
-  .product-image-frame img:hover{
-      transform:scale(1.03);
-  }
-
-  /* TEXTE */
-  .product-details{
-      flex:1;
-      max-width:450px;
-      text-align:left;
-  }
-
-  .product-title{
-      font-size:34px;
-      font-weight:300;
-      margin-bottom:10px;
-  }
-
-  .product-subtitle{
-      font-size:15px;
-      color:#555;
-      margin-bottom:25px;
-      line-height:1.6;
-  }
-
-  .product-price{
-      font-size:26px;
-      color:#C9A86A;
-      margin-bottom:25px;
-  }
-
-  .add-to-cart{
-      background:none;
-      border:none;
-      font-size:12px;
-      letter-spacing:4px;
-      padding:12px 0;
-      cursor:pointer;
-      opacity:0.7;
-  }
-
-  .add-to-cart:hover{
-      opacity:1;
-  }
-
-  .separator{
-      margin:40px 0;
-      border:none;
-      border-top:1px solid rgba(0,0,0,0.05);
-  }
-
-  .section-title{
-      font-size:18px;
-      margin-bottom:15px;
-      font-weight:300;
-  }
-
-  .product-description{
-      font-size:15px;
-      color:#444;
-      margin-bottom:20px;
-      line-height:1.8;
-  }
-
-  .product-list{
-      font-size:15px;
-      color:#333;
-      padding-left:18px;
-      line-height:1.9;
-  }
-
-  @media(max-width:900px){
-      .product-container{
-          flex-direction:column;
-          text-align:center;
-          align-items:center;
-      }
-
-      .product-details{
-          text-align:center;
-          max-width:600px;
-      }
-  }
-
+    .product-page{padding-top:160px;padding-bottom:120px;display:flex;justify-content:center;width:100%;}
+    .product-container{max-width:1050px;display:flex;gap:80px;align-items:flex-start;padding:0 20px;}
+    .product-image-frame{flex:1;display:flex;flex-direction:column;gap:20px;align-items:center;}
+    .product-image-frame img{width:100%;max-width:450px;border-radius:12px;object-fit:cover;box-shadow:0 8px 40px rgba(0,0,0,0.12);transition:0.4s ease;}
+    .product-image-frame img:hover{transform:scale(1.03);}
+    .product-details{flex:1;max-width:450px;text-align:left;}
+    .product-title{font-size:34px;font-weight:300;margin-bottom:10px;}
+    .product-subtitle{font-size:15px;color:#555;margin-bottom:25px;line-height:1.6;}
+    .product-price{font-size:26px;color:#C9A86A;margin-bottom:25px;}
+    .add-to-cart{background:none;border:none;font-size:12px;letter-spacing:4px;padding:12px 0;cursor:pointer;opacity:0.7;}
+    .add-to-cart:hover{opacity:1;}
+    .separator{margin:40px 0;border:none;border-top:1px solid rgba(0,0,0,0.05);}
+    .section-title{font-size:18px;margin-bottom:15px;font-weight:300;}
+    .product-description{font-size:15px;color:#444;margin-bottom:20px;line-height:1.8;}
+    .product-list{font-size:15px;color:#333;padding-left:18px;line-height:1.9;}
+    @media(max-width:900px){.product-container{flex-direction:column;text-align:center;align-items:center;}.product-details{text-align:center;max-width:600px;}}
   </style>
 </head>
-
 <body>
-
 <header class="lux-header">
-  <div class="lux-logo">Les Jardins Enchantés</div>
+  <a href="index.html" style="text-decoration:none;"><div class="lux-logo">Les Jardins Enchantés</div></a>
+  <button class="lux-cart" onclick="showCart()">PANIER (<span id="cartCount">0</span>)</button>
 </header>
-
 <section class="product-page">
   <div class="product-container">
-
-    <!-- IMAGES -->
     <div class="product-image-frame">
-      <img src="gel-cannabis.jpg" alt="Gel Intime Cannabis Orgie image 1">
-      <img src="gel-cannabis-1.jpg" alt="Gel Intime Cannabis Orgie image 2">
-      <img src="gel-cannabis-2.jpg" alt="Gel Intime Cannabis Orgie image 3">
+      <img src="gel-cannabis.jpg" alt="Gel Intime Cannabis Orgie – vue principale">
+      <img src="gel-cannabis-1.jpg" alt="Gel Intime Cannabis Orgie vue 2">
+      <img src="gel-cannabis-2.jpg" alt="Gel Intime Cannabis Orgie vue 3">
     </div>
-
-    <!-- DETAILS -->
     <div class="product-details">
-
-      <h1 class="product-title">Gel Intime Cannabis  Orgie</h1>
-
-      <p class="product-subtitle">
-        Gel intime a abse de cannabis, à base d’eau, conçu pour offrir une sensation douce
-        et naturelle tout en apportant une touche originale à vos moments intimes.
-      </p>
-
+      <h1 class="product-title">Gel Intime Cannabis Orgie</h1>
+      <p class="product-subtitle">Gel intime à base d'eau, conçu pour offrir une sensation douce et naturelle avec un parfum végétal inspiré du cannabis.</p>
       <p class="product-price">12,90 €</p>
-
-      <button class="add-to-cart">AJOUTER AU PANIER</button>
-
+      <button class="add-to-cart" data-product-id="price_1TWbq0F9c1lWA0HyAD61BvXS" data-product-name="Lubrifiant Cannabis" data-product-price="12.9">AJOUTER AU PANIER</button>
       <hr class="separator">
-
       <h2 class="section-title">Description</h2>
-
-      <p class="product-description">
-        Ce gel intime associe la fluidité d’un lubrifiant à base d’eau à un parfum subtil et végétal
-        inspiré du cannabis. Léger, non collant et facile à nettoyer,
-        il offre une expérience agréable, douce et naturelle. Fabriqué au Portugal.
-      </p>
-
+      <p class="product-description">Ce gel intime associe la fluidité d'un lubrifiant à base d'eau à un parfum subtil et végétal inspiré du cannabis. Léger, non collant et facile à nettoyer, il offre une expérience agréable, douce et naturelle. Fabriqué au Portugal.</p>
       <hr class="separator">
-
       <h2 class="section-title">Caractéristiques</h2>
-
       <ul class="product-list">
-        <li>Gel intime à base d’eau</li>
+        <li>Gel intime à base d'eau</li>
         <li>Parfum végétal inspiré du cannabis</li>
         <li>Texture douce et fluide</li>
         <li>Non collant, facile à rincer</li>
@@ -181,21 +57,15 @@
         <li>Fabriqué au Portugal</li>
         <li>Marque : Orgie</li>
       </ul>
-
       <hr class="separator">
-
       <h2 class="section-title">Composition</h2>
-
-      <p class="product-description">
-        AQUA, SORBITOL, GLYCERIN, HYDROXYETHYLCELLULOSE, AROMA, PEG-40 HYDROGENATED CASTOR OIL,
-        PROPYLENE GLYCOL, SODIUM BENZOATE, SODIUM SACCHARIN, LACTIC ACID, POTASSIUM SORBATE,
-        DISODIUM PHOSPHATE, POLYSORBATE 60, SODIUM PHOSPHATE.
-      </p>
-
+      <p class="product-description">AQUA, SORBITOL, GLYCERIN, HYDROXYETHYLCELLULOSE, AROMA, PEG-40 HYDROGENATED CASTOR OIL, PROPYLENE GLYCOL, SODIUM BENZOATE, SODIUM SACCHARIN, LACTIC ACID, POTASSIUM SORBATE, DISODIUM PHOSPHATE, POLYSORBATE 60, SODIUM PHOSPHATE.</p>
     </div>
-
   </div>
 </section>
-
+<footer class="footer">
+  © Les Jardins Enchantés – Boutique Luxe Intime<br>
+  <a href="cgv.html">CGV</a> <a href="confidentialite">Confidentialité</a> <a href="cookies.html">Cookies</a> <a href="index.html">Retour boutique</a>
+</footer>
 </body>
 </html>
