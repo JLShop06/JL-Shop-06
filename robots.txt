@@ -1,0 +1,14 @@
+# robots.txt — Les Jardins Enchantés
+# https://jl-shop-06.vercel.app
+
+User-agent: *
+Allow: /
+
+# Pages à ne pas indexer (techniques / retours Stripe)
+Disallow: /success.html
+Disallow: /cancel.html
+Disallow: /erreur.html
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://jl-shop-06.vercel.app/sitemap.xml
