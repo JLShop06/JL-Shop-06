@@ -1,13 +1,85 @@
-<!-- success.html -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <title>Paiement réussi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Les Jardins Enchantés – Commande confirmée</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .success-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 1s ease both;
+    }
+    .success-icon {
+      font-size: 56px;
+      margin-bottom: 24px;
+      color: var(--or);
+    }
+    .success-title {
+      font-size: 32px;
+      font-weight: 200;
+      letter-spacing: 3px;
+      color: var(--or);
+      margin-bottom: 16px;
+    }
+    .success-subtitle {
+      font-size: 15px;
+      color: var(--gris);
+      max-width: 520px;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+    .success-btn {
+      display: inline-block;
+      border: 1px solid var(--or);
+      color: var(--or);
+      padding: 12px 36px;
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+    .success-btn:hover {
+      background: var(--or);
+      color: var(--noir);
+    }
+    .success-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--or);
+      opacity: 0.4;
+      margin: 0 auto 32px;
+    }
+  </style>
 </head>
-<body style="font-family:Arial;text-align:center;padding:50px;">
-  <h1 style="color:green;">✅ Paiement réussi !</h1>
-  <p>Merci pour ta commande, JL Shop 06.</p>
-  <a href="index.html">Retour à l'accueil</a>
+<body>
+  <header class="lux-header">
+    <a href="index.html" style="text-decoration:none;">
+      <div class="lux-logo">Les Jardins Enchantés</div>
+    </a>
+  </header>
+  <main class="success-page">
+    <div class="success-icon">&#10003;</div>
+    <h1 class="success-title">Commande confirmée</h1>
+    <div class="success-divider"></div>
+    <p class="success-subtitle">
+      Merci pour votre commande. Vous allez recevoir un email de confirmation dans quelques instants.<br>
+      Notre équipe prépare votre colis avec soin.
+    </p>
+    <a href="index.html" class="success-btn">CONTINUER LES ACHATS</a>
+  </main>
+  <footer class="footer">
+    © Les Jardins Enchantés – Boutique Luxe Intime<br>
+    <a href="cgv.html">CGV</a>
+    <a href="confidentialite">Confidentialité</a>
+    <a href="cookies.html">Cookies</a>
+  </footer>
+  <script>localStorage.removeItem("cart");</script>
 </body>
 </html>
