@@ -76,14 +76,14 @@
   </div>
 </a>
 
-<div class="language-selector">
-<button onclick="setLang('fr')">FR</button>
-<button onclick="setLang('pt')">PT</button>
-<button onclick="setLang('it')">IT</button>
-<button onclick="setLang('es')">ES</button>
-<button onclick="setLang('de')">DE</button>
-<button onclick="setLang('nl')">NL</button>
-</div>
+<nav class="language-selector" aria-label="Sélection de langue">
+  <button onclick="setLang('fr')" title="Français">FR</button>
+  <button onclick="setLang('pt')" title="Português">PT</button>
+  <button onclick="setLang('it')" title="Italiano">IT</button>
+  <button onclick="setLang('es')" title="Español">ES</button>
+  <button onclick="setLang('de')" title="Deutsch">DE</button>
+  <button onclick="setLang('nl')" title="Nederlands">NL</button>
+</nav>
 
 <button class="lux-cart" onclick="showCart()">
 PANIER (<span id="cartCount">0</span>)
@@ -349,10 +349,19 @@ Total : <span id="cart-total">0.00</span> €
 
 <script>
 function setLang(lang) {
-document.querySelectorAll(".lang").forEach(el => {
-el.style.display = el.getAttribute("lang") === lang ? "block" : "none";
-});
+  document.querySelectorAll(".lang").forEach(el => {
+    el.style.display = el.getAttribute("lang") === lang ? "block" : "none";
+  });
+  document.querySelectorAll(".language-selector button").forEach(btn => {
+    btn.classList.toggle("active", btn.getAttribute("onclick").includes("'" + lang + "'"));
+  });
+  localStorage.setItem("lang", lang);
 }
+// Init: restore saved language
+(function() {
+  const saved = localStorage.getItem("lang") || "fr";
+  setLang(saved);
+})();
 </script>
 
 </body>
