@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de Confidentialité – Les Jardins Enchantés</title>
+<meta name="description" content="Politique de confidentialité RGPD des Jardins Enchantés : données collectées, finalités, durée, droits du client.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="cart.js" defer></script>
+</head>
+
+<body>
+
+<header class="lux-header">
+<a href="index.html" style="text-decoration:none;">
+<div class="lux-logo">Les Jardins Enchantés</div>
+</a>
+<button class="lux-cart" onclick="showCart()">
+PANIER (<span id="cartCount">0</span>)
+</button>
+</header>
+
+<section class="legal-page">
+<h1>Politique de Confidentialité</h1>
+<p class="legal-subtitle">Protection des données personnelles · RGPD</p>
+
+<div class="legal-callout">
+<p>Les Jardins Enchantés respecte votre vie privée. Cette politique vous explique <strong>quelles données nous collectons</strong>, <strong>pourquoi</strong>, <strong>combien de temps</strong> nous les conservons et <strong>quels sont vos droits</strong>, conformément au <strong>Règlement Général sur la Protection des Données (RGPD - Règlement UE 2016/679)</strong> et à la loi française « Informatique et Libertés » modifiée.</p>
+</div>
+
+<h2>1. Responsable de traitement</h2>
+<p>Le responsable du traitement de vos données personnelles est :</p>
+<p><strong>Les Jardins Enchantés</strong><br>
+Représenté par : <span class="legal-placeholder">{NOM PRÉNOM DU GÉRANT À COMPLÉTER}</span><br>
+Adresse : <span class="legal-placeholder">{ADRESSE POSTALE À COMPLÉTER}</span><br>
+Email : <a href="mailto:jlshop06190@gmail.com">jlshop06190@gmail.com</a></p>
+
+<h2>2. Données personnelles collectées</h2>
+<p>Nous collectons uniquement les données strictement nécessaires à la gestion de vos commandes :</p>
+<ul>
+<li><strong>Identité :</strong> nom, prénom (lors du paiement Stripe)</li>
+<li><strong>Coordonnées :</strong> adresse email, adresse de livraison, numéro de téléphone</li>
+<li><strong>Données de paiement :</strong> aucune donnée bancaire n'est stockée sur nos serveurs. Le paiement est intégralement géré par <strong>Stripe Payments Europe, Ltd.</strong>, prestataire certifié PCI-DSS niveau 1</li>
+<li><strong>Données de commande :</strong> historique d'achats, montants, dates</li>
+<li><strong>Données techniques :</strong> contenu du panier (stocké uniquement dans votre navigateur via <em>localStorage</em>)</li>
+</ul>
+
+<h2>3. Finalités du traitement</h2>
+<p>Vos données sont utilisées pour :</p>
+<ul>
+<li>Traiter et livrer vos commandes</li>
+<li>Gérer la relation client (réponse aux questions, service après-vente)</li>
+<li>Émettre des factures et respecter nos obligations comptables et fiscales</li>
+<li>Lutter contre la fraude (vérification de paiement via Stripe)</li>
+</ul>
+
+<h2>4. Base légale du traitement</h2>
+<p>Le traitement de vos données repose sur :</p>
+<ul>
+<li><strong>L'exécution du contrat de vente</strong> (article 6.1.b RGPD) pour la gestion de votre commande</li>
+<li><strong>Le respect d'obligations légales</strong> (article 6.1.c RGPD) pour la conservation comptable</li>
+<li><strong>L'intérêt légitime</strong> (article 6.1.f RGPD) pour la prévention de la fraude</li>
+</ul>
+
+<h2>5. Destinataires des données</h2>
+<p>Vos données ne sont jamais vendues ni cédées à des tiers à des fins commerciales. Elles peuvent être transmises uniquement à :</p>
+<ul>
+<li><strong>Stripe Payments Europe, Ltd.</strong> (sous-traitant paiement) — <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">Politique Stripe</a></li>
+<li><strong>Vercel Inc.</strong> (hébergement technique du site) — <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">Politique Vercel</a></li>
+<li>Les transporteurs choisis pour la livraison de votre commande</li>
+<li>Les administrations légalement habilitées en cas de réquisition (autorités fiscales, judiciaires)</li>
+</ul>
+
+<h2>6. Durée de conservation</h2>
+<ul>
+<li><strong>Données de commande et facturation :</strong> 10 ans (obligation légale comptable - article L123-22 du Code de commerce)</li>
+<li><strong>Données de compte client :</strong> 3 ans à compter de la dernière activité</li>
+<li><strong>Données de paiement :</strong> conservées par Stripe selon leur propre politique (jamais stockées chez nous)</li>
+<li><strong>Données du panier (localStorage) :</strong> stockées uniquement sur votre appareil, supprimables à tout moment</li>
+</ul>
+
+<h2>7. Transferts hors UE</h2>
+<p>Notre hébergeur Vercel Inc. est basé aux États-Unis. Les transferts de données sont encadrés par les <strong>Clauses Contractuelles Types</strong> de la Commission Européenne et le <strong>Data Privacy Framework</strong> auquel Vercel adhère.</p>
+
+<h2>8. Vos droits RGPD</h2>
+<p>Conformément aux articles 15 à 22 du RGPD, vous disposez des droits suivants :</p>
+<ul>
+<li><strong>Droit d'accès :</strong> obtenir une copie des données vous concernant</li>
+<li><strong>Droit de rectification :</strong> corriger des données inexactes</li>
+<li><strong>Droit à l'effacement</strong> (« droit à l'oubli ») : sous conditions légales</li>
+<li><strong>Droit à la limitation</strong> du traitement</li>
+<li><strong>Droit à la portabilité :</strong> récupérer vos données dans un format structuré</li>
+<li><strong>Droit d'opposition</strong> au traitement</li>
+<li><strong>Droit de définir des directives</strong> relatives au sort de vos données après votre décès</li>
+</ul>
+<p>Pour exercer ces droits, contactez-nous à : <a href="mailto:jlshop06190@gmail.com">jlshop06190@gmail.com</a>. Nous répondons sous un délai maximum de <strong>1 mois</strong>.</p>
+
+<h2>9. Réclamation auprès de la CNIL</h2>
+<p>Si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la <strong>Commission Nationale de l'Informatique et des Libertés (CNIL)</strong> :</p>
+<p>3 Place de Fontenoy, TSA 80715, 75334 Paris Cedex 07<br>
+<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
+
+<h2>10. Sécurité des données</h2>
+<p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, modification, divulgation ou destruction : connexion HTTPS chiffrée (SSL/TLS), paiement délégué à un prestataire certifié PCI-DSS, hébergement sécurisé.</p>
+
+<p class="legal-meta">Dernière mise à jour : 14 mai 2026</p>
+</section>
+
+<!-- MODAL PANIER -->
+<div id="cart-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:3000; align-items:center; justify-content:center;">
+<div style="background:#0c0c0c; border:1px solid rgba(202,168,106,0.3); padding:40px; min-width:360px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto;">
+<h2 style="color:#caa86a; letter-spacing:3px; font-weight:200; font-size:18px; margin-bottom:24px;">VOTRE PANIER</h2>
+<ul id="cart-items" style="padding:0; margin:0 0 20px;"></ul>
+<p style="text-align:right; color:#caa86a; font-size:14px; letter-spacing:2px; margin-bottom:24px;">
+Total : <span id="cart-total">0.00</span> €
+</p>
+<button id="checkout-btn" onclick="checkout()" style="width:100%; margin-bottom:10px; background:none; border:1px solid #caa86a; color:#caa86a; padding:14px; letter-spacing:4px; font-size:11px; cursor:pointer; transition:0.3s;">PAYER</button>
+<button onclick="clearCart()" style="width:100%; background:none; border:1px solid rgba(255,255,255,0.1); color:#9c9c9c; padding:10px; letter-spacing:3px; font-size:10px; cursor:pointer; transition:0.3s;">VIDER LE PANIER</button>
+<button onclick="closeCart()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#9c9c9c; font-size:20px; cursor:pointer; line-height:1;">✕</button>
+</div>
+</div>
+
+<footer class="footer">
+© Les Jardins Enchantés – Boutique Luxe Intime<br>
+<a href="cgv.html">CGV</a>
+<a href="confidentialite.html">Confidentialité</a>
+<a href="cookies.html">Cookies</a>
+<a href="mentions-legales.html">Mentions légales</a>
+</footer>
+
+</body>
+</html>
