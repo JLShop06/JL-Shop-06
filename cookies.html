@@ -1,25 +1,112 @@
-1. Qu’est‑ce qu’un cookie ?
-Un cookie est un petit fichier texte enregistré sur ton appareil (ordinateur, smartphone, tablette) lorsque tu consultes un site web.
-Il permet de mémoriser certaines informations, par exemple tes préférences de navigation.
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Politique de Cookies – Les Jardins Enchantés</title>
+<meta name="description" content="Politique de cookies des Jardins Enchantés : aucun cookie publicitaire, uniquement le strict nécessaire technique.">
+<meta name="robots" content="index, follow">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="cart.js" defer></script>
+</head>
 
-2. Types de cookies utilisés
-Selon les outils que tu installeras, RJ Destock pourra utiliser :
+<body>
 
-Cookies strictement nécessaires : fonctionnement du site (navigation, panier, etc.).
+<header class="lux-header">
+<a href="index.html" style="text-decoration:none;">
+<div class="lux-logo">Les Jardins Enchantés</div>
+</a>
+<button class="lux-cart" onclick="showCart()">
+PANIER (<span id="cartCount">0</span>)
+</button>
+</header>
 
-Cookies de mesure d’audience : statistiques anonymes de fréquentation.
+<section class="legal-page">
+<h1>Politique de Cookies</h1>
+<p class="legal-subtitle">Transparence totale sur les traceurs</p>
 
-Cookies de préférences : langue, pays, affichage.
+<div class="legal-callout">
+<p><strong>Bonne nouvelle :</strong> Les Jardins Enchantés <strong>n'utilise aucun cookie publicitaire, aucun traceur marketing et aucun outil d'analyse comportementale</strong>. Nous respectons votre vie privée par défaut.</p>
+</div>
 
-Cookies marketing (si tu en ajoutes plus tard).
+<h2>1. Qu'est-ce qu'un cookie ?</h2>
+<p>Un cookie est un petit fichier texte déposé sur votre appareil (ordinateur, tablette, smartphone) lors de la consultation d'un site web. Il permet au site de mémoriser des informations sur votre visite.</p>
 
-3. Gestion du consentement
-Lors de ta première visite sur le site, une bannière d’information peut t’informer de l’utilisation potentielle de cookies.
-Tu peux accepter ou refuser certains cookies non essentiels, selon les réglages que tu mettras en place (via un bandeau / outil CMP ou les paramètres de ton navigateur).
+<h2>2. Cookies et stockage utilisés sur ce site</h2>
+<p>Notre site utilise uniquement des <strong>technologies strictement nécessaires</strong> à son fonctionnement, qui sont <strong>exemptées de consentement</strong> selon les recommandations de la CNIL et de la directive ePrivacy.</p>
 
-4. Paramétrage via le navigateur
-Tu peux configurer ton navigateur pour bloquer ou supprimer les cookies :
+<h3>a) Stockage local (localStorage) — Panier d'achat</h3>
+<ul>
+<li><strong>Nom :</strong> <code>cart</code>, <code>cart_version</code></li>
+<li><strong>Finalité :</strong> mémoriser les produits que vous ajoutez à votre panier pendant votre visite</li>
+<li><strong>Émetteur :</strong> Les Jardins Enchantés (interne au site)</li>
+<li><strong>Durée :</strong> jusqu'à ce que vous vidiez votre panier ou le cache de votre navigateur</li>
+<li><strong>Données transmises à des tiers :</strong> aucune</li>
+<li><strong>Consentement requis :</strong> non (cookie strictement nécessaire au service explicitement demandé par l'utilisateur)</li>
+</ul>
 
-Les instructions varient selon le navigateur (Chrome, Firefox, Safari, etc.).
+<h3>b) Cookies Stripe — Paiement sécurisé</h3>
+<ul>
+<li><strong>Émetteur :</strong> Stripe Payments Europe, Ltd.</li>
+<li><strong>Finalité :</strong> sécurisation du paiement, prévention de la fraude</li>
+<li><strong>Quand :</strong> uniquement lorsque vous cliquez sur « Payer » et que vous êtes redirigé(e) vers la page sécurisée de Stripe</li>
+<li><strong>Durée :</strong> selon la politique de Stripe</li>
+<li><strong>Plus d'informations :</strong> <a href="https://stripe.com/fr/cookies-policy/legal" target="_blank" rel="noopener">Politique de cookies Stripe</a></li>
+</ul>
 
-La désactivation de certains cookies peut toutefois dégrader certaines fonctionnalités du site.
+<h2>3. Ce que nous N'UTILISONS PAS</h2>
+<p>Nous tenons à être transparents : notre site <strong>n'utilise pas</strong> :</p>
+<ul>
+<li>❌ Google Analytics ou tout autre outil d'analyse de trafic</li>
+<li>❌ Facebook Pixel, TikTok Pixel ou autre tracker de réseau social</li>
+<li>❌ Cookies publicitaires ou de retargeting</li>
+<li>❌ Cookies tiers à des fins de profilage</li>
+<li>❌ Empreinte numérique (fingerprinting)</li>
+</ul>
+
+<h2>4. Comment gérer le stockage de votre navigateur ?</h2>
+<p>Vous pouvez à tout moment supprimer les données stockées par notre site dans votre navigateur :</p>
+<ul>
+<li><strong>Chrome :</strong> Paramètres → Confidentialité et sécurité → Effacer les données de navigation</li>
+<li><strong>Firefox :</strong> Paramètres → Vie privée et sécurité → Cookies et données de sites</li>
+<li><strong>Safari :</strong> Réglages → Confidentialité → Gérer les données de sites web</li>
+<li><strong>Edge :</strong> Paramètres → Cookies et autorisations du site</li>
+</ul>
+<p>Vous pouvez également vider votre panier directement sur le site via le bouton « <strong>Vider le panier</strong> ».</p>
+
+<h2>5. Évolution de cette politique</h2>
+<p>Si nous décidons un jour d'ajouter des outils de mesure d'audience (exemptés de consentement comme <em>Matomo</em> en configuration anonymisée) ou tout autre traceur, nous mettrons à jour cette page <strong>avant</strong> leur déploiement et solliciterons votre consentement éclairé si requis par la loi.</p>
+
+<h2>6. Contact</h2>
+<p>Pour toute question concernant cette politique : <a href="mailto:jlshop06190@gmail.com">jlshop06190@gmail.com</a></p>
+
+<p class="legal-meta">Dernière mise à jour : 14 mai 2026</p>
+</section>
+
+<!-- MODAL PANIER -->
+<div id="cart-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:3000; align-items:center; justify-content:center;">
+<div style="background:#0c0c0c; border:1px solid rgba(202,168,106,0.3); padding:40px; min-width:360px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto;">
+<h2 style="color:#caa86a; letter-spacing:3px; font-weight:200; font-size:18px; margin-bottom:24px;">VOTRE PANIER</h2>
+<ul id="cart-items" style="padding:0; margin:0 0 20px;"></ul>
+<p style="text-align:right; color:#caa86a; font-size:14px; letter-spacing:2px; margin-bottom:24px;">
+Total : <span id="cart-total">0.00</span> €
+</p>
+<button id="checkout-btn" onclick="checkout()" style="width:100%; margin-bottom:10px; background:none; border:1px solid #caa86a; color:#caa86a; padding:14px; letter-spacing:4px; font-size:11px; cursor:pointer; transition:0.3s;">PAYER</button>
+<button onclick="clearCart()" style="width:100%; background:none; border:1px solid rgba(255,255,255,0.1); color:#9c9c9c; padding:10px; letter-spacing:3px; font-size:10px; cursor:pointer; transition:0.3s;">VIDER LE PANIER</button>
+<button onclick="closeCart()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#9c9c9c; font-size:20px; cursor:pointer; line-height:1;">✕</button>
+</div>
+</div>
+
+<footer class="footer">
+© Les Jardins Enchantés – Boutique Luxe Intime<br>
+<a href="cgv.html">CGV</a>
+<a href="confidentialite.html">Confidentialité</a>
+<a href="cookies.html">Cookies</a>
+<a href="mentions-legales.html">Mentions légales</a>
+</footer>
+
+</body>
+</html>
