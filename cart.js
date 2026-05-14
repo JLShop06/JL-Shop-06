@@ -3,6 +3,22 @@
    Les Jardins Enchantés
    ============================================ */
 
+// ── Versioning du panier ──────────────────────
+// Incrémente cette valeur à chaque modif de prix/produits Stripe
+// pour purger automatiquement les anciens paniers obsolètes
+// stockés dans le localStorage des clients.
+const CART_VERSION = "v2-2026-05-14";
+
+(function purgeOldCart() {
+  try {
+    const storedVersion = localStorage.getItem("cart_version");
+    if (storedVersion !== CART_VERSION) {
+      localStorage.removeItem("cart");
+      localStorage.setItem("cart_version", CART_VERSION);
+    }
+  } catch (e) { /* localStorage indispo, on ignore */ }
+})();
+
 // ── Lecture / écriture localStorage ──────────
 function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
@@ -21,7 +37,7 @@ function updateCartCount() {
   }
 }
 
-// ── Ajout au panier (appelé depuis onclick ou addEventListener) ──
+// ── Ajout au panier ───────────────────────────
 function addToCart(id, name, price, priceId) {
   const cart = getCart();
   cart.push({ id, name, price, priceId });
@@ -30,7 +46,7 @@ function addToCart(id, name, price, priceId) {
   showToast(name + " ajouté au panier");
 }
 
-// ── Toast notification (remplace les alert) ──
+// ── Toast notification ────────────────────────
 function showToast(message) {
   let toast = document.getElementById("lux-toast");
   if (!toast) {
