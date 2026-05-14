@@ -1,282 +1,301 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Les Jardins Enchantés – Boutique Luxe Intime</title>
-  <meta name="description" content="Les Jardins Enchantés – Boutique en ligne de produits intimes premium. Découvrez notre sélection de gels lubrifiants, vibromasseurs et accessoires intimes de luxe.">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://js.stripe.com/v3/"></script>
-  <script src="cart.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les Jardins Enchantés – Boutique Luxe Intime</title>
+<meta name="description" content="Les Jardins Enchantés – Maison française dédiée à l'élégance intime. Sélection raffinée d'objets et d'élixirs de plaisir, livraison discrète et paiement sécurisé.">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://js.stripe.com/v3/"></script>
+<script src="cart.js" defer></script>
 </head>
 
 <body>
 
 <header class="lux-header">
-  <a href="index.html" style="text-decoration:none;">
-    <div class="lux-logo">Les Jardins Enchantés</div>
-  </a>
+<a href="index.html" style="text-decoration:none;">
+<div class="lux-logo">Les Jardins Enchantés</div>
+</a>
 
-  <div class="language-selector">
-    <button onclick="setLang('fr')">FR</button>
-    <button onclick="setLang('pt')">PT</button>
-    <button onclick="setLang('it')">IT</button>
-    <button onclick="setLang('es')">ES</button>
-    <button onclick="setLang('de')">DE</button>
-    <button onclick="setLang('nl')">NL</button>
-  </div>
+<div class="language-selector">
+<button onclick="setLang('fr')">FR</button>
+<button onclick="setLang('pt')">PT</button>
+<button onclick="setLang('it')">IT</button>
+<button onclick="setLang('es')">ES</button>
+<button onclick="setLang('de')">DE</button>
+<button onclick="setLang('nl')">NL</button>
+</div>
 
-  <button class="lux-cart" onclick="showCart()">
-    PANIER (<span id="cartCount">0</span>)
-  </button>
+<button class="lux-cart" onclick="showCart()">
+PANIER (<span id="cartCount">0</span>)
+</button>
 </header>
 
+<!-- ============ NOUVELLE BANNIÈRE HERO ============ -->
 <section class="hero lang" lang="fr">
-  <h1>Les Jardins Enchantés</h1>
-  <p>Un univers intime où élégance et plaisir se rencontrent. Des produits premium sélectionnés avec soin pour sublimer vos moments.</p>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-kicker">— Maison Française · Édition Limitée —</span>
+    <h1 class="hero-title">Les Jardins <em>Enchantés</em></h1>
+    <div class="hero-divider"><span></span>✦<span></span></div>
+    <p class="hero-baseline">Une invitation au plaisir, dans la plus belle discrétion.</p>
+    <p class="hero-desc">
+      Découvrez une sélection raffinée d'objets et d'élixirs intimes, pensés pour celles et ceux qui font du désir un art. Entre élégance, sensualité et exigence, chaque pièce de notre collection a été choisie pour transformer vos instants les plus précieux en souvenirs inoubliables.
+    </p>
+    <div class="hero-badges">
+      <span>✦ Livraison Discrète</span>
+      <span>✦ Paiement Sécurisé</span>
+      <span>✦ Sélection Premium</span>
+    </div>
+    <a href="#collection" class="hero-cta">Découvrir la Collection</a>
+  </div>
 </section>
+<!-- ============ FIN HERO ============ -->
 
-<main class="product-grid">
+<main id="collection" class="product-grid">
 
-  <article>
-    <a href="gel_cannabis_orgie.html">
-      <img src="gel-cannabis.jpg" alt="Gel Lubrifiant Cannabis Premium – Orgie">
-    </a>
-    <h3>Gel Lubrifiant Cannabis Premium</h3>
-    <strong>12,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbq0F9c1lWA0HyAD61BvXS"
-      data-product-name="Lubrifiant Cannabis"
-      data-product-price="12.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="gel_cannabis_orgie.html">
+<img src="gel-cannabis.jpg" alt="Gel Lubrifiant Cannabis Premium – Orgie">
+</a>
+<h3>Gel Lubrifiant Cannabis Premium</h3>
+<strong>12,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbq0F9c1lWA0HyAD61BvXS"
+data-product-name="Lubrifiant Cannabis"
+data-product-price="12.9">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="lubrifiant_eau_tube_barbe_a_papa.html">
-      <img src="lubrifiant_eau_tube_barbe_a_papa.jpg" alt="Gel Lubrifiant Barbe à Papa Premium – Orgie">
-    </a>
-    <h3>Gel Lubrifiant Barbe à Papa Premium</h3>
-    <strong>12,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbqXF9c1lWA0Hy5Ay6RsHx"
-      data-product-name="Barbe à Papa"
-      data-product-price="12.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="lubrifiant_eau_tube_barbe_a_papa.html">
+<img src="lubrifiant_eau_tube_barbe_a_papa.jpg" alt="Gel Lubrifiant Barbe à Papa Premium – Orgie">
+</a>
+<h3>Gel Lubrifiant Barbe à Papa Premium</h3>
+<strong>12,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbqXF9c1lWA0Hy5Ay6RsHx"
+data-product-name="Barbe à Papa"
+data-product-price="12.9">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="lubrifiant_eau_lube_tube_chocolat_orgie.html">
-      <img src="lubrifiant_eau_tube_chocolat_3.jpg" alt="Gel Lubrifiant Chocolat Premium – Orgie">
-    </a>
-    <h3>Gel Lubrifiant Chocolat Premium</h3>
-    <strong>12,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbrFF9c1lWA0HyyYtYkqfZ"
-      data-product-name="Chocolat"
-      data-product-price="12.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="lubrifiant_eau_lube_tube_chocolat_orgie.html">
+<img src="lubrifiant_eau_tube_chocolat_3.jpg" alt="Gel Lubrifiant Chocolat Premium – Orgie">
+</a>
+<h3>Gel Lubrifiant Chocolat Premium</h3>
+<strong>12,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbrFF9c1lWA0HyyYtYkqfZ"
+data-product-name="Chocolat"
+data-product-price="12.9">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="lubrifiant_eau_lube_tube_fraise_orgie.html">
-      <img src="lubrifiant_eau_lube_tube_fraise_orgie_1.jpg" alt="Gel Lubrifiant Fraise Premium – Orgie">
-    </a>
-    <h3>Gel Lubrifiant Fraise Premium</h3>
-    <strong>12,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbtRF9c1lWA0Hyyj5LyQxj"
-      data-product-name="Fraise"
-      data-product-price="12.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="lubrifiant_eau_lube_tube_fraise_orgie.html">
+<img src="lubrifiant_eau_lube_tube_fraise_orgie_1.jpg" alt="Gel Lubrifiant Fraise Premium – Orgie">
+</a>
+<h3>Gel Lubrifiant Fraise Premium</h3>
+<strong>12,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbtRF9c1lWA0Hyyj5LyQxj"
+data-product-name="Fraise"
+data-product-price="12.9">
+AJOUTER
+</button>
+</article>
 
-   <article>
-    <a href="pink-star.html">
-      <img src="pink-star_lubrifiant_arome_sangria-60_ml.jpg" alt="Gel Lubrifiant Pink Star Premium  Orgie">
-    </a>
-    <h3>Gel Lubrifiant Pink Star Premium</h3>
-    <strong>14,95 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWmqsF9c1lWA0Hy3KlOWgQK"
-      data-product-name="Lubrifiant Pink Star"
-      data-product-price="14.95">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="pink-star.html">
+<img src="pink-star_lubrifiant_arome_sangria-60_ml.jpg" alt="Gel Lubrifiant Pink Star Premium Orgie">
+</a>
+<h3>Gel Lubrifiant Pink Star Premium</h3>
+<strong>14,95 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWmqsF9c1lWA0Hy3KlOWgQK"
+data-product-name="Lubrifiant Pink Star"
+data-product-price="14.95">
+AJOUTER
+</button>
+</article>
 
- <article>
-    <a href="pink_star_sucette_cerise.html">
-      <img src="pink_star_sucette_cerise.jpg" alt="Gel Lubrifiant Pink Star Premium  Orgie">
-    </a>
-    <h3>Gel Lubrifiant Pink Star Premium</h3>
-    <strong>14,95 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWnmpF9c1lWA0HylbbD5pZq"
-      data-product-name="Lubrifiant Pink Star"
-      data-product-price="14.95">
-      AJOUTER
-    </button>
-  </article>
-  
-   <article>
-    <a href="pink-star-choco-fraise.html">
-      <img src="pink-star-lubrifiant_comestible_fraise_chocolat_blanc-60ml.jpg" alt="Gel Lubrifiant Pink Star Premium  Orgie">
-    </a>
-    <h3>Gel Lubrifiant Pink Star Premium</h3>
-    <strong>14,95 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWnH7F9c1lWA0HyyaVRmDEa"
-      data-product-name="Lubrifiant Pink Star"
-      data-product-price="14.95">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="pink_star_sucette_cerise.html">
+<img src="pink_star_sucette_cerise.jpg" alt="Gel Lubrifiant Pink Star Premium Orgie">
+</a>
+<h3>Gel Lubrifiant Pink Star Premium</h3>
+<strong>14,95 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWnmpF9c1lWA0HylbbD5pZq"
+data-product-name="Lubrifiant Pink Star"
+data-product-price="14.95">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="black-empire-my-duchess.html">
-      <img src="vibro-elegance.jpg" alt="Vibromasseur Black Empire My Duchess">
-    </a>
-    <h3>Vibromasseur Black Empire</h3>
-    <strong>59,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbuPF9c1lWA0Hyvp1e2CqX"
-      data-product-name="Black Empire"
-      data-product-price="59.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="pink-star-choco-fraise.html">
+<img src="pink-star-lubrifiant_comestible_fraise_chocolat_blanc-60ml.jpg" alt="Gel Lubrifiant Pink Star Premium Orgie">
+</a>
+<h3>Gel Lubrifiant Pink Star Premium</h3>
+<strong>14,95 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWnH7F9c1lWA0HyyaVRmDEa"
+data-product-name="Lubrifiant Pink Star"
+data-product-price="14.95">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="monster-pussy-strocker.html">
-      <img src="monster.jpg" alt="Monster Pussy Strocker – Alive">
-    </a>
-    <h3>Monster Pussy Strocker</h3>
-    <strong>19,99 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbvJF9c1lWA0HyWeZId3tv"
-      data-product-name="Monster Pussy"
-      data-product-price="19.99">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="black-empire-my-duchess.html">
+<img src="vibro-elegance.jpg" alt="Vibromasseur Black Empire My Duchess">
+</a>
+<h3>Vibromasseur Black Empire</h3>
+<strong>59,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbuPF9c1lWA0Hyvp1e2CqX"
+data-product-name="Black Empire"
+data-product-price="59.9">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="red-dolls-energy-pleasure.html">
-      <img src="masturbateur-vaginal-red-dolls-energy.jpg" alt="Masturbateur Red Dolls Energy – Alive">
-    </a>
-    <h3>Masturbateur Red Dolls Energy</h3>
-    <strong>19,99 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbwYF9c1lWA0HyZprTYZ3E"
-      data-product-name="Red Dolls"
-      data-product-price="19.99">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="monster-pussy-strocker.html">
+<img src="monster.jpg" alt="Monster Pussy Strocker – Alive">
+</a>
+<h3>Monster Pussy Strocker</h3>
+<strong>19,99 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbvJF9c1lWA0HyWeZId3tv"
+data-product-name="Monster Pussy"
+data-product-price="19.99">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="hemp-intense-orgasm.html">
-      <img src="gel_intime_d_excitation_hemp_intense_orgasm_15ml.jpg" alt="Gel Excitant Hemp Intense Orgasm – Orgie">
-    </a>
-    <h3>Gel Excitant Hemp Intense Orgasm</h3>
-    <strong>30,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbxDF9c1lWA0HyaphZNA1T"
-      data-product-name="Hemp Intense"
-      data-product-price="30.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="red-dolls-energy-pleasure.html">
+<img src="masturbateur-vaginal-red-dolls-energy.jpg" alt="Masturbateur Red Dolls Energy – Alive">
+</a>
+<h3>Masturbateur Red Dolls Energy</h3>
+<strong>19,99 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbwYF9c1lWA0HyZprTYZ3E"
+data-product-name="Red Dolls"
+data-product-price="19.99">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="le-flateur.html">
-      <img src="le-flateur-1.jpg" alt="Le Flateur – Stimulateur intime premium">
-    </a>
-    <h3>Le Flateur</h3>
-    <strong>29,99 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWby1F9c1lWA0HyTtV0UANv"
-      data-product-name="Le Flateur"
-      data-product-price="29.99">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="hemp-intense-orgasm.html">
+<img src="gel_intime_d_excitation_hemp_intense_orgasm_15ml.jpg" alt="Gel Excitant Hemp Intense Orgasm – Orgie">
+</a>
+<h3>Gel Excitant Hemp Intense Orgasm</h3>
+<strong>30,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbxDF9c1lWA0HyaphZNA1T"
+data-product-name="Hemp Intense"
+data-product-price="30.9">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="Plug-Anal-Rosy-Gold.html">
-      <img src="plug_anal-rosy_gold.jpg" alt="Plug Anal Rosy Gold Luxe">
-    </a>
-    <h3>Plug Rosy Gold Luxe</h3>
-    <strong>39,99 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWbzXF9c1lWA0HykmiqFRYj"
-      data-product-name="Rosy Gold"
-      data-product-price="39.99">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="le-flateur.html">
+<img src="le-flateur-1.jpg" alt="Le Flateur – Stimulateur intime premium">
+</a>
+<h3>Le Flateur</h3>
+<strong>29,99 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWby1F9c1lWA0HyTtV0UANv"
+data-product-name="Le Flateur"
+data-product-price="29.99">
+AJOUTER
+</button>
+</article>
 
-  <article>
-    <a href="dual-vibe-sex-on-the-beach.html">
-      <img src="gel-intime-sex-on-the-beach.jpg" alt="Gel Sex On The Beach – Dual Vibe Orgie">
-    </a>
-    <h3>Gel Sex On The Beach</h3>
-    <strong>28,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWc1DF9c1lWA0HyfxJ6Hs71"
-      data-product-name="Sex On The Beach"
-      data-product-price="28.9">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="Plug-Anal-Rosy-Gold.html">
+<img src="plug_anal-rosy_gold.jpg" alt="Plug Anal Rosy Gold Luxe">
+</a>
+<h3>Plug Rosy Gold Luxe</h3>
+<strong>39,99 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWbzXF9c1lWA0HykmiqFRYj"
+data-product-name="Rosy Gold"
+data-product-price="39.99">
+AJOUTER
+</button>
+</article>
 
-   <article>
-    <a href="orgie-pinacolada.html">
-      <img src="orgie_gel_excitation_pina_colada.jpg" alt="Pina Colada– Dual Vibe Orgie">
-    </a>
-    <h3>Pina Colada</h3>
-    <strong>32,90 €</strong>
-    <button class="add-to-cart"
-      data-product-id="price_1TWocqF9c1lWA0HyXDKAxWve"
-      data-product-name="Pina Colada"
-      data-product-price="32.90">
-      AJOUTER
-    </button>
-  </article>
+<article>
+<a href="dual-vibe-sex-on-the-beach.html">
+<img src="gel-intime-sex-on-the-beach.jpg" alt="Gel Sex On The Beach – Dual Vibe Orgie">
+</a>
+<h3>Gel Sex On The Beach</h3>
+<strong>28,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWc1DF9c1lWA0HyfxJ6Hs71"
+data-product-name="Sex On The Beach"
+data-product-price="28.9">
+AJOUTER
+</button>
+</article>
+
+<article>
+<a href="orgie-pinacolada.html">
+<img src="orgie_gel_excitation_pina_colada.jpg" alt="Pina Colada– Dual Vibe Orgie">
+</a>
+<h3>Pina Colada</h3>
+<strong>32,90 €</strong>
+<button class="add-to-cart"
+data-product-id="price_1TWocqF9c1lWA0HyXDKAxWve"
+data-product-name="Pina Colada"
+data-product-price="32.90">
+AJOUTER
+</button>
+</article>
 
 </main>
 
 <!-- MODAL PANIER -->
 <div id="cart-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:3000; align-items:center; justify-content:center;">
-  <div style="background:#0c0c0c; border:1px solid rgba(202,168,106,0.3); padding:40px; min-width:360px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto;">
-    <h2 style="color:#caa86a; letter-spacing:3px; font-weight:200; font-size:18px; margin-bottom:24px;">VOTRE PANIER</h2>
-    <ul id="cart-items" style="padding:0; margin:0 0 20px;"></ul>
-    <p style="text-align:right; color:#caa86a; font-size:14px; letter-spacing:2px; margin-bottom:24px;">
-      Total : <span id="cart-total">0.00</span> €
-    </p>
-    <button id="checkout-btn" onclick="checkout()" style="width:100%; margin-bottom:10px; background:none; border:1px solid #caa86a; color:#caa86a; padding:14px; letter-spacing:4px; font-size:11px; cursor:pointer; transition:0.3s;">PAYER</button>
-    <button onclick="clearCart()" style="width:100%; background:none; border:1px solid rgba(255,255,255,0.1); color:#9c9c9c; padding:10px; letter-spacing:3px; font-size:10px; cursor:pointer; transition:0.3s;">VIDER LE PANIER</button>
-    <button onclick="closeCart()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#9c9c9c; font-size:20px; cursor:pointer; line-height:1;">✕</button>
-  </div>
+<div style="background:#0c0c0c; border:1px solid rgba(202,168,106,0.3); padding:40px; min-width:360px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto;">
+<h2 style="color:#caa86a; letter-spacing:3px; font-weight:200; font-size:18px; margin-bottom:24px;">VOTRE PANIER</h2>
+<ul id="cart-items" style="padding:0; margin:0 0 20px;"></ul>
+<p style="text-align:right; color:#caa86a; font-size:14px; letter-spacing:2px; margin-bottom:24px;">
+Total : <span id="cart-total">0.00</span> €
+</p>
+<button id="checkout-btn" onclick="checkout()" style="width:100%; margin-bottom:10px; background:none; border:1px solid #caa86a; color:#caa86a; padding:14px; letter-spacing:4px; font-size:11px; cursor:pointer; transition:0.3s;">PAYER</button>
+<button onclick="clearCart()" style="width:100%; background:none; border:1px solid rgba(255,255,255,0.1); color:#9c9c9c; padding:10px; letter-spacing:3px; font-size:10px; cursor:pointer; transition:0.3s;">VIDER LE PANIER</button>
+<button onclick="closeCart()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:#9c9c9c; font-size:20px; cursor:pointer; line-height:1;">✕</button>
+</div>
 </div>
 
 <footer class="footer">
-  © Les Jardins Enchantés – Boutique Luxe Intime<br>
-  <a href="cgv.html">CGV</a>
-  <a href="confidentialite">Confidentialité</a>
-  <a href="cookies.html">Cookies</a>
-  <a href="mentions-legales">Mentions légales</a>
+© Les Jardins Enchantés – Boutique Luxe Intime<br>
+<a href="cgv.html">CGV</a>
+<a href="confidentialite">Confidentialité</a>
+<a href="cookies.html">Cookies</a>
+<a href="mentions-legales">Mentions légales</a>
 </footer>
 
 <script>
 function setLang(lang) {
-  document.querySelectorAll(".lang").forEach(el => {
-    el.style.display = el.getAttribute("lang") === lang ? "block" : "none";
-  });
+document.querySelectorAll(".lang").forEach(el => {
+el.style.display = el.getAttribute("lang") === lang ? "block" : "none";
+});
 }
 </script>
 
