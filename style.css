@@ -262,3 +262,222 @@ article a {
   display: block;
   margin: 0 auto; /* Centrage si besoin */
 }
+
+
+/* ============================================ */
+/* ============ HERO BANNIÈRE LUXE ============ */
+/* ============================================ */
+
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 200px 24px 140px;
+  overflow: hidden;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fond avec dégradés dorés et noir profond */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(202,168,106,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(202,168,106,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(202,168,106,0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #0a0a0a 0%, #141008 50%, #0a0a0a 100%);
+  pointer-events: none;
+}
+
+/* Texture subtile au-dessus du fond */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(202,168,106,0.35) 0.5px, transparent 1.5px),
+    radial-gradient(circle at 75% 60%, rgba(202,168,106,0.3) 0.5px, transparent 1.5px),
+    radial-gradient(circle at 40% 80%, rgba(202,168,106,0.25) 0.5px, transparent 1.5px),
+    radial-gradient(circle at 85% 15%, rgba(202,168,106,0.3) 0.5px, transparent 1.5px),
+    radial-gradient(circle at 25% 65%, rgba(202,168,106,0.2) 0.5px, transparent 1.5px);
+  background-size: 280px 280px, 340px 340px, 220px 220px, 400px 400px, 300px 300px;
+  opacity: 0.6;
+  animation: starsFloat 30s linear infinite;
+}
+
+@keyframes starsFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-40px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 880px;
+  margin: 0 auto;
+  animation: fadeIn 1.4s ease both;
+}
+
+/* Kicker (petit texte en haut) */
+.hero-kicker {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 6px;
+  color: var(--or);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeInUp 1.2s 0.2s ease forwards;
+}
+
+/* Titre principal */
+.hero-title {
+  font-family: 'Cormorant Garamond', 'Inter', serif;
+  font-size: clamp(48px, 8vw, 92px);
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--blanc);
+  margin-bottom: 28px;
+  line-height: 1.05;
+  opacity: 0;
+  animation: fadeInUp 1.2s 0.4s ease forwards;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--or);
+  background: linear-gradient(135deg, #e6c98a 0%, #caa86a 40%, #a8884a 70%, #e6c98a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Divider décoratif */
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto 32px;
+  max-width: 320px;
+  color: var(--or);
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeInUp 1.2s 0.6s ease forwards;
+}
+
+.hero-divider span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--or), transparent);
+}
+
+/* Baseline (phrase d'accroche) */
+.hero-baseline {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(20px, 2.6vw, 26px);
+  color: #e8d9b8;
+  margin-bottom: 24px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  opacity: 0;
+  animation: fadeInUp 1.2s 0.8s ease forwards;
+}
+
+/* Description longue */
+.hero-desc {
+  max-width: 720px;
+  margin: 0 auto 44px;
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: #c5c5c5;
+  letter-spacing: 0.3px;
+  font-weight: 300;
+  opacity: 0;
+  animation: fadeInUp 1.2s 1s ease forwards;
+}
+
+/* Trust badges */
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 50px;
+  opacity: 0;
+  animation: fadeInUp 1.2s 1.2s ease forwards;
+}
+
+.hero-badges span {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--or);
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* CTA button */
+.hero-cta {
+  display: inline-block;
+  padding: 18px 56px;
+  border: 1px solid var(--or);
+  color: var(--or);
+  text-decoration: none;
+  letter-spacing: 5px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 400;
+  background: transparent;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeInUp 1.2s 1.4s ease forwards;
+}
+
+.hero-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #e6c98a 0%, #caa86a 50%, #a8884a 100%);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.hero-cta:hover {
+  color: var(--noir);
+  border-color: #e6c98a;
+  box-shadow: 0 12px 40px rgba(202,168,106,0.4);
+  transform: translateY(-2px);
+}
+
+.hero-cta:hover::before {
+  transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .hero {
+    padding: 140px 20px 90px;
+    min-height: auto;
+  }
+  .hero-kicker { font-size: 10px; letter-spacing: 4px; margin-bottom: 24px; }
+  .hero-divider { margin-bottom: 24px; }
+  .hero-desc { font-size: 14.5px; margin-bottom: 36px; }
+  .hero-badges { gap: 16px; margin-bottom: 40px; }
+  .hero-badges span { font-size: 10px; letter-spacing: 2px; }
+  .hero-cta { padding: 16px 40px; letter-spacing: 4px; }
+}
