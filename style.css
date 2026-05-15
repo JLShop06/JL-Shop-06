@@ -82,6 +82,34 @@ body {
                                   );
 }
 
+/* ======== LOGO IMAGE ======== */
+.header-logo-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-logo-img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    filter: drop-shadow(0 2px 8px rgba(202,168,106,0.3));
+}
+
+.header-logo-img:hover {
+    opacity: 0.85;
+    transform: scale(1.03);
+}
+
+@media (max-width: 768px) {
+    .header-logo-img {
+        height: 60px;
+    }
+}
+
+
 /* ================= LANGUAGE SELECTOR ================= */
 
 .language-selector {
