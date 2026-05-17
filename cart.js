@@ -179,3 +179,44 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+// ── Injection automatique de la modal panier ──
+// Permet aux pages produits (qui n'ont pas la modal dans le HTML)
+// d'avoir un panier fonctionnel via le bouton "PANIER" du header.
+function ensureCartModal() {
+     if (document.getElementById("cart-modal")) return; // déjà présente
+
+  const modal = document.createElement("div");
+     modal.id = "cart-modal";
+     modal.style.cssText = "display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;justify-content:flex-end;align-items:flex-start;";
+     modal.innerHTML = `
+         <div style="background:#111;border-left:1px solid rgba(202,168,106,0.3);width:420px;max-width:100vw;height:100vh;padding:48px 36px;display:flex;flex-direction:column;gap:24px;overflow-y:auto;">
+               <div style="display:flex;justify-content:space-between;align-items:center;">
+                       <span style="font-family:'Cormorant Garamond',serif;font-size:22px;color:#caa86a;letter-spacing:3px;">VOTRE PANIER</span>
+                               <button onclick="closeCart()" style="background:none;border:none;color:#caa86a;font-size:22px;cursor:pointer;line-height:1;">&times;</button>
+                                     </div>
+                                           <ul id="cart-items" style="padding:0;margin:0;flex:1;"></ul>
+                                                 <div style="border-top:1px solid rgba(202,168,106,0.2);padding-top:20px;">
+                                                         <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:2px;color:#caa86a;margin-bottom:24px;">
+                                                                   <span>TOTAL</span>
+                                                                             <span><span id="cart-total">0.00</span> &euro;</span>
+                                                                                     </div>
+                                                                                             <button id="checkout-btn" onclick="checkout()" style="width:100%;background:none;border:1px solid #caa86a;color:#caa86a;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:4px;padding:16px;cursor:pointer;transition:0.3s;">PAYER</button>
+                                                                                                     <button onclick="clearCart();closeCart();" style="width:100%;background:none;border:none;color:rgba(202,168,106,0.4);font-family:'Inter',sans-serif;font-size:10px;letter-spacing:3px;padding:12px;cursor:pointer;margin-top:8px;">VIDER LE PANIER</button>
+                                                                                                           </div>
+                                                                                                               </div>
+                                                                                                                 `;
+     document.body.appendChild(modal);
+
+  // Fermeture en cliquant hors de la fenêtre du panier
+  modal.addEventListener("click", (e) => {
+         if (e.target === modal) closeCart();
+  });
+}
+
+// Injection dès que le DOM est prêt (avant tout clic possible sur PANIER)
+if (document.readyState === "loading") {
+     document.addEventListener("DOMContentLoaded", ensureCartModal);
+} else {
+     ensureCartModal();
+}
