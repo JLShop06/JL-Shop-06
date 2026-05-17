@@ -7,7 +7,7 @@
 // Incrémente cette valeur à chaque modif de prix/produits Stripe
 // pour purger automatiquement les anciens paniers obsolètes
 // stockés dans le localStorage des clients.
-const CART_VERSION = "v2-2026-05-14";
+const CART_VERSION = "v3-2026-05-17";
 
 (function purgeOldCart() {
   try {
