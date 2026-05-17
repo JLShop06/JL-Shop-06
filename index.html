@@ -31,16 +31,28 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"Les Jardins Enchantés","description":"Boutique sextoys France, gels lubrifiants intimes premium, stimulateurs clitoridiens. Livraison discrète Europe.","url":"https://lesjardinsenchantes.vercel.app/","areaServed":["FR","BE","CH","LU","IT","ES","DE","NL","PT"],"priceRange":"€€","currenciesAccepted":"EUR","paymentAccepted":"Credit Card"}</script>
 <link rel="stylesheet" href="style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://js.stripe.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
-<script src="https://js.stripe.com/v3/"></script>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap"></noscript>
+<script>
+window.loadStripe = function() {
+  if (window.Stripe) return Promise.resolve();
+  return new Promise(function(resolve) {
+    var s = document.createElement('script');
+    s.src = 'https://js.stripe.com/v3/';
+    s.onload = resolve;
+    document.head.appendChild(s);
+  });
+};
+</script>
 <script src="cart.js" defer></script>
 <meta name="google-site-verification" content="A0c_n8lduRGZFaT_WN2yAAYn8RtRYkcEgewMGgt7ahw">
 </head>
 <body>
 <header class="lux-header">
   <a href="index.html" class="header-logo-link">
-    <img src="logo.png" alt="Les Jardins Enchantés – Boutique Sextoys France" class="header-logo-img">
+    <img src="logo.png" alt="Les Jardins Enchantés – Boutique Sextoys France" class="header-logo-img" width="158" height="105" fetchpriority="high">
   </a>
   <nav class="language-selector" aria-label="Sélection de langue">
     <button onclick="setLang('fr')" title="Français">FR</button>
@@ -77,109 +89,109 @@
 </section>
 <main id="collection" class="product-grid">
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="gel_cannabis_orgie.html"><img src="gel-cannabis.jpg" alt="Gel Lubrifiant Intime Cannabis Premium Orgie 50ml" itemprop="image"></a>
+    <a href="gel_cannabis_orgie.html"><img loading="lazy" src="gel-cannabis.jpg" alt="Gel Lubrifiant Intime Cannabis Premium Orgie 50ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Cannabis – Orgie</h3>
     <strong><span itemprop="price" content="12.90">12,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbq0F9c1lWA0HyAD61BvXS" data-product-name="Gel Lubrifiant Cannabis Orgie" data-product-price="12.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="lubrifiant_eau_tube_barbe_a_papa.html"><img src="lubrifiant_eau_tube_barbe_a_papa.jpg" alt="Gel Lubrifiant Intime Barbe à Papa Premium Orgie 50ml" itemprop="image"></a>
+    <a href="lubrifiant_eau_tube_barbe_a_papa.html"><img loading="lazy" src="lubrifiant_eau_tube_barbe_a_papa.jpg" alt="Gel Lubrifiant Intime Barbe à Papa Premium Orgie 50ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Barbe à Papa – Orgie</h3>
     <strong><span itemprop="price" content="12.90">12,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbqXF9c1lWA0Hy5Ay6RsHx" data-product-name="Gel Lubrifiant Barbe à Papa Orgie" data-product-price="12.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="lubrifiant_eau_lube_tube_chocolat_orgie.html"><img src="lubrifiant_eau_tube_chocolat_3.jpg" alt="Gel Lubrifiant Intime Chocolat Premium Orgie 50ml" itemprop="image"></a>
+    <a href="lubrifiant_eau_lube_tube_chocolat_orgie.html"><img loading="lazy" src="lubrifiant_eau_tube_chocolat_3.jpg" alt="Gel Lubrifiant Intime Chocolat Premium Orgie 50ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Chocolat – Orgie</h3>
     <strong><span itemprop="price" content="12.90">12,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbrFF9c1lWA0HyyYtYkqfZ" data-product-name="Gel Lubrifiant Chocolat Orgie" data-product-price="12.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="lubrifiant_eau_lube_tube_fraise_orgie.html"><img src="lubrifiant_eau_lube_tube_fraise_orgie_1.jpg" alt="Gel Lubrifiant Intime Fraise Premium Orgie 50ml" itemprop="image"></a>
+    <a href="lubrifiant_eau_lube_tube_fraise_orgie.html"><img loading="lazy" src="lubrifiant_eau_lube_tube_fraise_orgie_1.jpg" alt="Gel Lubrifiant Intime Fraise Premium Orgie 50ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Fraise – Orgie</h3>
     <strong><span itemprop="price" content="12.90">12,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbtRF9c1lWA0Hyyj5LyQxj" data-product-name="Gel Lubrifiant Fraise Orgie" data-product-price="12.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="pink-star.html"><img src="pink-star_lubrifiant_arome_sangria-60_ml.jpg" alt="Gel Lubrifiant Intime Pink Star Sangria 60ml" itemprop="image"></a>
+    <a href="pink-star.html"><img loading="lazy" src="pink-star_lubrifiant_arome_sangria-60_ml.jpg" alt="Gel Lubrifiant Intime Pink Star Sangria 60ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Pink Star Sangria – 60ml</h3>
     <strong><span itemprop="price" content="14.95">14,95 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWmqsF9c1lWA0Hy3KlOWgQK" data-product-name="Gel Lubrifiant Pink Star Sangria" data-product-price="14.95" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="pink_star_sucette_cerise.html"><img src="pink_star_sucette_cerise.jpg" alt="Gel Lubrifiant Intime Pink Star Cerise 60ml" itemprop="image"></a>
+    <a href="pink_star_sucette_cerise.html"><img loading="lazy" src="pink_star_sucette_cerise.jpg" alt="Gel Lubrifiant Intime Pink Star Cerise 60ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Pink Star Cerise – 60ml</h3>
     <strong><span itemprop="price" content="14.95">14,95 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWnmpF9c1lWA0HylbbD5pZq" data-product-name="Gel Lubrifiant Pink Star Cerise" data-product-price="14.95" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="pink-star-choco-fraise.html"><img src="pink-star-lubrifiant_comestible_fraise_chocolat_blanc-60ml.jpg" alt="Gel Lubrifiant Intime Pink Star Fraise Chocolat 60ml" itemprop="image"></a>
+    <a href="pink-star-choco-fraise.html"><img loading="lazy" src="pink-star-lubrifiant_comestible_fraise_chocolat_blanc-60ml.jpg" alt="Gel Lubrifiant Intime Pink Star Fraise Chocolat 60ml" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Pink Star Fraise-Chocolat-Blanc – 60ml</h3>
     <strong><span itemprop="price" content="14.95">14,95 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWnH7F9c1lWA0HyyaVRmDEa" data-product-name="Gel Lubrifiant Pink Star Choco-Fraise" data-product-price="14.95" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="black-empire-my-duchess.html"><img src="vibro-elegance-3.jpg" alt="Stimulateur Clitoridien My Duchess Black Empire – Meilleur Sextoy France" itemprop="image"></a>
+    <a href="black-empire-my-duchess.html"><img loading="lazy" src="vibro-elegance-3.jpg" alt="Stimulateur Clitoridien My Duchess Black Empire – Meilleur Sextoy France" itemprop="image"></a>
     <h3 itemprop="name">Stimulateur Clitoridien My Duchess – Black Empire</h3>
     <strong><span itemprop="price" content="59.90">59,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbuPF9c1lWA0Hyvp1e2CqX" data-product-name="Stimulateur Clitoridien My Duchess" data-product-price="59.90" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="monster-pussy-strocker.html"><img src="monster.jpg" alt="Sextoy Homme Monster Pussy Strocker Masturbateur France" itemprop="image"></a>
+    <a href="monster-pussy-strocker.html"><img loading="lazy" src="monster.jpg" alt="Sextoy Homme Monster Pussy Strocker Masturbateur France" itemprop="image"></a>
     <h3 itemprop="name">Sextoy Homme Monster Pussy Strocker – Masturbateur</h3>
     <strong><span itemprop="price" content="19.99">19,99 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbvJF9c1lWA0HyWeZId3tv" data-product-name="Sextoy Homme Monster Pussy Strocker" data-product-price="19.99" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="red-dolls-energy-pleasure.html"><img src="masturbateur-vaginal-red-dolls-energy.jpg" alt="Sextoy Homme Red Dolls Energy Pleasure Masturbateur Alive France" itemprop="image"></a>
+    <a href="red-dolls-energy-pleasure.html"><img loading="lazy" src="masturbateur-vaginal-red-dolls-energy.jpg" alt="Sextoy Homme Red Dolls Energy Pleasure Masturbateur Alive France" itemprop="image"></a>
     <h3 itemprop="name">Sextoy Homme Red Dolls Energy Pleasure – Masturbateur</h3>
     <strong><span itemprop="price" content="19.99">19,99 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbwYF9c1lWA0HyZprTYZ3E" data-product-name="Sextoy Homme Red Dolls Energy" data-product-price="19.99" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="hemp-intense-orgasm.html"><img src="gel-intime-d-excitation-hemp-1.jpg" alt="Gel Excitant Hemp Intense Orgasm Stimulation Clitoridienne France" itemprop="image"></a>
+    <a href="hemp-intense-orgasm.html"><img loading="lazy" src="gel-intime-d-excitation-hemp-1.jpg" alt="Gel Excitant Hemp Intense Orgasm Stimulation Clitoridienne France" itemprop="image"></a>
     <h3 itemprop="name">Gel Excitant Hemp Intense Orgasm – Stimulation Clitoridienne</h3>
     <strong><span itemprop="price" content="30.90">30,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbxDF9c1lWA0HyaphZNA1T" data-product-name="Gel Excitant Hemp Intense Orgasm" data-product-price="30.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="le-flateur.html"><img src="le-flateur-1.jpg" alt="Le Flateur Stimulateur Clitoridien Silencieux Premium France" itemprop="image"></a>
+    <a href="le-flateur.html"><img loading="lazy" src="le-flateur-1.jpg" alt="Le Flateur Stimulateur Clitoridien Silencieux Premium France" itemprop="image"></a>
     <h3 itemprop="name">Le Flateur – Meilleur Stimulateur Clitoridien Silencieux</h3>
     <strong><span itemprop="price" content="29.99">29,99 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWby1F9c1lWA0HyTtV0UANv" data-product-name="Stimulateur Clitoridien Le Flateur" data-product-price="29.99" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="Plug-Anal-Rosy-Gold.html"><img src="plug_anal-rosy_gold.jpg" alt="Plug Anal Rosy Gold Sextoy Premium France Acier Chirurgical" itemprop="image"></a>
+    <a href="Plug-Anal-Rosy-Gold.html"><img loading="lazy" src="plug_anal-rosy_gold.jpg" alt="Plug Anal Rosy Gold Sextoy Premium France Acier Chirurgical" itemprop="image"></a>
     <h3 itemprop="name">Plug Anal Rosy Gold – Sextoy Premium Acier Chirurgical</h3>
     <strong><span itemprop="price" content="39.99">39,99 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWbzXF9c1lWA0HykmiqFRYj" data-product-name="Plug Anal Rosy Gold" data-product-price="39.99" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="dual-vibe-sex-on-the-beach.html"><img src="gel-intime-sex-on-the-beach.jpg" alt="Dual Vibe Sex on the Beach Stimulateur Clitoridien Vibromasseur France" itemprop="image"></a>
+    <a href="dual-vibe-sex-on-the-beach.html"><img loading="lazy" src="gel-intime-sex-on-the-beach.jpg" alt="Dual Vibe Sex on the Beach Stimulateur Clitoridien Vibromasseur France" itemprop="image"></a>
     <h3 itemprop="name">Dual Vibe Sex on the Beach – Vibromasseur &amp; Stimulateur Clitoridien</h3>
     <strong><span itemprop="price" content="34.90">32,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWc1DF9c1lWA0HyfxJ6Hs71" data-product-name="Dual Vibe Sex on the Beach" data-product-price="32.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
   <article itemscope itemtype="https://schema.org/Product">
-    <a href="orgie-pinacolada.html"><img src="orgie_gel_excitation_pina_colada.jpg" alt="Gel Lubrifiant Intime Orgie Piña Colada 50ml France" itemprop="image"></a>
+    <a href="orgie-pinacolada.html"><img loading="lazy" src="orgie_gel_excitation_pina_colada.jpg" alt="Gel Lubrifiant Intime Orgie Piña Colada 50ml France" itemprop="image"></a>
     <h3 itemprop="name">Gel Lubrifiant Intime Orgie Piña Colada – Édition Tropicale</h3>
     <strong><span itemprop="price" content="32.90">32,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TWocqF9c1lWA0HyXDKAxWve" data-product-name="Gel Lubrifiant Piña Colada Orgie" data-product-price="32.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
    <article itemscope itemtype="https://schema.org/Product">
-    <a href="Cockring-vibrant-Marry-Me-Wooomy.html"><img src="Cockring-vibrant-Marry-Me-Wooomy.jpg" alt="Cockring vibrant rechargeable" itemprop="image"></a>
+    <a href="Cockring-vibrant-Marry-Me-Wooomy.html"><img loading="lazy" src="Cockring-vibrant-Marry-Me-Wooomy.jpg" alt="Cockring vibrant rechargeable" itemprop="image"></a>
     <h3 itemprop="name">Wooomy – Cockring Vibrant Marry Stimule les sensations des deux partenaires</h3>
     <strong><span itemprop="price" content="52.90">52,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TY5X9F9c1lWA0HyBS9zNW5Q" data-product-name="" data-product-price="52.9" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
    <article itemscope itemtype="https://schema.org/Product">
-    <a href="deguisement-enseignante.html"><img src="Déguisement d'enseignante.jpg" alt="Déguisement d'enseignante sexy" itemprop="image"></a>
+    <a href="deguisement-enseignante.html"><img loading="lazy" src="Déguisement d'enseignante.jpg" alt="Déguisement d'enseignante sexy" itemprop="image"></a>
     <h3 itemprop="name">Déguisement enseignante sexy Matière extensible confortable</h3>
     <strong><span itemprop="price" content="49.99">49,99 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TY5xeF9c1lWA0HynySBhqgg" data-product-name="" data-product-price="49.99" data-i18n="btn_add">AJOUTER AU PANIER</button>
   </article>
    <article itemscope itemtype="https://schema.org/Product">
-    <a href="deguisement-etudiante.html"><img src="Déguisement d'étudiante.jpg" alt="Déguisement d'etudiante sexy" itemprop="image"></a>
+    <a href="deguisement-etudiante.html"><img loading="lazy" src="Déguisement d'étudiante.jpg" alt="Déguisement d'etudiante sexy" itemprop="image"></a>
     <h3 itemprop="name">Déguisement etudiante sexy Matière confortable</h3>
     <strong><span itemprop="price" content="39.90">39,90 €</span></strong>
     <button class="add-to-cart" data-product-id="price_1TY6PQF9c1lWA0Hydn6PgNVy" data-product-name="" data-product-price="39.90" data-i18n="btn_add">AJOUTER AU PANIER</button>
