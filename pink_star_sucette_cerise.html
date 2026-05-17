@@ -23,4 +23,92 @@
 .product-title{font-size:34px;font-weight:300;margin-bottom:10px;}
 .product-subtitle{font-size:15px;color:#555;margin-bottom:25px;line-height:1.6;}
 .product-price{font-size:26px;color:#C9A86A;margin-bottom:25px;}
-.add-to-cart{background:none;border
+.add-to-cart{background:none;border:none;font-size:12px;letter-spacing:4px;padding:12px 0;cursor:pointer;opacity:0.7;}
+.add-to-cart:hover{opacity:1;}
+.separator{margin:40px 0;border:none;border-top:1px solid rgba(0,0,0,0.05);}
+.section-title{font-size:18px;margin-bottom:15px;font-weight:300;}
+.product-description{font-size:15px;color:#444;margin-bottom:20px;line-height:1.8;}
+.product-list{font-size:15px;color:#333;padding-left:18px;line-height:1.9;}
+@media(max-width:900px){.product-container{flex-direction:column;text-align:center;align-items:center;}.product-details{text-align:center;max-width:600px;}}
+</style>
+</head>
+
+<body>
+
+<header class="lux-header">
+<a href="index.html" style="text-decoration:none;">
+<div class="lux-logo">Les Jardins Enchantés</div>
+</a>
+
+<button class="lux-cart" onclick="showCart()">
+PANIER (<span id="cartCount">0</span>)
+</button>
+</header>
+
+<section class="product-page">
+<div class="product-container">
+
+<div class="product-image-frame">
+<img src="pink_star_sucette_cerise.jpg" alt="Gel lubrifiant intime Pink Star Cerise vue principale">
+</div>
+
+<div class="product-details">
+
+<h1 class="product-title">
+Gel Lubrifiant Intime Pink Star Cerise – 60ml
+</h1>
+
+<p class="product-subtitle">
+Gel lubrifiant intime comestible saveur cerise 60ml, base eau. Compatible sextoys, sextoy homme, stimulateur clitoridien et préservatifs. Sans paraben.
+</p>
+
+<p class="product-price">14,95 €</p>
+
+<button class="add-to-cart"
+data-product-id="price_1TWnmpF9c1lWA0HylbbD5pZq"
+data-product-name="Gel Lubrifiant Pink Star Cerise"
+data-product-price="14.95">
+AJOUTER AU PANIER
+</button>
+
+<hr class="separator">
+
+<h2 class="section-title">Description</h2>
+
+<p class="product-description">
+Le gel lubrifiant intime Pink Star Cerise est un gel intime lubrifiant comestible à la saveur cerise gourmande et fruitée. Sa formule base eau assure une texture douce, non collante et compatible avec tous les sextoys, sextoy homme, stimulateurs clitoridiens et accessoires de stimulation clitoridienne. Idéal pour accompagner un meilleur stimulateur clitoridien silencieux et améliorer le confort intime. Produit sans paraben fabriqué en Europe.
+</p>
+
+<hr class="separator">
+
+<h2 class="section-title">Caractéristiques</h2>
+
+<ul class="product-list">
+<li>Gel lubrifiant intime comestible</li>
+<li>Gel lubrifiant base eau</li>
+<li>Compatible sextoys et stimulateurs clitoridiens</li>
+<li>Saveur : Cerise</li>
+<li>Volume : 60ml</li>
+<li>Sans paraben</li>
+<li>Compatible préservatifs</li>
+<li>Fabriqué en Europe – Pink Star</li>
+<li>Disponible sur Les Jardins Enchantés – sextoy France</li>
+</ul>
+
+</div>
+</div>
+</section>
+
+<footer class="footer">
+© Les Jardins Enchantés – Boutique Luxe Intime<br>
+
+<a href="cgv.html">CGV</a>
+<a href="confidentialite.html">Confidentialité</a>
+<a href="cookies.html">Cookies</a>
+<a href="mentions-legales.html">Mentions légales</a>
+<a href="index.html">Retour boutique</a>
+
+</footer>
+
+</body>
+</html>
