@@ -820,3 +820,44 @@ button:hover {
 .product-page .separator {
         border-top: 1px solid rgba(202,168,106,0.2) !important;
 }
+
+
+/* ================= PRODUCT PAGES — CTA BLOCK (Orgie) ================= */
+/* Surcharge du bloc d'appel à l'action (encadré doré) sur fond sombre */
+
+.product-page .cta-block {
+        background: rgba(202,168,106,0.10) !important;
+        border-left: 3px solid var(--or) !important;
+        border-radius: 0 8px 8px 0;
+}
+
+.product-page .cta-block p {
+        color: #d5d5d5 !important;
+        font-family: 'Inter', sans-serif;
+        font-weight: 300;
+}
+
+.product-page .cta-block p strong {
+        color: #e8d9b8 !important;
+        font-weight: 500;
+}
+
+.product-page .cta-block .cta-btn {
+        background: transparent !important;
+        color: var(--or) !important;
+        border: 1px solid var(--or) !important;
+        border-radius: 2px;
+        letter-spacing: 3px;
+        transition: 0.3s ease;
+}
+
+.product-page .cta-block .cta-btn:hover {
+        background: var(--or) !important;
+        color: var(--noir) !important;
+}
+
+.product-page .badge-naturel {
+        color: var(--or) !important;
+        border: 1px solid var(--or) !important;
+        background: rgba(202,168,106,0.06);
+}
