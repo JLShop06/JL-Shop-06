@@ -754,3 +754,69 @@ button:hover {
         letter-spacing: 0.5px;
   }
 }
+
+
+/* ================= PRODUCT PAGES — FIX TEXT COLOR ON DARK BG ================= */
+/* Surcharge des couleurs sombres définies en inline sur les pages produits */
+
+.product-page {
+        color: var(--blanc);
+}
+
+.product-page .product-title {
+        color: var(--blanc) !important;
+        font-family: 'Cormorant Garamond', serif;
+}
+
+.product-page .product-subtitle {
+        color: #e8d9b8 !important;
+        font-family: 'Inter', sans-serif;
+}
+
+.product-page .product-price {
+        color: var(--or) !important;
+}
+
+.product-page .section-title {
+        color: var(--or) !important;
+        font-family: 'Cormorant Garamond', serif;
+        letter-spacing: 1px;
+}
+
+.product-page .product-description {
+        color: #d5d5d5 !important;
+        font-family: 'Inter', sans-serif;
+        font-weight: 300;
+}
+
+.product-page .product-description strong {
+        color: #e8d9b8;
+        font-weight: 500;
+}
+
+.product-page .product-list {
+        color: #d5d5d5 !important;
+        font-family: 'Inter', sans-serif;
+        font-weight: 300;
+}
+
+.product-page .product-list li {
+        color: #d5d5d5 !important;
+}
+
+.product-page .add-to-cart {
+        color: var(--or) !important;
+        border: 1px solid rgba(202,168,106,0.5) !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        transition: 0.3s ease;
+}
+
+.product-page .add-to-cart:hover {
+        background: var(--or) !important;
+        color: var(--noir) !important;
+}
+
+.product-page .separator {
+        border-top: 1px solid rgba(202,168,106,0.2) !important;
+}
