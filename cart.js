@@ -220,3 +220,34 @@ if (document.readyState === "loading") {
 } else {
      ensureCartModal();
 }
+
+
+// ── Optimisations de performance ─────────────
+// Applique lazy loading aux images hors-écran et optimise le chargement CSS
+// sur les pages produits qui utilisent encore le lien CSS bloquant.
+(function initPerfOptimizations() {
+  // 1. Lazy loading for images below the fold on product pages
+  function applyLazyLoading() {
+    const imgs = document.querySelectorAll('img:not([loading])');
+    imgs.forEach(function(img, i) {
+      // Skip first image (hero/product main) - keep eager loading
+      if (i === 0) {
+        img.setAttribute('fetchpriority', 'high');
+        return;
+      }
+      img.setAttribute('loading', 'lazy');
+    });
+    // Add width/height to logo to prevent CLS
+    const logoImg = document.querySelector('.header-logo-img');
+    if (logoImg && !logoImg.getAttribute('width')) {
+      logoImg.setAttribute('width', '158');
+      logoImg.setAttribute('height', '80');
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyLazyLoading);
+  } else {
+    applyLazyLoading();
+  }
+})();
