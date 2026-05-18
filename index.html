@@ -29,7 +29,23 @@
 <meta name="twitter:title" content="Les Jardins Enchantés – Boutique Sextoys France">
 <meta name="twitter:description" content="Sextoys premium, gels lubrifiants intimes et stimulateurs clitoridiens. Livraison discrète, paiement sécurisé.">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Store","name":"Les Jardins Enchantés","description":"Boutique sextoys France, gels lubrifiants intimes premium, stimulateurs clitoridiens. Livraison discrète Europe.","url":"https://lesjardinsenchantes.vercel.app/","areaServed":["FR","BE","CH","LU","IT","ES","DE","NL","PT"],"priceRange":"€€","currenciesAccepted":"EUR","paymentAccepted":"Credit Card"}</script>
-<link rel="stylesheet" href="style.css">
+<style>
+:root{--noir:#0c0a06;--or:#caa86a;--or-clair:#e6c98a;--or-fonce:#8a6830;--gris:#9c9c9c;--blanc:#f5f5f5;--fade-or:rgba(202,168,106,0.25)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:radial-gradient(ellipse at 10% 0%,rgba(202,168,106,.22) 0%,transparent 40%),radial-gradient(ellipse at 90% 5%,rgba(202,168,106,.15) 0%,transparent 38%),linear-gradient(180deg,#100d06 0%,#1a1408 8%,#16110a 18%,#1c1509 28%,#14100a 40%,#1a1408 52%,#16110a 65%,#1c1509 78%,#14100a 90%,#100d06 100%);background-attachment:fixed;color:var(--blanc);font-family:'Cormorant Garamond',Georgia,serif;-webkit-font-smoothing:antialiased;line-height:1.7;overflow-x:hidden;min-height:100vh}
+.lux-header{position:fixed;top:0;width:100%;z-index:2000;display:flex;justify-content:space-between;align-items:center;padding:18px 50px;background:linear-gradient(180deg,rgba(10,8,4,.97) 0%,rgba(14,11,5,.92) 100%);backdrop-filter:blur(18px);border-bottom:1px solid rgba(202,168,106,.25);box-shadow:0 2px 40px rgba(0,0,0,.6),0 1px 0 rgba(202,168,106,.12);transition:.4s ease;gap:16px}
+.header-logo-link{text-decoration:none;display:flex;align-items:center;flex-shrink:0}
+.header-logo-img{height:80px;width:auto;object-fit:contain;display:block}
+.language-selector{display:flex;align-items:center;background:rgba(202,168,106,.06);border:1px solid rgba(202,168,106,.18);border-radius:2px;overflow:hidden;flex-shrink:0}
+.language-selector button{background:none;border:none;border-right:1px solid rgba(202,168,106,.15);color:rgba(202,168,106,.55);font-family:'Inter',sans-serif;font-size:9px;letter-spacing:2px;padding:7px 10px;cursor:pointer;transition:all .3s;text-transform:uppercase}
+.lux-cart{background:none;border:1px solid rgba(202,168,106,.5);padding:7px 16px;color:var(--or);letter-spacing:2px;font-family:'Inter',sans-serif;font-size:10px;cursor:pointer;transition:.3s;white-space:nowrap;flex-shrink:0}
+.hero{position:relative;text-align:center;padding:200px 24px 140px;overflow:hidden;min-height:92vh;display:flex;align-items:center;justify-content:center}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse at 20% 30%,rgba(202,168,106,.20) 0%,transparent 55%),radial-gradient(ellipse at 80% 70%,rgba(202,168,106,.14) 0%,transparent 50%);pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:880px;margin:0 auto}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,8vw,92px);font-weight:300;letter-spacing:2px;color:var(--blanc);margin-bottom:28px;line-height:1.05}
+</style>
+<link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="style.css"></noscript>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://js.stripe.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
