@@ -60,40 +60,91 @@ body { background:#0c0a06; color:#e8d9b8; font-family:'Inter',sans-serif; min-he
 .promo-item .site { color:#caa86a; font-weight:600; }
 .refresh-btn { background:rgba(202,168,106,.1); border:1px solid rgba(202,168,106,.3); color:#caa86a; font-size:10px; letter-spacing:2px; padding:8px 18px; border-radius:3px; cursor:pointer; text-transform:uppercase; transition:.3s; }
 .refresh-btn:hover { background:rgba(202,168,106,.2); }
+.refresh-btn:disabled { opacity:.4; cursor:not-allowed; }
 .last-update { font-size:10px; color:rgba(202,168,106,.5); letter-spacing:1px; margin-left:12px; }
+.flux-status { font-size:10px; padding:3px 10px; border-radius:2px; letter-spacing:1px; }
+.flux-ok { background:rgba(0,180,100,.15); color:#00e676; border:1px solid rgba(0,180,100,.3); }
+.flux-loading { background:rgba(255,165,0,.15); color:#ffb347; border:1px solid rgba(255,165,0,.3); animation:pulse 1.5s ease-in-out infinite; }
+.flux-error { background:rgba(255,80,80,.15); color:#ff6b6b; border:1px solid rgba(255,80,80,.3); }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.5} }
+.live-feed-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; margin-bottom:40px; }
+.live-card { background:rgba(202,168,106,.04); border:1px solid rgba(202,168,106,.15); border-radius:6px; overflow:hidden; }
+.live-card-header { background:rgba(202,168,106,.08); padding:12px 16px; display:flex; justify-content:space-between; align-items:center; }
+.live-card-header .site-name { font-size:12px; letter-spacing:2px; color:#caa86a; }
+.live-card-body { padding:16px; min-height:80px; }
+.live-item { padding:7px 0; border-bottom:1px solid rgba(202,168,106,.07); display:flex; justify-content:space-between; gap:10px; align-items:flex-start; }
+.live-item:last-child { border-bottom:none; }
+.live-item-name { font-size:11px; color:#c8bfa8; flex:1; line-height:1.4; }
+.live-item-name a { color:#c8bfa8; text-decoration:none; }
+.live-item-name a:hover { color:#caa86a; }
+.live-item-price { font-size:12px; color:#caa86a; white-space:nowrap; }
+.loading-dots { color:rgba(202,168,106,.4); font-size:11px; letter-spacing:2px; }
+.loading-dots::after { content:'...'; animation:dots 1.5s steps(3,end) infinite; }
+@keyframes dots { 0%{content:'.'} 33%{content:'..'} 66%{content:'...'} }
+.fetch-error { color:rgba(255,80,80,.6); font-size:10px; letter-spacing:1px; }
 @media(max-width:768px) { .insights-grid { grid-template-columns:1fr; } .header { flex-direction:column; gap:12px; text-align:center; } }
 </style>
 </head>
 <body>
 <div class="header">
-<h1>✶ VEILLE CONCURRENTIELLE ✶</h1>
-<div style="display:flex;align-items:center;gap:16px;">
-<span class="last-update" id="lastUpdate">Mise à jour : 18 mai 2026</span>
-<a href="index.html">← Retour boutique</a>
-</div>
+  <h1>✶ VEILLE CONCURRENTIELLE ✶</h1>
+  <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+    <button class="refresh-btn" id="refreshBtn" onclick="fetchAllFlux()">⟳ ACTUALISER LES FLUX</button>
+    <span class="flux-status" id="fluxStatus">EN ATTENTE</span>
+    <span class="last-update" id="lastUpdate">Mise à jour : 18 mai 2026</span>
+    <a href="index.html">← Retour boutique</a>
+  </div>
 </div>
 <div class="container">
 
 <div class="stats-bar">
-<div class="stat-card"><div class="label">Concurrents suivis</div><div class="value">12</div><div class="sub">FR · PT · INTL</div></div>
-<div class="stat-card"><div class="label">Marchés couverts</div><div class="value">2</div><div class="sub">France · Portugal</div></div>
-<div class="stat-card"><div class="label">Gamme commune</div><div class="value">Gels &amp; Sextoys</div><div class="sub">Orgie · LELO · Womanizer</div></div>
-<div class="stat-card"><div class="label">Avantage clé</div><div class="value">Premium FR</div><div class="sub">Positionnement luxe unique</div></div>
+  <div class="stat-card"><div class="label">Concurrents suivis</div><div class="value">12</div><div class="sub">FR · PT · INTL</div></div>
+  <div class="stat-card"><div class="label">Marchés couverts</div><div class="value">2</div><div class="sub">France · Portugal</div></div>
+  <div class="stat-card"><div class="label">Gamme commune</div><div class="value">Gels &amp; Sextoys</div><div class="sub">Orgie · LELO · Womanizer</div></div>
+  <div class="stat-card"><div class="label">Avantage clé</div><div class="value">Premium FR</div><div class="sub">Positionnement luxe unique</div></div>
 </div>
 
 <div class="promo-banner">
-<h3>🔥 Dernières Nouveautés Repérées chez les Concurrents (18 mai 2026)</h3>
-<div class="promo-items">
-<div class="promo-item"><span class="site">EspaceP :</span> LELO Plug Anal Surfer 2 Violet – 119,00€ (NEW)</div>
-<div class="promo-item"><span class="site">EspaceP :</span> Womanizer Pro Stimulateur Clitoridien – 69,00€</div>
-<div class="promo-item"><span class="site">EspaceP :</span> Lovense Lush Anal Connecté – 139,00€</div>
-<div class="promo-item"><span class="site">EasyToys :</span> INTT Suck My Clit Fraise Sauvage 15ml – 24,49€ (NEW)</div>
-<div class="promo-item"><span class="site">EasyToys :</span> SVibe Snail Twinn Doigt Rouge – 59,99€ (NEW)</div>
-<div class="promo-item"><span class="site">LELO :</span> GIGI 3 Point G – 119,20€ (-20%) NEW</div>
-<div class="promo-item"><span class="site">LELO :</span> Enigma Wave Femme – 201,75€ (-25%) NEW</div>
-<div class="promo-item"><span class="site">Rapidinha.pt :</span> Plug Vibratoire Insuflé Manson – 46,95€ (NEW)</div>
-<div class="promo-item"><span class="site">Rapidinha.pt :</span> Potenciador Piranha Orgie – 24,90€ (NEW)</div>
+  <h3>🔥 Dernières Nouveautés Repérées chez les Concurrents (18 mai 2026)</h3>
+  <div class="promo-items" id="promoBanner">
+    <div class="promo-item"><span class="site">EspaceP :</span> LELO Plug Anal Surfer 2 Violet – 119,00€ (NEW)</div>
+    <div class="promo-item"><span class="site">EspaceP :</span> Womanizer Pro Stimulateur Clitoridien – 69,00€</div>
+    <div class="promo-item"><span class="site">EspaceP :</span> Lovense Lush Anal Connecté – 139,00€</div>
+    <div class="promo-item"><span class="site">EasyToys :</span> INTT Suck My Clit Fraise Sauvage 15ml – 24,49€ (NEW)</div>
+    <div class="promo-item"><span class="site">EasyToys :</span> SVibe Snail Twinn Doigt Rouge – 59,99€ (NEW)</div>
+    <div class="promo-item"><span class="site">LELO :</span> GIGI 3 Point G – 119,20€ (-20%) NEW</div>
+    <div class="promo-item"><span class="site">LELO :</span> Enigma Wave Femme – 201,75€ (-25%) NEW</div>
+    <div class="promo-item"><span class="site">Rapidinha.pt :</span> Plug Vibratório Insuflável Manson – 46,95€ (NEW)</div>
+    <div class="promo-item"><span class="site">Rapidinha.pt :</span> Potenciador Piranha Orgie – 24,90€ (NEW)</div>
+  </div>
 </div>
+
+<div class="section-title">⚡ FLUX EN DIRECT – NOUVEAUTÉS CONCURRENTS</div>
+<div class="live-feed-grid" id="liveFeedGrid">
+  <div class="live-card">
+    <div class="live-card-header"><span class="site-name">ESPACE PLAISIR</span><span class="badge badge-fr">FR</span></div>
+    <div class="live-card-body" id="feed-espaceplaisir"><span class="loading-dots">Chargement</span></div>
+  </div>
+  <div class="live-card">
+    <div class="live-card-header"><span class="site-name">EASYTOYS.FR</span><span class="badge badge-fr">FR</span></div>
+    <div class="live-card-body" id="feed-easytoys"><span class="loading-dots">Chargement</span></div>
+  </div>
+  <div class="live-card">
+    <div class="live-card-header"><span class="site-name">RUE DES PLAISIRS</span><span class="badge badge-fr">FR</span></div>
+    <div class="live-card-body" id="feed-ruedesplaisirs"><span class="loading-dots">Chargement</span></div>
+  </div>
+  <div class="live-card">
+    <div class="live-card-header"><span class="site-name">AFRODISIA.PT</span><span class="badge badge-pt">PT</span></div>
+    <div class="live-card-body" id="feed-afrodisia"><span class="loading-dots">Chargement</span></div>
+  </div>
+  <div class="live-card">
+    <div class="live-card-header"><span class="site-name">RAPIDINHA.PT</span><span class="badge badge-pt">PT</span></div>
+    <div class="live-card-body" id="feed-rapidinha"><span class="loading-dots">Chargement</span></div>
+  </div>
+  <div class="live-card">
+    <div class="live-card-header"><span class="site-name">LOVESHOP.PT</span><span class="badge badge-pt">PT</span></div>
+    <div class="live-card-body" id="feed-loveshop"><span class="loading-dots">Chargement</span></div>
+  </div>
 </div>
 <div class="section-title">CONCURRENTS FRANCE</div>
 <div class="competitors-grid">
@@ -278,7 +329,7 @@ body { background:#0c0a06; color:#e8d9b8; font-family:'Inter',sans-serif; min-he
 <div class="insight-item"><strong>Marché PT sous-exploité</strong> – Loveshop et Koisas ont des produits sans prix affichés ou peu mis en avant. Bilingue FR/PT = avantage unique. <span class="tag tag-pt">PT</span></div>
 <div class="insight-item"><strong>LELO à surveiller</strong> – Le GIGI 3 (119,20€ -20%), Enigma Wave (201,75€ -25%). Des alternatives premium à meilleur rapport Q/P peuvent être proposées. <span class="tag tag-prix">PRIX</span></div>
 <div class="insight-item"><strong>Gels stimulants clitoridiens</strong> – INTT (24,49€ chez EasyToys), Gel Piranha Orgie (24,90€ chez Rapidinha). Catégorie en forte croissance. <span class="tag tag-niche">TENDANCE</span></div>
-<div class="insight-item"><strong>Accessoires novateurs</strong> – Sérum stimulation clitoridienne LELO (18,50€), Lovense Lush Anal (139€). Les productés connectés sont en hausse. <span class="tag tag-niche">CONNECTÉ</span></div>
+<div class="insight-item"><strong>Accessoires connectés</strong> – Sérum stimulation clitoridienne LELO (18,50€), Lovense Lush Anal (139€). Les produits connectés sont en hausse. <span class="tag tag-niche">CONNECTÉ</span></div>
 </div>
 <div class="insight-card">
 <h3>⚠️ Points de vigilance</h3>
@@ -321,7 +372,296 @@ body { background:#0c0a06; color:#e8d9b8; font-family:'Inter',sans-serif; min-he
 </div>
 </div>
 
-<div class="update-info">♥ Dernière mise à jour : 18 mai 2026 · Les Jardins Enchantés · Données vérifiées manuellement</div>
+<div class="update-info" id="updateInfo">♥ Dernière mise à jour manuelle : 18 mai 2026 · Les Jardins Enchantés · Flux live activé</div>
 </div>
+<script>
+// ============================================================
+// VEILLE CONCURRENTIELLE – Script de récupération dynamique
+// Proxy CORS : allorigins.win (gratuit, open-source)
+// Mise à jour automatique toutes les 4h via localStorage cache
+// ============================================================
+
+const PROXY = 'https://api.allorigins.win/get?url=';
+const CACHE_TTL = 4 * 60 * 60 * 1000; // 4 heures en ms
+
+// Configuration des concurrents avec leurs sélecteurs CSS
+const COMPETITORS = [
+  {
+    id: 'espaceplaisir',
+    name: 'Espace Plaisir',
+    url: 'https://www.espaceplaisir.fr/1692-nouveautes',
+    badge: 'FR',
+    selectors: {
+      items: '.product-miniature, .js-product-miniature, article.product-miniature',
+      name: '.product-title a, h2.h3 a, .product-title',
+      price: '.price, .product-price, span.price',
+      link: '.product-title a, h2.h3 a',
+    },
+    maxItems: 6
+  },
+  {
+    id: 'easytoys',
+    name: 'EasyToys',
+    url: 'https://www.easytoys.fr/nouveautes/',
+    badge: 'FR',
+    selectors: {
+      items: '.product-item, li.item, .product-list-item',
+      name: '.product-item-link, a.product-item-link, strong.product-item-name',
+      price: '.price, .product-price-amount, span[data-price-type="finalPrice"] .price',
+      link: '.product-item-link',
+    },
+    maxItems: 6
+  },
+  {
+    id: 'ruedesplaisirs',
+    name: 'Rue des Plaisirs',
+    url: 'https://www.ruedesplaisirs.com/catalogue/sextoy,m=1',
+    badge: 'FR',
+    selectors: {
+      items: '.product-item, .product-card, .product',
+      name: '.product-name, .product-title, h2 a, h3 a',
+      price: '.price, .product-price',
+      link: 'a',
+    },
+    maxItems: 6
+  },
+  {
+    id: 'afrodisia',
+    name: 'Afrodisia.pt',
+    url: 'https://www.afrodisia.pt/categoria-produto/artigos-p-entrega-imediata/',
+    badge: 'PT',
+    selectors: {
+      items: '.product, li.product, .woocommerce-loop-product__link',
+      name: '.woocommerce-loop-product__title, h2.product-title, .product-name',
+      price: '.price bdi, .woocommerce-Price-amount bdi, span.price',
+      link: 'a.woocommerce-loop-product__link, a',
+    },
+    maxItems: 6
+  },
+  {
+    id: 'rapidinha',
+    name: 'Rapidinha.pt',
+    url: 'https://rapidinha.pt/novidades/',
+    badge: 'PT',
+    selectors: {
+      items: '.product, li.product, .product-item',
+      name: '.woocommerce-loop-product__title, h2, .product-title',
+      price: '.price bdi, .woocommerce-Price-amount bdi, .price',
+      link: 'a.woocommerce-loop-product__link, a',
+    },
+    maxItems: 6
+  },
+  {
+    id: 'loveshop',
+    name: 'Loveshop.pt',
+    url: 'https://loveshop.pt/novidades/',
+    badge: 'PT',
+    selectors: {
+      items: '.product, li.product, .product-item',
+      name: '.woocommerce-loop-product__title, h2, .product-title',
+      price: '.price bdi, .woocommerce-Price-amount bdi, .price',
+      link: 'a.woocommerce-loop-product__link, a',
+    },
+    maxItems: 6
+  }
+];
+
+// -------------------------------------------------------
+// Utilitaires
+// -------------------------------------------------------
+function getCached(key) {
+  try {
+    const raw = localStorage.getItem('veille_' + key);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (Date.now() - parsed.ts > CACHE_TTL) return null;
+    return parsed.data;
+  } catch(e) { return null; }
+}
+
+function setCache(key, data) {
+  try {
+    localStorage.setItem('veille_' + key, JSON.stringify({ ts: Date.now(), data }));
+  } catch(e) {}
+}
+
+function setStatus(text, cls) {
+  const el = document.getElementById('fluxStatus');
+  if (el) { el.textContent = text; el.className = 'flux-status ' + cls; }
+}
+
+function setLoading(id, msg) {
+  const el = document.getElementById('feed-' + id);
+  if (el) el.innerHTML = '<span class="loading-dots">' + msg + '</span>';
+}
+
+function setError(id, msg) {
+  const el = document.getElementById('feed-' + id);
+  if (el) el.innerHTML = '<span class="fetch-error">⚠ ' + msg + '</span>';
+}
+
+// -------------------------------------------------------
+// Parser HTML reçu du proxy
+// -------------------------------------------------------
+function parseProducts(htmlStr, competitor) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlStr, 'text/html');
+  const { items, name: nameS, price: priceS, link: linkS } = competitor.selectors;
+
+  // Essayer les sélecteurs dans l'ordre
+  let productEls = [];
+  for (const sel of items.split(', ')) {
+    productEls = Array.from(doc.querySelectorAll(sel.trim()));
+    if (productEls.length > 0) break;
+  }
+
+  if (productEls.length === 0) return null;
+
+  const results = [];
+  for (const el of productEls.slice(0, competitor.maxItems)) {
+    let nameEl = null, priceEl = null, linkEl = null;
+
+    for (const sel of nameS.split(', ')) {
+      nameEl = el.querySelector(sel.trim());
+      if (nameEl) break;
+    }
+    for (const sel of priceS.split(', ')) {
+      priceEl = el.querySelector(sel.trim());
+      if (priceEl) break;
+    }
+    for (const sel of linkS.split(', ')) {
+      linkEl = el.querySelector(sel.trim());
+      if (linkEl) break;
+    }
+
+    const nameText = nameEl ? nameEl.textContent.trim() : null;
+    const priceText = priceEl ? priceEl.textContent.trim().replace(/\s+/g, ' ') : null;
+    const href = linkEl ? linkEl.getAttribute('href') : null;
+
+    if (nameText && nameText.length > 2) {
+      results.push({ name: nameText, price: priceText, href: href });
+    }
+  }
+  return results.length > 0 ? results : null;
+}
+
+// -------------------------------------------------------
+// Rendre les produits dans la live card
+// -------------------------------------------------------
+function renderProducts(id, products, competitorUrl) {
+  const el = document.getElementById('feed-' + id);
+  if (!el) return;
+
+  if (!products || products.length === 0) {
+    el.innerHTML = '<span class="fetch-error">Aucun produit trouvé</span>';
+    return;
+  }
+
+  const lines = products.map(p => {
+    const href = p.href ? (p.href.startsWith('http') ? p.href : competitorUrl.replace(/(\/[^\/]*)$/, '') + '/' + p.href.replace(/^\//, '')) : '#';
+    const name = '<a href="' + href + '" target="_blank">' + p.name.substring(0, 60) + (p.name.length > 60 ? '…' : '') + '</a>';
+    const price = p.price ? '<span class="live-item-price">' + p.price + '</span>' : '';
+    return '<div class="live-item"><span class="live-item-name">' + name + '</span>' + price + '</div>';
+  }).join('');
+
+  el.innerHTML = lines;
+}
+
+// -------------------------------------------------------
+// Fetch un concurrent via proxy
+// -------------------------------------------------------
+async function fetchCompetitor(competitor) {
+  const cached = getCached(competitor.id);
+  if (cached) {
+    renderProducts(competitor.id, cached, competitor.url);
+    return;
+  }
+
+  setLoading(competitor.id, 'Chargement');
+
+  try {
+    const proxyUrl = PROXY + encodeURIComponent(competitor.url);
+    const resp = await fetch(proxyUrl, { signal: AbortSignal.timeout(15000) });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+
+    const json = await resp.json();
+    const html = json.contents;
+    if (!html) throw new Error('Contenu vide');
+
+    const products = parseProducts(html, competitor);
+    if (products) {
+      setCache(competitor.id, products);
+      renderProducts(competitor.id, products, competitor.url);
+    } else {
+      setError(competitor.id, 'Structure non reconnue – voir site');
+      // Lien direct
+      const el = document.getElementById('feed-' + competitor.id);
+      if (el) el.innerHTML += ' <a href="' + competitor.url + '" target="_blank" style="color:#caa86a;font-size:10px;">Ouvrir →</a>';
+    }
+  } catch(err) {
+    setError(competitor.id, 'Erreur réseau · ' + err.message.substring(0, 30));
+    const el = document.getElementById('feed-' + competitor.id);
+    if (el) el.innerHTML += ' <a href="' + competitor.url + '" target="_blank" style="color:#caa86a;font-size:10px;margin-left:8px;">Ouvrir →</a>';
+  }
+}
+
+// -------------------------------------------------------
+// Lancer tous les fetches
+// -------------------------------------------------------
+async function fetchAllFlux() {
+  const btn = document.getElementById('refreshBtn');
+  if (btn) { btn.disabled = true; btn.textContent = '⟳ EN COURS...'; }
+  setStatus('CHARGEMENT', 'flux-loading');
+
+  // Vider le cache pour forcer un refresh
+  if (btn && !btn._firstRun) {
+    COMPETITORS.forEach(c => { try { localStorage.removeItem('veille_' + c.id); } catch(e){} });
+  }
+  btn && (btn._firstRun = false);
+
+  // Lancer tous les fetches en parallèle
+  await Promise.allSettled(COMPETITORS.map(c => fetchCompetitor(c)));
+
+  // Mettre à jour l'heure
+  const now = new Date();
+  const dateStr = now.toLocaleDateString('fr-FR', { day: '2-digit', month: 'long', year: 'numeric' });
+  const timeStr = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+  const updateEl = document.getElementById('lastUpdate');
+  if (updateEl) updateEl.textContent = 'Mis à jour : ' + dateStr + ' à ' + timeStr;
+  const updateInfo = document.getElementById('updateInfo');
+  if (updateInfo) updateInfo.textContent = '♥ Dernière mise à jour flux : ' + dateStr + ' · ' + timeStr + ' · Les Jardins Enchantés';
+
+  setStatus('À JOUR', 'flux-ok');
+  if (btn) { btn.disabled = false; btn.textContent = '⟳ ACTUALISER LES FLUX'; }
+}
+
+// -------------------------------------------------------
+// Auto-refresh toutes les 4h si la page reste ouverte
+// -------------------------------------------------------
+function scheduleAutoRefresh() {
+  // Vérifier si le cache est encore valide
+  const anyExpired = COMPETITORS.some(c => !getCached(c.id));
+  if (anyExpired) {
+    fetchAllFlux();
+  } else {
+    // Tout est en cache, juste afficher
+    COMPETITORS.forEach(c => {
+      const cached = getCached(c.id);
+      if (cached) renderProducts(c.id, cached, c.url);
+    });
+    setStatus('CACHE', 'flux-ok');
+  }
+  // Relancer dans 4h
+  setTimeout(() => {
+    COMPETITORS.forEach(c => { try { localStorage.removeItem('veille_' + c.id); } catch(e){} });
+    fetchAllFlux();
+  }, CACHE_TTL);
+}
+
+// Lancement au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+  scheduleAutoRefresh();
+});
+</script>
 </body>
 </html>
