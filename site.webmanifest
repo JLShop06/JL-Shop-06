@@ -1,0 +1,22 @@
+{
+  "name": "Les Jardins Enchantés",
+  "short_name": "JE",
+  "description": "Boutique Sextoys & Gels Lubrifiants Premium – France & Europe",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0a06",
+  "theme_color": "#caa86a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
