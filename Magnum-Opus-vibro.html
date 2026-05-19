@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15REBJRSHP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-15REBJRSHP');
+  </script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#caa86a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Toy Joy – Magnum Opus | Les Jardins Enchantés</title>
+
+  <meta name="description" content="Découvrez Magnum Opus de Toy Joy : vibromasseur va-et-vient ultra puissant avec vibrations multiples, silicone doux, rechargeable USB et design premium.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+  <script src="cart.js" defer></script>
+
+  <style>
+    .product-page{
+      padding-top:160px;
+      padding-bottom:120px;
+      display:flex;
+      justify-content:center;
+      width:100%;
+    }
+
+    .product-container{
+      max-width:1050px;
+      display:flex;
+      gap:80px;
+      align-items:flex-start;
+      padding:0 20px;
+    }
+
+    .product-image-frame{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:center;
+    }
+
+    .product-image-frame img{
+      width:100%;
+      max-width:450px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 8px 40px rgba(0,0,0,0.12);
+      transition:0.4s ease;
+    }
+
+    .product-image-frame img:hover{
+      transform:scale(1.03);
+    }
+
+    .product-details{
+      flex:1;
+      max-width:450px;
+      text-align:left;
+    }
+
+    .product-title{
+      font-size:34px;
+      font-weight:300;
+      margin-bottom:10px;
+    }
+
+    .product-subtitle{
+      font-size:15px;
+      color:#555;
+      margin-bottom:25px;
+      line-height:1.6;
+    }
+
+    .product-price{
+      font-size:26px;
+      color:#C9A86A;
+      margin-bottom:25px;
+      font-weight:300;
+    }
+
+    .add-to-cart{
+      background:none;
+      border:none;
+      font-size:12px;
+      letter-spacing:4px;
+      padding:12px 0;
+      cursor:pointer;
+      opacity:0.7;
+    }
+
+    .add-to-cart:hover{
+      opacity:1;
+    }
+
+    .separator{
+      margin:40px 0;
+      border:none;
+      border-top:1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-title{
+      font-size:18px;
+      margin-bottom:15px;
+      font-weight:300;
+    }
+
+    .product-description{
+      font-size:15px;
+      color:#444;
+      margin-bottom:20px;
+      line-height:1.8;
+    }
+
+    .product-list{
+      font-size:15px;
+      color:#333;
+      padding-left:18px;
+      line-height:1.9;
+    }
+
+    @media(max-width:900px){
+      .product-container{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+      }
+
+      .product-details{
+        text-align:center;
+        max-width:600px;
+      }
+    }
+
+    .categories-nav{
+      display:flex;
+      align-items:center;
+      gap:0;
+      background:rgba(202,168,106,0.06);
+      border:1px solid rgba(202,168,106,0.18);
+      border-radius:2px;
+      overflow:hidden;
+      flex-shrink:0;
+      flex-wrap:wrap;
+    }
+
+    .categories-nav a{
+      display:inline-block;
+      border:none;
+      border-right:1px solid rgba(202,168,106,0.15);
+      color:rgba(202,168,106,0.75);
+      font-family:'Inter',sans-serif;
+      font-size:9px;
+      letter-spacing:2px;
+      padding:8px 12px;
+      cursor:pointer;
+      transition:all .3s;
+      text-transform:uppercase;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .categories-nav a:last-child{
+      border-right:none;
+    }
+
+    .categories-nav a:hover,
+    .categories-nav a.active{
+      color:#0c0a06;
+      background:linear-gradient(135deg,#e6c98a 0%,#caa86a 50%,#b89050 100%);
+    }
+
+    @media(max-width:768px){
+      .categories-nav a{
+        font-size:8px;
+        padding:6px 8px;
+        letter-spacing:1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="lux-header">
+
+  <a href="index.html" class="header-logo-link">
+    <img fetchpriority="high"
+         src="logo.png"
+         alt="Les Jardins Enchantés – Boutique Sextoys France"
+         class="header-logo-img"
+         width="158"
+         height="80">
+  </a>
+
+  <nav class="cat-nav" aria-label="Catégories">
+    <a href="index.html" class="cat-nav__link">TOUS</a>
+    <a href="index.html#sextoys" class="cat-nav__link">SEXTOYS</a>
+    <a href="index.html#gels-lubrifiants" class="cat-nav__link">GELS LUBRIFIANTS</a>
+    <a href="index.html#deguisements" class="cat-nav__link">DÉGUISEMENTS</a>
+    <a href="index.html#cockrings" class="cat-nav__link">COCKRINGS</a>
+  </nav>
+
+  <button class="lux-cart" onclick="showCart()">
+    PANIER (<span id="cartCount">0</span>)
+  </button>
+
+</header>
+
+<section class="product-page">
+
+  <div class="product-container">
+
+    <div class="product-image-frame">
+
+      <img loading="lazy"
+           fetchpriority="high"
+           src="Magnum-Opus-vibro1.jpg"
+           alt="Toy Joy Magnum Opus Vibromasseur">
+
+      <img loading="lazy"
+           src="Magnum-Opus-vibro2.jpg"
+           alt="Magnum Opus Vue 1">
+
+      <img loading="lazy"
+           src="Magnum-Opus-vibro3.jpg"
+           alt="Magnum Opus Vue 2">
+
+    </div>
+
+    <div class="product-details">
+
+      <h1 class="product-title">Toy Joy – Magnum Opus</h1>
+
+      <p class="product-subtitle">
+        Vibromasseur va-et-vient premium – 2 moteurs puissants – 4 modes de vibration – 3 intensités – USB rechargeable.
+      </p>
+
+      <p class="product-price">89,90 €</p>
+
+      <button class="add-to-cart"
+              data-product-id="price_1TYq5SF9c1lWA0HyMbxwKA8z"
+              data-product-name="Toy Joy Magnum Opus"
+              data-product-price="89.90">
+        AJOUTER AU PANIER
+      </button>
+
+      <hr class="separator">
+
+      <h2 class="section-title">Description</h2>
+
+      <p class="product-description">
+        Découvrez le <strong>Toy Joy Magnum Opus</strong>, un vibromasseur haut de gamme conçu pour reproduire des sensations réalistes grâce à sa fonction innovante de <strong>va-et-vient</strong>.
+      </p>
+
+      <p class="product-description">
+        Doté de <strong>2 moteurs puissants</strong>, ce sextoy combine plusieurs modes de vibrations et mouvements afin d'offrir une expérience intense et personnalisée.
+      </p>
+
+      <p class="product-description">
+        Son revêtement en <strong>silicone ultra doux</strong> procure un confort exceptionnel tandis que sa taille généreuse permet des sensations profondes et immersives.
+      </p>
+
+      <p class="product-description">
+        Rechargeable par USB et conçu avec des matériaux hypoallergéniques sans phtalate, le Magnum Opus de Toy Joy allie luxe, puissance et élégance.
+      </p>
+
+      <hr class="separator">
+
+      <h2 class="section-title">Caractéristiques</h2>
+
+      <ul class="product-list">
+        <li>Fonction va-et-vient réaliste</li>
+        <li>Utilisation vaginale et anale</li>
+        <li>2 moteurs ultra puissants</li>
+        <li>4 modes de vibration</li>
+        <li>3 intensités de vibration</li>
+        <li>3 modes de va-et-vient</li>
+        <li>Silicone ultra doux + ABS premium</li>
+        <li>Rechargeable USB</li>
+        <li>Résistant aux éclaboussures</li>
+        <li>Sans phtalate et hypoallergénique</li>
+        <li>Dimensions : 31 cm dont 17 cm insérables</li>
+        <li>Diamètre : 3,5 cm</li>
+        <li>Marque : Toy Joy</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+  © Les Jardins Enchantés – Boutique Luxe Intime<br>
+
+  <a href="cgv.html">CGV</a>
+  <a href="confidentialite.html">Confidentialité</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="index.html">Retour boutique</a>
+</footer>
+
+</body>
+</html>
