@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15REBJRSHP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-15REBJRSHP');
+  </script>
+
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#caa86a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Litolu – Indiana | Les Jardins Enchantés</title>
+
+  <meta name="description" content="Découvrez Indiana de Litolu : petit vibromasseur premium rechargeable USB, silicone doux, 7 modes de vibration et étanche IPX7.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+  <script src="cart.js" defer></script>
+
+  <style>
+    .product-page{
+      padding-top:160px;
+      padding-bottom:120px;
+      display:flex;
+      justify-content:center;
+      width:100%;
+    }
+
+    .product-container{
+      max-width:1050px;
+      display:flex;
+      gap:80px;
+      align-items:flex-start;
+      padding:0 20px;
+    }
+
+    .product-image-frame{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:center;
+    }
+
+    .product-image-frame img{
+      width:100%;
+      max-width:450px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 8px 40px rgba(0,0,0,0.12);
+      transition:0.4s ease;
+    }
+
+    .product-image-frame img:hover{
+      transform:scale(1.03);
+    }
+
+    .product-details{
+      flex:1;
+      max-width:450px;
+      text-align:left;
+    }
+
+    .product-title{
+      font-size:34px;
+      font-weight:300;
+      margin-bottom:10px;
+    }
+
+    .product-subtitle{
+      font-size:15px;
+      color:#555;
+      margin-bottom:25px;
+      line-height:1.6;
+    }
+
+    .product-price{
+      font-size:26px;
+      color:#C9A86A;
+      margin-bottom:25px;
+      font-weight:300;
+    }
+
+    .add-to-cart{
+      background:none;
+      border:none;
+      font-size:12px;
+      letter-spacing:4px;
+      padding:12px 0;
+      cursor:pointer;
+      opacity:0.7;
+    }
+
+    .add-to-cart:hover{
+      opacity:1;
+    }
+
+    .separator{
+      margin:40px 0;
+      border:none;
+      border-top:1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-title{
+      font-size:18px;
+      margin-bottom:15px;
+      font-weight:300;
+    }
+
+    .product-description{
+      font-size:15px;
+      color:#444;
+      margin-bottom:20px;
+      line-height:1.8;
+    }
+
+    .product-list{
+      font-size:15px;
+      color:#333;
+      padding-left:18px;
+      line-height:1.9;
+    }
+
+    @media(max-width:900px){
+      .product-container{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+      }
+
+      .product-details{
+        text-align:center;
+        max-width:600px;
+      }
+    }
+
+    .categories-nav{
+      display:flex;
+      align-items:center;
+      gap:0;
+      background:rgba(202,168,106,0.06);
+      border:1px solid rgba(202,168,106,0.18);
+      border-radius:2px;
+      overflow:hidden;
+      flex-shrink:0;
+      flex-wrap:wrap;
+    }
+
+    .categories-nav a{
+      display:inline-block;
+      border:none;
+      border-right:1px solid rgba(202,168,106,0.15);
+      color:rgba(202,168,106,0.75);
+      font-family:'Inter',sans-serif;
+      font-size:9px;
+      letter-spacing:2px;
+      padding:8px 12px;
+      cursor:pointer;
+      transition:all .3s;
+      text-transform:uppercase;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .categories-nav a:last-child{
+      border-right:none;
+    }
+
+    .categories-nav a:hover,
+    .categories-nav a.active{
+      color:#0c0a06;
+      background:linear-gradient(135deg,#e6c98a 0%,#caa86a 50%,#b89050 100%);
+    }
+
+    @media(max-width:768px){
+      .categories-nav a{
+        font-size:8px;
+        padding:6px 8px;
+        letter-spacing:1px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="lux-header">
+
+  <a href="index.html" class="header-logo-link">
+    <img fetchpriority="high"
+         src="logo.png"
+         alt="Les Jardins Enchantés – Boutique Sextoys France"
+         class="header-logo-img"
+         width="158"
+         height="80">
+  </a>
+
+  <nav class="cat-nav" aria-label="Catégories">
+    <a href="index.html" class="cat-nav__link">TOUS</a>
+    <a href="index.html#sextoys" class="cat-nav__link">SEXTOYS</a>
+    <a href="index.html#gels-lubrifiants" class="cat-nav__link">GELS LUBRIFIANTS</a>
+    <a href="index.html#deguisements" class="cat-nav__link">DÉGUISEMENTS</a>
+    <a href="index.html#cockrings" class="cat-nav__link">COCKRINGS</a>
+  </nav>
+
+  <button class="lux-cart" onclick="showCart()">
+    PANIER (<span id="cartCount">0</span>)
+  </button>
+
+</header>
+
+<section class="product-page">
+
+  <div class="product-container">
+
+    <div class="product-image-frame">
+
+      <img loading="lazy"
+           fetchpriority="high"
+           src="Vibro rechargeable Indiana1.jpg"
+           alt="Litolu Indiana Vibromasseur">
+
+      <img loading="lazy"
+           src="Vibro rechargeable Indiana2.jpg"
+           alt="Indiana Vue 1">
+
+      <img loading="lazy"
+           src="Vibro rechargeable Indiana3.jpg"
+           alt="Indiana Vue 2">
+
+    </div>
+
+    <div class="product-details">
+
+      <h1 class="product-title">Litolu – Indiana</h1>
+
+      <p class="product-subtitle">
+        Petit vibromasseur premium rechargeable – 7 modes de vibration – Silicone doux – Étanche IPX7.
+      </p>
+
+      <p class="product-price">29,90 €</p>
+
+      <button class="add-to-cart"
+              data-product-id="price_1TYrB7F9c1lWA0Hye1bIlXhV"
+              data-product-name="Litolu Indiana"
+              data-product-price="29.90">
+        AJOUTER AU PANIER
+      </button>
+
+      <hr class="separator">
+
+      <h2 class="section-title">Description</h2>
+
+      <p class="product-description">
+        Le <strong>vibromasseur Indiana de Litolu</strong> est un sextoy compact et élégant conçu pour offrir des sensations intenses et polyvalentes.
+      </p>
+
+      <p class="product-description">
+        Grâce à sa forme droite et annelée, il convient parfaitement à la <strong>stimulation vaginale</strong>, <strong>anale</strong> ou aux zones érogènes externes comme le clitoris et les tétons.
+      </p>
+
+      <p class="product-description">
+        Fabriqué en <strong>silicone premium ultra doux</strong> et ABS de haute qualité, ce vibromasseur propose <strong>7 modes de vibration</strong> facilement contrôlables via un bouton unique.
+      </p>
+
+      <p class="product-description">
+        Rechargeable grâce à son câble USB magnétique inclus et totalement étanche IPX7, Indiana peut être utilisé sous la douche ou dans le bain pour encore plus de plaisir.
+      </p>
+
+      <hr class="separator">
+
+      <h2 class="section-title">Caractéristiques</h2>
+
+      <ul class="product-list">
+        <li>Petit vibromasseur polyvalent</li>
+        <li>Stimulation vaginale, anale ou externe</li>
+        <li>Idéal pour débuter avec les sextoys</li>
+        <li>7 modes de vibration</li>
+        <li>Waterproof IPX7</li>
+        <li>Silicone premium + ABS</li>
+        <li>Rechargeable USB magnétique</li>
+        <li>Sans phtalate</li>
+        <li>Dimensions : 14,8 x 2,5 cm</li>
+        <li>Poids : 65 gr</li>
+        <li>Câble USB inclus</li>
+        <li>Marque : Litolu</li>
+      </ul>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer class="footer">
+  © Les Jardins Enchantés – Boutique Luxe Intime<br>
+
+  <a href="cgv.html">CGV</a>
+  <a href="confidentialite.html">Confidentialité</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="index.html">Retour boutique</a>
+</footer>
+
+</body>
+</html>
