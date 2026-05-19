@@ -674,17 +674,18 @@ button:hover {
         letter-spacing: 1px !important;
   }
 
-  /* Language selector sur mobile : compact */
-  .language-selector {
-        flex: 1;
-        display: flex;
-        justify-content: center;
+  /* Category nav sur mobile : compact */
+  .cat-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .language-selector button {
-        padding: 6px 7px;
-        font-size: 8px;
-        letter-spacing: 1px;
+  .cat-nav__link {
+    padding: 6px 8px;
+    font-size: 7.5px;
+    letter-spacing: 1px;
   }
 
   /* Panier compact */
@@ -754,10 +755,10 @@ button:hover {
           gap: 6px;
     }
 
-  .language-selector button {
-        padding: 5px 6px;
-        font-size: 7.5px;
-        letter-spacing: 0.5px;
+  .cat-nav__link {
+    padding: 5px 6px;
+    font-size: 7px;
+    letter-spacing: 0.5px;
   }
 
   .lux-cart {
