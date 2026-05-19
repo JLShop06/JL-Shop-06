@@ -102,6 +102,12 @@ max-width:600px;
 text-align:left;
 }
 }
+
+.categories-nav{display:flex;align-items:center;gap:0;background:rgba(202,168,106,0.06);border:1px solid rgba(202,168,106,0.18);border-radius:2px;overflow:hidden;flex-shrink:0;flex-wrap:wrap;}
+.categories-nav a{display:inline-block;border:none;border-right:1px solid rgba(202,168,106,0.15);color:rgba(202,168,106,0.75);font-family:'Inter',sans-serif;font-size:9px;letter-spacing:2px;padding:8px 12px;cursor:pointer;transition:all .3s;text-transform:uppercase;text-decoration:none;white-space:nowrap;}
+.categories-nav a:last-child{border-right:none;}
+.categories-nav a:hover,.categories-nav a.active{color:#0c0a06;background:linear-gradient(135deg,#e6c98a 0%,#caa86a 50%,#b89050 100%);}
+@media(max-width:768px){.categories-nav a{font-size:8px;padding:6px 8px;letter-spacing:1px;}}
 </style>
 </head>
 
@@ -112,6 +118,13 @@ text-align:left;
 <img src="logo.png" alt="Les Jardins Enchantés – Boutique Sextoys France" class="header-logo-img" width="158" height="80" fetchpriority="high">
 </a>
 
+<nav class="cat-nav" aria-label="Catégories">
+<a href="index.html" class="cat-nav__link">TOUS</a>
+<a href="index.html#sextoys" class="cat-nav__link">SEXTOYS</a>
+<a href="index.html#gels-lubrifiants" class="cat-nav__link">GELS LUBRIFIANTS</a>
+<a href="index.html#deguisements" class="cat-nav__link">DÉGUISEMENTS</a>
+<a href="index.html#cockrings" class="cat-nav__link">COCKRINGS</a>
+</nav>
 <button class="lux-cart" onclick="showCart()">
 PANIER (<span id="cartCount">0</span>)
 </button>
