@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-15REBJRSHP"></script>
+  <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-15REBJRSHP');
+  </script>
+
   <meta charset="UTF-8">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="logo.png">
@@ -10,156 +19,261 @@
 
   <title>Déguisement Infirmière Coquine J Lingerie | Les Jardins Enchantés</title>
 
-  <meta name="description" content="Découvrez le déguisement infirmière coquine J Lingerie : body sexy en résille, mini jupe, coiffe et stéthoscope inclus. Costume sexy complet disponible chez Les Jardins Enchantés.">
+  <meta name="description" content="Découvrez le déguisement infirmière coquine J Lingerie : body sexy résille blanc et rouge, mini jupe en tulle, coiffe et stéthoscope inclus. Costume sexy femme disponible chez Les Jardins Enchantés.">
 
   <meta name="keywords" content="
+  les jardins enchantés,
   déguisement infirmière sexy,
   infirmière coquine,
   costume infirmière sexy,
   déguisement sexy femme,
   body sexy résille,
-  lingerie sexy infirmière,
-  déguisement halloween sexy,
-  jeux de rôle sexy,
-  tenue infirmière sexy,
-  sextoy france,
-  sexshop france,
   lingerie sexy,
-  déguisement femme sexy,
-  Les Jardins Enchantés,
-  J Lingerie
+  jeux de rôle sexy,
+  déguisement halloween sexy,
+  costume sexy femme,
+  sexshop france,
+  sextoy france
   ">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="style.css"></noscript>
 
   <script src="cart.js" defer></script>
+
+  <style>
+    .product-page{
+      padding-top:160px;
+      padding-bottom:120px;
+      display:flex;
+      justify-content:center;
+      width:100%;
+    }
+
+    .product-container{
+      max-width:1050px;
+      display:flex;
+      gap:80px;
+      align-items:flex-start;
+      padding:0 20px;
+    }
+
+    .product-image-frame{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      align-items:center;
+    }
+
+    .product-image-frame img{
+      width:100%;
+      max-width:450px;
+      border-radius:12px;
+      object-fit:cover;
+      box-shadow:0 8px 40px rgba(0,0,0,0.12);
+      transition:0.4s ease;
+    }
+
+    .product-image-frame img:hover{
+      transform:scale(1.03);
+    }
+
+    .product-details{
+      flex:1;
+      max-width:450px;
+      text-align:left;
+    }
+
+    .product-title{
+      font-size:34px;
+      font-weight:300;
+      margin-bottom:10px;
+    }
+
+    .product-subtitle{
+      font-size:15px;
+      color:#555;
+      margin-bottom:25px;
+      line-height:1.6;
+    }
+
+    .product-price{
+      font-size:26px;
+      color:#C9A86A;
+      margin-bottom:25px;
+      font-weight:300;
+    }
+
+    .add-to-cart{
+      background:none;
+      border:none;
+      font-size:12px;
+      letter-spacing:4px;
+      padding:12px 0;
+      cursor:pointer;
+      opacity:0.7;
+    }
+
+    .add-to-cart:hover{
+      opacity:1;
+    }
+
+    .separator{
+      margin:40px 0;
+      border:none;
+      border-top:1px solid rgba(0,0,0,0.05);
+    }
+
+    .section-title{
+      font-size:18px;
+      margin-bottom:15px;
+      font-weight:300;
+    }
+
+    .product-description{
+      font-size:15px;
+      color:#444;
+      margin-bottom:20px;
+      line-height:1.8;
+    }
+
+    .product-list{
+      font-size:15px;
+      color:#333;
+      padding-left:18px;
+      line-height:1.9;
+    }
+
+    @media(max-width:900px){
+      .product-container{
+        flex-direction:column;
+        text-align:center;
+        align-items:center;
+      }
+
+      .product-details{
+        text-align:center;
+        max-width:600px;
+      }
+    }
+
+.categories-nav{display:flex;align-items:center;gap:0;background:rgba(202,168,106,0.06);border:1px solid rgba(202,168,106,0.18);border-radius:2px;overflow:hidden;flex-shrink:0;flex-wrap:wrap;}
+.categories-nav a{display:inline-block;border:none;border-right:1px solid rgba(202,168,106,0.15);color:rgba(202,168,106,0.75);font-family:'Inter',sans-serif;font-size:9px;letter-spacing:2px;padding:8px 12px;cursor:pointer;transition:all .3s;text-transform:uppercase;text-decoration:none;white-space:nowrap;}
+.categories-nav a:last-child{border-right:none;}
+.categories-nav a:hover,.categories-nav a.active{color:#0c0a06;background:linear-gradient(135deg,#e6c98a 0%,#caa86a 50%,#b89050 100%);}
+@media(max-width:768px){.categories-nav a{font-size:8px;padding:6px 8px;letter-spacing:1px;}}
+</style>
 </head>
 
 <body>
 
 <header class="lux-header">
-
   <a href="index.html" class="header-logo-link">
-    <img src="logo.png"
-         alt="Les Jardins Enchantés – Boutique Sextoys France"
-         class="header-logo-img"
-         width="158"
-         height="80"
-         fetchpriority="high">
-  </a>
+<img src="logo.png" alt="Les Jardins Enchantés – Boutique Sextoys France" class="header-logo-img" width="158" height="80" fetchpriority="high">
+</a>
 
-  <nav class="cat-nav" aria-label="Catégories">
-    <a href="index.html" class="cat-nav__link">TOUS</a>
-    <a href="index.html#sextoys" class="cat-nav__link">SEXTOYS</a>
-    <a href="index.html#gels-lubrifiants" class="cat-nav__link">GELS LUBRIFIANTS</a>
-    <a href="index.html#deguisements" class="cat-nav__link">DÉGUISEMENTS</a>
-    <a href="index.html#cockrings" class="cat-nav__link">COCKRINGS</a>
-  </nav>
+<nav class="cat-nav" aria-label="Catégories">
+<a href="index.html" class="cat-nav__link">TOUS</a>
+<a href="index.html#sextoys" class="cat-nav__link">SEXTOYS</a>
+<a href="index.html#gels-lubrifiants" class="cat-nav__link">GELS LUBRIFIANTS</a>
+<a href="index.html#deguisements" class="cat-nav__link">DÉGUISEMENTS</a>
+<a href="index.html#cockrings" class="cat-nav__link">COCKRINGS</a>
+</nav>
 
-  <button class="lux-cart" onclick="showCart()">
+<button class="lux-cart" onclick="showCart()">
     PANIER (<span id="cartCount">0</span>)
-  </button>
-
+</button>
 </header>
 
 <section class="product-page">
 
-  <div class="product-container">
+<div class="product-container">
 
-    <div class="product-image-frame">
+<div class="product-image-frame">
 
-      <img src="deguisement-infirmiere.jpg"
-           alt="Déguisement infirmière coquine J Lingerie"
-           fetchpriority="high">
+<img src=" fetchpriority="high"Déguisement infirmière.jpg" alt="Déguisement infirmière coquine">
 
-      <img src="deguisement-infirmiere-1.jpg"
-           alt="Body sexy infirmière résille"
-           loading="lazy">
+<img src=" loading="lazy"Déguisement infirmière 1.jpg" alt="Costume infirmière sexy femme">
 
-      <img src="deguisement-infirmiere-2.jpg"
-           alt="Costume infirmière sexy femme"
-           loading="lazy">
+<img src=" loading="lazy"Déguisement infirmière 2.jpg" alt="Body sexy infirmière résille">
 
-      <img src="deguisement-infirmiere-3.jpg"
-           alt="Tenue infirmière coquine J Lingerie"
-           loading="lazy">
+<img src=" loading="lazy"Déguisement infirmière 3.jpg" alt="Tenue infirmière glamour">
 
-    </div>
+</div>
 
-    <div class="product-details">
+<div class="product-details">
 
-      <h1 class="product-title">
-        J Lingerie – Déguisement Infirmière Coquine
-      </h1>
+<h1 class="product-title">J Lingerie – Déguisement Infirmière Coquine</h1>
 
-      <p class="product-subtitle">
-        Costume sexy 4 pièces avec body résille, mini jupe, coiffe et stéthoscope.
-      </p>
+<p class="product-subtitle">
+Costume sexy 4 pièces avec body résille, mini jupe, coiffe et stéthoscope.
+</p>
 
-      <p class="product-price">32,90 €</p>
+<p class="product-price">32,90 €</p>
 
-      <button
-        class="add-to-cart"
-        data-product-id="price_1TYsAIF9c1lWA0HyygVhb8qx"
-        data-product-name="J Lingerie – Déguisement Infirmière Coquine"
-        data-product-price="32.90">
-        AJOUTER AU PANIER
-      </button>
+<button
+class="add-to-cart"
+data-product-id="price_1TYsAIF9c1lWA0HyygVhb8qx"
+data-product-name="J Lingerie – Déguisement Infirmière Coquine"
+data-product-price="32.90">
+AJOUTER AU PANIER
+</button>
 
-      <hr class="separator">
+<hr class="separator">
 
-      <h2 class="section-title">Description</h2>
+<h2 class="section-title">Description</h2>
 
-      <p class="product-description">
-        Le <strong>déguisement infirmière coquine J Lingerie</strong> est conçu pour apporter une touche glamour et sensuelle à vos soirées déguisées, jeux de rôle ou événements festifs. Son design sexy met parfaitement en valeur les courbes grâce à un body blanc et rouge en résille ultra séduisant.
-      </p>
+<p class="product-description">
+Le <strong>déguisement infirmière coquine J Lingerie</strong> est une tenue glamour et sexy conçue pour sublimer vos soirées déguisées, jeux de rôle ou événements festifs. Son body blanc et rouge en résille épouse parfaitement les courbes tout en offrant un excellent confort.
+</p>
 
-      <p class="product-description">
-        Ce <strong>costume infirmière sexy femme</strong> comprend 4 pièces : un body sexy extensible, une mini jupe en tulle blanc pouvant également servir de pèlerine, une coiffe d’infirmière ainsi qu’un stéthoscope pour compléter le look avec réalisme et élégance.
-      </p>
+<p class="product-description">
+Ce <strong>costume infirmière sexy femme</strong> comprend 4 pièces : un body sexy extensible, une mini jupe en tulle blanc pouvant également servir de pèlerine, une coiffe d’infirmière ainsi qu’un stéthoscope pour un look séduisant et réaliste.
+</p>
 
-      <p class="product-description">
-        Fabriqué dans une matière douce et extensible, ce déguisement sexy offre un excellent confort tout en sublimant la silhouette. Idéal pour Halloween, une soirée romantique, un enterrement de vie de jeune fille ou une ambiance glamour.
-      </p>
+<p class="product-description">
+Grâce à sa matière douce et extensible composée de polyester et d’élasthanne, ce déguisement sexy assure confort et maintien tout au long de vos soirées. Idéal pour Halloween, une soirée romantique ou une ambiance glamour.
+</p>
 
-      <p class="product-description">
-        Chez <strong>Les Jardins Enchantés</strong>, découvrez une sélection premium de déguisements sexy femme, lingerie sexy, sextoys, stimulateurs clitoridiens, masturbateurs homme et accessoires intimes pour enrichir toutes vos envies.
-      </p>
+<p class="product-description">
+Chez <strong>Les Jardins Enchantés</strong>, découvrez une sélection premium de déguisements sexy femme, lingerie glamour, sextoys, stimulateurs clitoridiens et accessoires intimes.
+</p>
 
-      <hr class="separator">
+<hr class="separator">
 
-      <h2 class="section-title">Caractéristiques</h2>
+<h2 class="section-title">Caractéristiques</h2>
 
-      <ul class="product-list">
-        <li>Déguisement complet infirmière sexy 4 pièces</li>
-        <li>Inclus : body sexy, mini jupe, coiffe et stéthoscope</li>
-        <li>Body blanc et rouge en résille</li>
-        <li>Mini jupe en tulle pouvant servir de pèlerine</li>
-        <li>Tailles : S / M / L (36 / 38 / 40)</li>
-        <li>Matière : 96% Polyester, 4% Élasthanne</li>
-        <li>Matière extensible confortable</li>
-        <li>Coupe ajustée et glamour</li>
-        <li>Idéal pour soirées déguisées et Halloween</li>
-        <li>Marque : J Lingerie</li>
-      </ul>
+<ul class="product-list">
+<li>Déguisement complet infirmière sexy 4 pièces</li>
+<li>Inclus : body sexy, mini jupe, coiffe et stéthoscope</li>
+<li>Body blanc et rouge en résille</li>
+<li>Mini jupe en tulle pouvant servir de pèlerine</li>
+<li>Tailles : S / M / L (36 / 38 / 40)</li>
+<li>Matière : 96% Polyester, 4% Élasthanne</li>
+<li>Matière extensible confortable</li>
+<li>Coupe glamour et ajustée</li>
+<li>Idéal pour soirées déguisées et Halloween</li>
+<li>Marque : J Lingerie</li>
+</ul>
 
-    </div>
+</div>
 
-  </div>
+</div>
 
 </section>
 
 <footer class="footer">
-  © Les Jardins Enchantés – Boutique Luxe Intime<br>
+© Les Jardins Enchantés – Boutique Luxe Intime<br>
 
-  <a href="cgv.html">CGV</a>
-  <a href="confidentialite.html">Confidentialité</a>
-  <a href="cookies.html">Cookies</a>
-  <a href="mentions-legales.html">Mentions légales</a>
-  <a href="index.html">Retour boutique</a>
+<a href="cgv.html">CGV</a>
+<a href="confidentialite.html">Confidentialité</a>
+<a href="cookies.html">Cookies</a>
+<a href="mentions-legales.html">Mentions légales</a>
+<a href="index.html">Retour boutique</a>
 </footer>
 
 </body>
